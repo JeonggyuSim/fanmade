@@ -154,3 +154,26 @@
   width: 375px;
   height: 280px;
 }
+
+/* 404 */
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.error-404__image {
+  width: 316px;
+  height: 287px;
+  margin: 0 auto;
+}
+.error-404__title {
+  margin-top: 33px;
+}
+.error-404__title p {
+  text-align: center;
+}
+.error-404__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 34px;
+}
