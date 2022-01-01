@@ -154,6 +154,62 @@
   width: 375px;
   height: 280px;
 }
+.event-detail__title-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
+}
+.event-detail__main-title,
+.event-detail__sub-title {
+  display: inline-block;
+  margin: 0 auto;
+}
+.event-detail__main-title__event-title {
+  margin-top: 10px;
+}
+.event-detail__sub-title {
+  margin-top: 24px;
+}
+.event-detail__main-title__event-date {
+  margin-top: 18px;
+}
+.event-detail__current-progress {
+  margin-top: 25px;
+}
+.event-detail__current-progress__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.event-detail__current-progress__people-num {
+  margin-top: 16px;
+}
+.event-detail__current-progress__bar {
+  height: 3px;
+  margin-top: 16px;
+  border-radius: 2px;
+  background-color: #ec1a2e;
+}
+.event-detail__event-explain {
+  margin-top: 25px;
+}
+.event-detail__event-explain__desc {
+  margin-top: 16px;
+  padding: 12px 0;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #e5e5e5;
+  list-style: decimal inside;
+}
+.event-detail__event-desc {
+  margin-top: 12px;
+}
+.event-detail__event-desc img {
+  width: 327px;
+  margin-top: 16px;
+  object-fit: cotain;
+}
 
 /* 404 */
 .error-404 {
