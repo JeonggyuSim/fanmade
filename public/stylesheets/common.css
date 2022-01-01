@@ -100,3 +100,21 @@ nav {
 .detail-bar__button-wrapper {
   margin-top: 10px;
 }
+
+/* modal */
+.modal {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  width: 375px;
+  height: 100vh;
+  background: rgba(65, 64, 64, 0.5);
+}
+.bottom-modal {
+  position: fixed;
+  z-index: 102;
+  bottom: 0;
+  width: 327px;
+  background-color: #ffffff;
+  border-radius: 12px 12px 0px 0px;
+}

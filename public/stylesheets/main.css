@@ -210,6 +210,22 @@
   margin-top: 16px;
   object-fit: cotain;
 }
+.event-detail__modal-content {
+  padding: 58px 24px 23px;
+}
+.event-detail__modal-content ul li {
+  padding: 14px 0;
+  border-top: 2px solid #e5e5e5;
+}
+.event-detail__modal-content ul li:last-child {
+  border-bottom: 2px solid #e5e5e5;
+}
+.event-detail__modal-content ul li p {
+  margin-top: 14px;
+}
+.event-detail__modal-content__btn {
+  margin-top: 36px;
+}
 
 /* 404 */
 .error-404 {
