@@ -6,10 +6,10 @@ a {
 .hidden {
   display: none;
 }
-.side-margin {
+.margin--side {
   margin: 0 24px;
 }
-.left-margin {
+.margin--left {
   margin-left: 24px;
 }
 li > a {
@@ -19,11 +19,7 @@ img {
   display: block;
   object-fit: cover;
 }
-.index__list-title {
-  display: flex;
-  justify-content: space-between;
-}
-.detail-bottom-padding {
+.bottom-padding--large {
   padding-bottom: 112px;
 }
 
@@ -110,7 +106,7 @@ nav {
   height: 100vh;
   background: rgba(65, 64, 64, 0.5);
 }
-.bottom-modal {
+.modal__content--bottom {
   position: fixed;
   z-index: 102;
   bottom: 0;

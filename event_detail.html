@@ -9,47 +9,45 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper side-margin">
-        <section class="header-wrapper__title">title</section>
-        <section class="header-wrapper__like">좋아요</section>
+      <section class="header-wrapper margin--side">
+        <section class="header__title">title</section>
+        <section class="header__like">좋아요</section>
       </section>
     </header>
-    <main class="detail-bottom-padding">
-      <section class="event-detail__main-image">
+    <main class="bottom-padding--large">
+      <section class="event-main-image">
         <img
           src="./public/images/event_detail_main_img.jpg"
           alt="event_detail_main_img.jpg"
         />
       </section>
-      <section class="event-detail__title-wrapper">
-        <section class="event-detail__main-title">
+      <section class="event-head-wrapper">
+        <section class="event-head__main">
           <p>BlackPink</p>
-          <p class="event-detail__main-title__event-title">
-            1/16 블랙핑크 제니 생일카페
-          </p>
+          <p class="event-head__main__title">1/16 블랙핑크 제니 생일카페</p>
         </section>
-        <section class="event-detail__sub-title">
-          <p class="event-detail__main-title__event-place">
+        <section class="event-head__sub">
+          <p class="event-head__sub__place">
             행사 장소 : 서울 마포구 독막로6길 15 1층(카페쇼파르)
           </p>
-          <p class="event-detail__main-title__event-date">
+          <p class="event-head__sub__date">
             행사 일시 : 2022년 1월 16일 ~ 2022년 1월 19일
           </p>
         </section>
       </section>
-      <section class="event-detail__current-progress side-margin">
-        <section class="event-detail__current-progress__title-wrapper">
-          <section class="event-detail__current-progress__people">
+      <section class="event-progress margin--side">
+        <section class="event-progress-wrapper">
+          <section class="event-progress__people">
             <p>참여 인원</p>
-            <p class="event-detail__current-progress__people-num">340명</p>
+            <p class="event-progress__num">340명</p>
           </section>
-          <section class="event-detail__current-progress__day">D-7</section>
+          <section class="event-progress__day">D-7</section>
         </section>
-        <section class="event-detail__current-progress__bar"></section>
+        <section class="event-progress__bar"></section>
       </section>
-      <section class="event-detail__event-explain side-margin">
+      <section class="event-explain margin--side">
         <p>이벤트 설명</p>
-        <ol class="event-detail__event-explain__desc">
+        <ol class="event-explain__desc">
           <li>
             <span>1인 1음료 구매시 기본 굿즈(컵홀더) 증정</span>
           </li>
@@ -61,7 +59,7 @@
           </li>
         </ol>
       </section>
-      <section class="event-detail__event-desc side-margin">
+      <section class="event-desc margin--side">
         <p>1월 16일 블랙핑크 제니 생일카페 컵홀더 이벤트</p>
         <img
           src="./public/images/event_detail_desc.jpg"
@@ -69,17 +67,17 @@
         />
       </section>
       <section class="detail-bar">
-        <section class="detail-bar__title side-margin">
+        <section class="detail-bar__title margin--side">
           <span>옵션 선택</span>
           <span>일반 참여(알림받기)</span>
         </section>
-        <seciton class="detail-bar__button-wrapper side-margin">
+        <seciton class="detail-bar__button-wrapper margin--side">
           <button>옵션 선택</button>
           <button>완료</button>
         </seciton>
       </section>
-      <section class="event-detail__modal hidden">
-        <section class="event-detail__modal-content bottom-modal">
+      <section class="event-modal modal hidden">
+        <section class="event-modal__content modal__content--bottom">
           <form action="" method="post">
             <ul>
               <li>
@@ -98,11 +96,7 @@
                 <p>행사 진행 스텝 (각 굿즈 1종씩 증정)</p>
               </li>
             </ul>
-            <input
-              type="button"
-              value="선택 완료"
-              class="event-detail__modal-content__btn"
-            />
+            <input type="button" value="선택 완료" class="event-modal__btn" />
           </form>
         </section>
       </section>
