@@ -6,12 +6,6 @@ a {
 .hidden {
   display: none;
 }
-.margin--side {
-  margin: 0 24px;
-}
-.margin--left {
-  margin-left: 24px;
-}
 li > a {
   display: block;
 }
@@ -19,8 +13,46 @@ img {
   display: block;
   object-fit: cover;
 }
+
+/* margin */
+.margin--side {
+  margin: 0 24px;
+}
+.margin--left {
+  margin-left: 24px;
+}
+
+/* padding */
 .bottom-padding--large {
   padding-bottom: 112px;
+}
+
+/* btn */
+.btn {
+  height: 40px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  color: #ffffff;
+}
+.a-btn {
+  line-height: 40px;
+  border-radius: 4px;
+  color: #ffffff;
+  text-align: center;
+}
+.btn--large {
+  width: 327px;
+}
+.btn--small {
+  width: 155.5px;
+}
+.btn--black {
+  background-color: #6d6d6d;
+}
+.btn--red {
+  background-color: #ec1a2e;
 }
 
 /* html */
