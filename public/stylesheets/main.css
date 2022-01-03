@@ -155,8 +155,11 @@
   height: 120px;
   border-radius: 4px 4px 0px 0px;
 }
-.list li section {
+.event-list li section {
   height: 120px;
+}
+.place-list li section {
+  height: 100px;
 }
 
 /* event detail*/
