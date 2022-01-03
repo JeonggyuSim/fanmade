@@ -231,6 +231,53 @@
   margin-top: 36px;
 }
 
+/* place detail */
+.place-main-image img {
+  width: 375px;
+  height: 280px;
+}
+.place-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
+}
+.place-head__place,
+.place-head__tag {
+  margin-top: 8px;
+}
+.place-head__tag {
+  display: flex;
+}
+.place-explain {
+  margin-top: 35px;
+}
+.place-explain__desc {
+  margin-top: 16px;
+  padding: 12px 0;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #e5e5e5;
+  list-style: decimal inside;
+}
+.place-plan {
+  margin-top: 12px;
+}
+.place-plan img {
+  width: 327px;
+  margin-top: 16px;
+  object-fit: cotain;
+}
+.place-location {
+  margin-top: 35px;
+}
+.place-location img {
+  width: 327px;
+  height: 211px;
+  margin-top: 13px;
+}
+
 /* 404 */
 .error-404 {
   display: flex;
