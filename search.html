@@ -9,13 +9,19 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper margin--side">
-        <section class="header__title">진행중인 행사</section>
+      <section class="header-wrapper margin--side top-padding--medium">
+        <form action="" class="header__search">
+          <input
+            type="text"
+            placeholder="아티스트 혹은 상품명을 검색해주세요"
+          />
+        </form>
       </section>
     </header>
     <main>
-      <section class="search-option">
-        <ul class="search-option__list">
+      <section class="search-recent margin--side">
+        <p>최근 검색 기록</p>
+        <ul class="search-recent__list">
           <li>
             <section>추천순</section>
           </li>
@@ -27,8 +33,9 @@
           </li>
         </ul>
       </section>
-      <section class="search-result margin--side">
-        <ul class="search-result__list">
+      <section class="search-visit margin--left">
+        <p>최근 방문한 프로젝트</p>
+        <ul class="search-visit__list">
           <li>
             <a href="./event_detail.html">
               <img src="./public/images/search_image.jpg" alt="search_image" />

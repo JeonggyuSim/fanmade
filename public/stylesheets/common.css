@@ -26,6 +26,12 @@ img {
 .bottom-padding--large {
   padding-bottom: 112px;
 }
+.top-padding--medium {
+  padding-top: 44px;
+}
+.top-padding--small {
+  padding-top: 40px;
+}
 
 /* btn */
 .btn {
@@ -88,7 +94,7 @@ header {
 .header-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-top: 49px;
+  padding-top: 49px;
 }
 
 /* nav */
