@@ -81,6 +81,20 @@ img {
   color: #ec1a2e;
 }
 
+/* eliipsis */
+.eliipsis--single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ellipsis--multi {
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: 2.8em;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 /* btn */
 .btn {
   height: 40px;
