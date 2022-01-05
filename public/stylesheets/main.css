@@ -220,8 +220,7 @@
   margin-right: 0.3em;
   white-space: nowrap;
 }
-.event-head__sub .place__value,
-.event-head__sub .date__value {
+.event-head__sub section span:last-child {
   flex: 1;
 }
 .event-head__sub__date {
