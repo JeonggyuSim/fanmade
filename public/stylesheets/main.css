@@ -238,7 +238,10 @@
   border-width: 2px 0;
   border-style: solid none;
   border-color: #e5e5e5;
-  list-style: decimal inside;
+  list-style: decimal outside;
+}
+.event-explain__desc li {
+  margin-left: 1em;
 }
 .event-desc {
   margin-top: 12px;
@@ -300,7 +303,10 @@
   border-width: 2px 0;
   border-style: solid none;
   border-color: #e5e5e5;
-  list-style: decimal inside;
+  list-style: decimal outside;
+}
+.place-explain__desc li {
+  margin-left: 1em;
 }
 .place-location {
   margin-top: 35px;
