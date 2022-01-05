@@ -209,6 +209,21 @@
 .event-head__sub {
   margin-top: 24px;
 }
+.event-head__sub section {
+  display: flex;
+  max-width: 295px;
+}
+.event-head__sub span {
+  display: inline-block;
+}
+.event-head__sub section span:first-child {
+  margin-right: 0.3em;
+  white-space: nowrap;
+}
+.event-head__sub .place__value,
+.event-head__sub .date__value {
+  flex: 1;
+}
 .event-head__sub__date {
   margin-top: 10px;
 }
