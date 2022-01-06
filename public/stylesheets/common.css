@@ -45,6 +45,7 @@ body {
 .sprite {
   display: inline-block;
   overflow: hidden;
+  border: none;
   background: url(../images/sprite.png) no-repeat;
   background-size: 414px 210px;
   text-indent: 101%;
@@ -106,6 +107,12 @@ a {
   color: #000;
   text-decoration: none;
 }
+button {
+  cursor: pointer;
+}
+button span {
+  display: none;
+}
 .hidden {
   display: none;
 }
@@ -155,7 +162,7 @@ img {
   -webkit-box-orient: vertical;
 }
 
-/* btn */
+/* btn style*/
 .btn {
   height: 40px;
   padding: 0;
