@@ -41,6 +41,66 @@ body {
   font-size: 14px;
 }
 
+/* icons */
+.sprite {
+  display: inline-block;
+  overflow: hidden;
+  background: url(../images/sprite.png) no-repeat;
+  background-size: 414px 210px;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+.sprite.logo-icon {
+  width: 81px;
+  height: 23px;
+}
+.sprite.alarm-icon {
+  width: 25.2px;
+  height: 23.62px;
+  background-position: -85.8px -57.69px;
+}
+.sprite.home-icon {
+  width: 24px;
+  height: 24px;
+  background-position: 0 -114px;
+}
+.sprite.search-icon {
+  width: 24px;
+  height: 24px;
+  background-position: -87.67px -114px;
+}
+.sprite.user-icon {
+  width: 24px;
+  height: 24px;
+  background-position: -175.33px -114px;
+}
+.sprite.more-icon {
+  width: 24px;
+  height: 24px;
+  background-position: -263px -114px;
+}
+.sprite.back-btn {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  background-position: -175px -62px;
+}
+.sprite.down-arrow {
+  width: 10px;
+  height: 6px;
+  background-position: -270px -70px;
+}
+.sprite.search-btn {
+  width: 16px;
+  height: 16px;
+  background-position: -339px -65px;
+}
+.sprite.like-btn {
+  width: 20px;
+  height: 20px;
+  background-position: -394px -65px;
+}
+
 /* common */
 a {
   color: #000;
@@ -67,13 +127,13 @@ img {
 
 /* padding */
 .bottom-padding--large {
-  padding-bottom: 112px;
+  padding-bottom: 112px !important;
 }
 .top-padding--medium {
-  padding-top: 44px;
+  padding-top: 44px !important;
 }
 .top-padding--small {
-  padding-top: 40px;
+  padding-top: 40px !important;
 }
 
 /* color */
@@ -159,6 +219,9 @@ header {
   justify-content: space-between;
   padding-top: 49px;
 }
+.header-wrapper section {
+  display: flex;
+}
 
 /* nav */
 nav {
@@ -174,6 +237,14 @@ nav {
   display: flex;
   justify-content: space-around;
   margin-top: 14px;
+}
+.nav__list li {
+  text-align: center;
+  width: 64px;
+}
+.nav__list li p {
+  margin-top: 8px;
+  color: #bbbbbb;
 }
 
 /* detail bar */
