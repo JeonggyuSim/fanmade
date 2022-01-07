@@ -47,11 +47,26 @@ body {
   overflow: hidden;
   border: none;
   background: url(../images/sprite.png) no-repeat;
-  background-size: 414px 210px;
+  background-size: 414px 282px;
   text-indent: 101%;
   white-space: nowrap;
 }
+input[type='radio'] + label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  margin-right: 16px;
+  background: url(../images/sprite.png) no-repeat;
+  background-size: 414px 282px;
+  background-position-y: -258px;
+}
+input[type='radio']:checked + label::before {
+  background-position-x: -88px;
+}
 .sprite.logo-icon {
+  display: block;
   width: 81px;
   height: 23px;
 }
@@ -110,10 +125,9 @@ a {
 button {
   cursor: pointer;
 }
-button span {
-  display: none;
-}
-.hidden {
+.hidden,
+.sprite span,
+input[type='radio'] {
   display: none;
 }
 li > a {
