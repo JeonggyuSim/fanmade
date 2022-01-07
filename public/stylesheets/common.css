@@ -122,13 +122,17 @@ a {
   color: #000;
   text-decoration: none;
 }
-button {
+button,
+input[type='button'] {
   cursor: pointer;
 }
 .hidden,
 .sprite span,
 input[type='radio'] {
-  display: none;
+  display: none !important;
+}
+.overflow--hidden {
+  overflow: hidden !important;
 }
 li > a {
   display: block;
@@ -295,6 +299,8 @@ nav {
 
 /* modal */
 .modal {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   z-index: 101;
   top: 0;
@@ -302,10 +308,12 @@ nav {
   height: 100vh;
   background: rgba(65, 64, 64, 0.5);
 }
+.modal__background {
+  flex: 1;
+  cursor: pointer;
+}
 .modal__content--bottom {
-  position: fixed;
   z-index: 102;
-  bottom: 0;
   width: 327px;
   background-color: #ffffff;
   border-radius: 12px 12px 0px 0px;
