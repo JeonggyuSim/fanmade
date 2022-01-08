@@ -103,6 +103,9 @@
   width: 259px;
   border: none;
 }
+.header__search input:focus {
+  outline: none;
+}
 .search-recent {
   margin-top: 32px;
 }

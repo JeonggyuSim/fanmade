@@ -40,6 +40,14 @@ body {
   font-weight: 700;
   font-size: 14px;
 }
+.index .nav__index p,
+.search .nav__search p,
+.user .nav__user p,
+.more .nav__more p {
+  color: #ec1a2e;
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
 
 /* icons */
 .sprite {
@@ -94,6 +102,12 @@ input[type='radio']:checked + label::before {
   width: 24px;
   height: 24px;
   background-position: -263px -114px;
+}
+.index .sprite.home-icon,
+.search .sprite.search-icon,
+.user .sprite.user-icon,
+.more .sprite.more-icon {
+  background-position-y: -186px;
 }
 .sprite.back-btn {
   width: 20px;
@@ -222,11 +236,11 @@ body {
   width: 375px;
   margin: auto;
   padding-top: 80px;
+  padding-bottom: 92px;
   background-color: #ffffff;
 }
 main {
   flex: 1;
-  padding-bottom: 92px;
 }
 
 /* header */

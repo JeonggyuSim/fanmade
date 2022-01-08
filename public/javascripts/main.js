@@ -23,6 +23,5 @@ if (modal) {
   }
 
   modalBtn.addEventListener('click', modalCloseHandler);
-
   modalBackground.addEventListener('click', modalCloseHandler);
 }
