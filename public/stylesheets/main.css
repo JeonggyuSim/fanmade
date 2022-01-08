@@ -344,6 +344,44 @@
   height: 211px;
   margin-top: 13px;
 }
+.place-modal__content {
+  padding: 38px 24px 23px;
+}
+.place-modal__datepicker-wrapper {
+  padding: 29.5px 19px 43.5px;
+  border-bottom: 2px solid #e5e5e5;
+}
+.datepicker__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.datepicker {
+  width: 100%;
+  margin-top: 29.5px;
+}
+.datepicker tbody {
+  margin-top: 7.87px;
+}
+.datepicker th,
+.datepicker td {
+  height: 41.3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.datepicker td {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.datepicker tr th:first-child,
+.datepicker tr th:nth-child(7),
+.datepicker tr td:first-child,
+.datepicker tr td:nth-child(7) {
+  color: #ec1a2e;
+}
+.place-modal__btn {
+  margin-top: 26px;
+}
 
 /* notic */
 .notice-list {

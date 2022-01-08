@@ -11,10 +11,14 @@
     <header>
       <section class="header-wrapper margin--side">
         <section>
-          <button class="sprite back-btn"><span>뒤로 가기</span></button>
+          <button type="button" class="sprite back-btn">
+            <span>뒤로 가기</span>
+          </button>
           <h1 class="header__title heading4 eliipsis--single">카페 쇼파르</h1>
         </section>
-        <button class="sprite like-btn"><span>좋아요</span></button>
+        <button type="button" class="sprite like-btn">
+          <span>좋아요</span>
+        </button>
       </section>
     </header>
     <main>
@@ -69,19 +73,46 @@
           <span><span class="heading4">1월 10일 ~ 1월 12일</span>(3일)</span>
         </section>
         <seciton class="detail-bar__button-wrapper margin--side">
-          <button class="btn btn--small btn--black">날짜 선택</button>
-          <button class="btn btn--small btn--red">완료</button>
+          <button type="button" class="btn btn--small btn--black">
+            날짜 선택
+          </button>
+          <button type="button" class="btn btn--small btn--red">완료</button>
         </seciton>
       </section>
       <section class="place-modal modal hidden">
+        <section class="modal__background"></section>
         <section class="place-modal__content modal__content--bottom">
-          <form action="" method="post">
-            <input
-              type="button"
-              value="선택 완료"
-              class="place-modal__btn btn btn--large btn--red"
-            />
-          </form>
+          <section class="place-modal__datepicker-wrapper">
+            <section class="datepicker__title">
+              <button type="button" class="sprite left-arrow">
+                <span><</span>
+              </button>
+              <h3 class="heading3"></h3>
+              <button type="button" class="sprite right-arrow">
+                <span>></span>
+              </button>
+            </section>
+            <table class="datepicker">
+              <thead>
+                <tr>
+                  <th>일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th>토</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>
+          <button
+            type="button"
+            class="place-modal__btn btn btn--large btn--red"
+          >
+            선택 완료
+          </button>
         </section>
       </section>
     </main>

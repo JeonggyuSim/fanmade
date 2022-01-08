@@ -53,6 +53,7 @@ body {
 .sprite {
   display: inline-block;
   overflow: hidden;
+  padding: 0;
   border: none;
   background: url(../images/sprite.png) no-repeat;
   background-size: 414px 282px;
@@ -129,6 +130,16 @@ input[type='radio']:checked + label::before {
   width: 20px;
   height: 20px;
   background-position: -394px -65px;
+}
+.sprite.left-arrow {
+  width: 8.22px;
+  height: 13.98px;
+  background-position: -339px -122px;
+}
+.sprite.right-arrow {
+  width: 8.61px;
+  height: 14.75px;
+  background-position: -339px -191px;
 }
 
 /* common */
