@@ -348,7 +348,8 @@
   padding: 38px 24px 23px;
 }
 .place-modal__datepicker-wrapper {
-  padding: 29.5px 19px 43.5px;
+  height: 343.8px;
+  padding: 29.5px 19px 2.2px;
   border-bottom: 2px solid #e5e5e5;
 }
 .datepicker__title {
@@ -365,6 +366,8 @@
 }
 .datepicker th,
 .datepicker td {
+  table-layout: fixed;
+  width: 41.28px;
   height: 41.3px;
   text-align: center;
   vertical-align: middle;
