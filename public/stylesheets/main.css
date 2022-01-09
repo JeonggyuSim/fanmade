@@ -382,6 +382,13 @@
 .datepicker tr td:nth-child(7) {
   color: #ec1a2e;
 }
+.datepicker .date--blocked {
+  opacity: 0.3;
+  cursor: default;
+}
+.datepicker .date--btn {
+  cursor: pointer;
+}
 .place-modal__btn {
   margin-top: 26px;
 }

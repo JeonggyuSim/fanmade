@@ -35,14 +35,17 @@ if (calendar) {
 
   function makeTableData(year, month, date, row, cellClass) {
     cell = row.insertCell();
-    if (cellClass) cell.classList = `datepicker__date${cellClass}`;
-    else {
-      cell.classList = "datepicker__date";
+    cell.classList = `datepicker__date${cellClass}`;
+    if (year) {
       cell.innerHTML = date;
+      cell.dataset.selected = false;
+      cell.dataset.year = year;
+      cell.dataset.month = month;
+      cell.dataset.date = date;
     }
   }
-  function makeCalendar(year, month) {
-    let firstDate = new Date(year, month, 1).getDate();
+
+  function makeCalendar() {
     let lastDate = new Date(year, month + 1, 0).getDate();
     let insertDay = new Date(year, month, 1).getDay();
 
@@ -51,21 +54,22 @@ if (calendar) {
       calendar.deleteRow(-1);
     }
     row = calendar.insertRow();
-    for (i = 0; i < insertDay; i++) {
+    for (let i = 0; i < insertDay; i++) {
       makeTableData(0, 0, 0, row, " date--blocked");
     }
-    for (i = 1; i <= lastDate; i++) {
+    for (let i = 1; i <= lastDate; i++) {
       if (insertDay !== 7) {
-        makeTableData(year, month, i, row);
+        makeTableData(year, month, i, row, " date--btn");
         insertDay += 1;
       }
       else {
         row = calendar.insertRow();
-        makeTableData(year, month, i, row);
+        makeTableData(year, month, i, row, " date--btn");
         insertDay -= 6;
       }
     }
   }
+
   function moveMonthHandler(n) {
     if (currentYear === year && currentMonth > month + n) return;
     month = month + n;
@@ -76,15 +80,41 @@ if (calendar) {
       year += 1;
       month -= 12;
     }
-    makeCalendar(year, month);
+    makeCalendar();
+    if (currentYear === year && currentMonth === month) {
+      blockTableData(pastArray);
+    }
+  }
+
+  function blockTableData(blockArray) {
+    let blockObj, blockSelector;
+    const blockClass = "datepicker__date date--blocked";
+
+    for (let i = 0; i < blockArray.length; i++) {
+      blockObj = blockArray[i];
+      if (blockObj.year !== year || blockObj.month !== month) {
+        blockArray.splice(i, 1);
+        i--
+      }
+    }
+    for (let i = 0; i < blockArray.length; i++) {
+      blockSelector = `.date--btn[data-date="${blockArray[i].date}"]`;
+      document.querySelector(blockSelector).classList = blockClass;
+    }
   }
 
   const today = new Date();
   const currentYear = today.getFullYear();
   const currentMonth = today.getMonth();
+  const currentDate = today.getDate();
   let year = today.getFullYear();
   let month = today.getMonth();
-  makeCalendar(year, month);
+  makeCalendar();
+  let pastArray = [];
+  for (let i = 1; i < currentDate; i++) {
+    pastArray[i - 1] = { year: currentYear, month: currentMonth, date: i };
+  }
+  blockTableData(pastArray);
 
   previousBtn.addEventListener('click', () => {
     moveMonthHandler(-1);
