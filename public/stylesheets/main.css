@@ -389,6 +389,21 @@
 .datepicker .date--btn {
   cursor: pointer;
 }
+.datepicker .date--selected {
+  color: #ffffff !important;
+  border-radius: 50%;
+  background-color: #ec1a2e;
+  cursor: pointer;
+}
+.datepicker .date--selected.date--selected1 {
+  border-radius: 50% 0 0 50%;
+}
+.datepicker .date--selected.date--selected2 {
+  border-radius: 0;
+}
+.datepicker .date--selected.date--selected3 {
+  border-radius: 0 50% 50% 0;
+}
 .place-modal__btn {
   margin-top: 26px;
 }
