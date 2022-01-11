@@ -7,33 +7,56 @@
     <meta name="viewport" content="width=375" />
     <title>Fanmade</title>
   </head>
-  <body>
+  <body class="more">
     <header>
       <section class="header-wrapper margin--side">
         <section>
           <button type="button" class="sprite back-btn">
             <span>뒤로 가기</span>
           </button>
-          <h1 class="header__title heading4">404 에러</h1>
+          <h1 class="header__title heading4">더 보기</h1>
         </section>
       </section>
     </header>
-    <main class="error-404">
-      <img
-        src="./public/images/404_image.jpg"
-        alt="404_image.jpg"
-        class="error-404__image"
-      />
-      <section class="error-404__title">
-        <p class="error-404__subtitle">404 error not found</p>
-        <p class="heading3">해당 페이지를 찾을 수 없습니다</p>
+    <main class="margin--side">
+      <section class="normal-service">
+        <p class="normal-service__title">일반</p>
+        <ul class="normal-service__list">
+          <li class="normal-service__event">
+            <a href="./list.html">
+              <span class="sprite event-icon"></span>
+              <p>진행중인 행사</p>
+            </a>
+          </li>
+          <li class="normal-service__duckmate">
+            <a href="">
+              <span class="sprite duckmate-icon"></span>
+              <p>덕메 찾기</p>
+            </a>
+          </li>
+        </ul>
       </section>
-      <section class="error-404__button-wrapper margin--side">
-        <button type="button" class="btn back-btn btn--small btn--black">
-          이전페이지
-        </button>
-        <a href="./index.html" class="a-btn btn--small btn--red">홈 화면</a>
+      <section class="host-service">
+        <p class="host-service__title">호스트센터</p>
+        <ul class="host-service__list">
+          <li class="host-service__place">
+            <a href="">
+              <span class="sprite place-icon"></span>
+              <p>공간 대여</p>
+            </a>
+          </li>
+          <li class="host-service__make-event">
+            <a href="">
+              <span class="sprite make-event-icon"></span>
+              <p>행사 만들기</p>
+            </a>
+          </li>
+        </ul>
       </section>
+      <a href="" class="setting">
+        <span class="sprite setting-icon"></span>
+        <p>설정</p>
+      </a>
     </main>
     <nav>
       <ul class="nav__list">
