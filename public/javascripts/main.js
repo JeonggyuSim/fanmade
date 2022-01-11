@@ -75,7 +75,15 @@ if (calendar) {
   }
 
   function moveMonthHandler(n) {
-    if (currentYear === year && currentMonth > month + n) return;
+    let calendarDate = new Date(year, month + n + 1, 1);
+    let maxCalendarFullDate = new Date(currentYear, currentMonth, currentDate + 90);
+    let maxCalendarYear = maxCalendarFullDate.getFullYear();
+    let maxCalendarMonth = maxCalendarFullDate.getMonth();
+    let maxCalendarDate = maxCalendarFullDate.getDate();
+    let maxCalendar = new Date(maxCalendarYear, maxCalendarMonth + 1, 1);
+
+    if (today > calendarDate) return;
+    else if (calendarDate > maxCalendar) return;
     month = month + n;
     if (month === -1) {
       year -= 1;
@@ -84,9 +92,18 @@ if (calendar) {
       year += 1;
       month -= 12;
     }
+    let lastDate = new Date(year, month + 1, 0).getDate();
     makeCalendar();
     if (currentYear === year && currentMonth === month) {
       blockTableData(pastArray);
+    }
+    else if (maxCalendarYear === year && maxCalendarMonth === month) {
+      let blockArray = [];
+
+      for (let i = maxCalendarDate; i <= lastDate; i++) {
+        blockArray[i - maxCalendarDate] = { year: maxCalendarYear, month: maxCalendarMonth, date: i };
+      }
+      blockTableData(blockArray);
     }
     addClickEvent();
     addSelectedStyle();
@@ -138,18 +155,14 @@ if (calendar) {
           dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
           document.querySelector(dateSelector).classList = SELECTED_CLASS;
         }
-        else if (new Date(year, month, 0) > new Date(selectedYear1, selectedMonth1, 0)) {
+        else if (new Date(year, month, 1) > new Date(selectedYear1, selectedMonth1, 1)) {
           dateBtn.forEach((element) => {
             element.classList = MAX_BLOCK_CLASS;
           });
           let selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
-          selectedMonth1 += 1;
-          if (selectedMonth1 === 12) {
-            selectedYear1 += 1;
-            selectedMonth1 -= 12;
-          }
+          let selectedNext = new Date(selectedYear1, selectedMonth1 + 1, 1);
 
-          if (selectedYear1 === year && selectedMonth1 === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
+          if (selectedNext.getFullYear() === year && selectedNext.getMonth() === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
             for (i = 1; i < selectedDate1 + MAX_PERIOD - selectedLastDate; i++) {
               if (i <= lastDate) {
                 dateSelector = `.date--max-blocked[data-date="${i}"]`;
@@ -219,8 +232,8 @@ if (calendar) {
           addSelectedStyle();
           return;
         }
-        let selectedDate1 = new Date(`${selectedDate.year}`, `${selectedDate.month}`, `${selectedDate.date}`);
-        let selectedDate2 = new Date(`${targetDate.dataset.year}`, `${targetDate.dataset.month}`, `${targetDate.dataset.date}`);
+        let selectedDate1 = new Date(selectedDate.year, selectedDate.month, selectedDate.date);
+        let selectedDate2 = new Date(targetDate.dataset.year, targetDate.dataset.month, targetDate.dataset.date);
         if (selectedDate1 > selectedDate2) {
           selectedArray = [targetDate.dataset];
           calendar.dataset.selectedDate = JSON.stringify(selectedArray);
