@@ -386,6 +386,11 @@
   opacity: 0.3;
   cursor: default;
 }
+.datepicker .date--max-blocked {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
 .datepicker .date--btn {
   cursor: pointer;
 }

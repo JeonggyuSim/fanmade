@@ -35,6 +35,8 @@ if (calendar) {
   const BLOCK_CLASS = "datepicker__date date--blocked";
   const BTN_CLASS = "datepicker__date date--btn";
   const SELECTED_CLASS = "datepicker__date date--btn date--selected";
+  const MAX_BLOCK_CLASS = "datepicker__date date--max-blocked";
+  const MAX_PERIOD = 14;
 
   function makeTableData(year, month, date, row, cellClass) {
     cell = row.insertCell();
@@ -107,87 +109,134 @@ if (calendar) {
   }
 
   function addSelectedStyle() {
+    let dateBtn = document.querySelectorAll(".date--btn");
     let selectedBtn = document.querySelectorAll(".date--selected");
+    let maxBlockedBtn = document.querySelectorAll(".date--max-blocked");
     let selectedDataset = calendar.dataset.selectedDate;
-    let selectedDate = [];
-    let selectedSelector;
+    let selectedArray = [];
+    let dateSelector;
     let lastDate = new Date(year, month + 1, 0).getDate();
 
     if (selectedDataset) {
-      selectedDate = JSON.parse(selectedDataset);
-      if (selectedDate.length === 1) {
-        if (selectedDate[0].year == year && selectedDate[0].month == month) {
+      selectedArray = JSON.parse(selectedDataset);
+      let selectedYear1 = Number(selectedArray[0].year);
+      let selectedMonth1 = Number(selectedArray[0].month);
+      let selectedDate1 = Number(selectedArray[0].date);
+
+      if (selectedArray.length === 1) {
+        if (selectedYear1 == year && selectedMonth1 == month) {
           selectedBtn.forEach((element) => {
             element.classList = BTN_CLASS;
           });
-          selectedSelector = `.date--btn[data-date="${selectedDate[0].date}"]`;
-          document.querySelector(selectedSelector).classList = SELECTED_CLASS;
+          for (i = selectedDate1 + MAX_PERIOD; i <= lastDate; i++) {
+            if (i <= lastDate) {
+              dateSelector = `.date--btn[data-date="${i}"]`;
+              checkBtn = document.querySelector(dateSelector)
+              if (checkBtn) checkBtn.classList = MAX_BLOCK_CLASS;
+            }
+          }
+          dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
+          document.querySelector(dateSelector).classList = SELECTED_CLASS;
+        }
+        else if (new Date(year, month, 0) > new Date(selectedYear1, selectedMonth1, 0)) {
+          dateBtn.forEach((element) => {
+            element.classList = MAX_BLOCK_CLASS;
+          });
+          let selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
+          selectedMonth1 += 1;
+          if (selectedMonth1 === 12) {
+            selectedYear1 += 1;
+            selectedMonth1 -= 12;
+          }
+
+          if (selectedYear1 === year && selectedMonth1 === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
+            for (i = 1; i < selectedDate1 + MAX_PERIOD - selectedLastDate; i++) {
+              if (i <= lastDate) {
+                dateSelector = `.date--max-blocked[data-date="${i}"]`;
+                checkBtn = document.querySelector(dateSelector)
+                if (checkBtn) checkBtn.classList = BTN_CLASS;
+              }
+            }
+
+          }
         }
       }
-      else if (selectedDate.length === 2) {
-        let selectedDate1 = new Date(`${selectedDate[0].year}`, `${selectedDate[0].month}`, `${selectedDate[0].date}`);
-        let selectedDate2 = new Date(`${selectedDate[1].year}`, `${selectedDate[1].month}`, `${selectedDate[1].date}`);
-        if (selectedDate1 > selectedDate2) {
-          selectedDate = [selectedDate[1], selectedDate[0]];
-        }
-        if (selectedDate[0].month === selectedDate[1].month) {
-          if (selectedDate[0].year == year && selectedDate[0].month == month) {
-            selectedSelector = `.date--btn[data-date="${selectedDate[0].date}"]`;
-            document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected1`;
-            for (let i = Number(selectedDate[0].date) + 1; i < selectedDate[1].date; i++) {
-              selectedSelector = `.date--btn[data-date="${i}"]`;
-              document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected2`;
+      else if (selectedArray.length === 2) {
+        let selectedYear2 = Number(selectedArray[1].year);
+        let selectedMonth2 = Number(selectedArray[1].month);
+        let selectedDate2 = Number(selectedArray[1].date);
+
+        if (selectedYear1 === year && selectedMonth1 === month) {
+          if (selectedMonth1 !== selectedMonth2) selectedDate2 += lastDate;
+          dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
+          document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected1`;
+          for (let i = selectedDate1 + 1; i < selectedDate2; i++) {
+            if (i <= lastDate) {
+              dateSelector = `.date--btn[data-date="${i}"]`;
+              document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected2`;
             }
-            selectedSelector = `.date--btn[data-date="${selectedDate[1].date}"]`;
-            document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected3`;
+          }
+          if (selectedDate2 <= lastDate) {
+            dateSelector = `.date--btn[data-date="${selectedDate2}"]`;
+            document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected3`;
           }
         }
-        else {
-          if (selectedDate[0].year == year && selectedDate[0].month == month) {
-            selectedSelector = `.date--btn[data-date="${selectedDate[0].date}"]`;
-            document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected1`;
-            for (let i = Number(selectedDate[0].date) + 1; i <= lastDate; i++) {
-              selectedSelector = `.date--btn[data-date="${i}"]`;
-              document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected2`;
-            }
+        else if (selectedYear2 === year && selectedMonth2 === month) {
+          for (let i = 1; i < selectedDate2; i++) {
+            dateSelector = `.date--btn[data-date="${i}"]`;
+            document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected2`;
           }
-          else if (selectedDate[1].year == year && selectedDate[1].month == month) {
-            for (let i = 1; i < selectedDate[1].date; i++) {
-              selectedSelector = `.date--btn[data-date="${i}"]`;
-              document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected2`;
-            }
-            selectedSelector = `.date--btn[data-date="${selectedDate[1].date}"]`;
-            document.querySelector(selectedSelector).classList = `${SELECTED_CLASS} date--selected3`;
-          }
+          dateSelector = `.date--btn[data-date="${selectedDate2}"]`;
+          document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected3`;
+        }
+        if (maxBlockedBtn.length) {
+          maxBlockedBtn.forEach((element) => {
+            element.classList = BTN_CLASS;
+          });
         }
       }
     }
-    else if (selectedBtn.length) selectedBtn[0].classList = BTN_CLASS;
+    else {
+      if (selectedBtn.length) selectedBtn[0].classList = BTN_CLASS;
+      maxBlockedBtn.forEach((element) => {
+        element.classList = BTN_CLASS;
+      });
+    }
   }
 
   function clickBtnHandler(event) {
     let targetDate = event.currentTarget;
     let selectedDataset = calendar.dataset.selectedDate;
-    let selectedDate = [];
+    let selectedArray = [];
 
     if (selectedDataset) {
-      selectedDate = JSON.parse(selectedDataset);
-      if (selectedDate.length === 1) {
-        if (JSON.stringify(selectedDate[0]) === JSON.stringify(targetDate.dataset)) {
+      selectedArray = JSON.parse(selectedDataset);
+      if (selectedArray.length === 1) {
+        let selectedDate = selectedArray[0];
+
+        if (JSON.stringify(selectedDate) === JSON.stringify(targetDate.dataset)) {
           calendar.dataset.selectedDate = "";
           addSelectedStyle();
           return;
         }
+        let selectedDate1 = new Date(`${selectedDate.year}`, `${selectedDate.month}`, `${selectedDate.date}`);
+        let selectedDate2 = new Date(`${targetDate.dataset.year}`, `${targetDate.dataset.month}`, `${targetDate.dataset.date}`);
+        if (selectedDate1 > selectedDate2) {
+          selectedArray = [targetDate.dataset];
+          calendar.dataset.selectedDate = JSON.stringify(selectedArray);
+          addSelectedStyle();
+          return;
+        }
       }
-      else if (selectedDate.length > 1) {
-        selectedDate = [targetDate.dataset];
-        calendar.dataset.selectedDate = JSON.stringify(selectedDate);
+      else if (selectedArray.length > 1) {
+        selectedArray = [targetDate.dataset];
+        calendar.dataset.selectedDate = JSON.stringify(selectedArray);
         addSelectedStyle();
         return;
       }
     }
-    selectedDate[selectedDate.length] = targetDate.dataset;
-    calendar.dataset.selectedDate = JSON.stringify(selectedDate);
+    selectedArray[selectedArray.length] = targetDate.dataset;
+    calendar.dataset.selectedDate = JSON.stringify(selectedArray);
     addSelectedStyle();
   }
 
