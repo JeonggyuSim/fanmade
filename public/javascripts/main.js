@@ -22,8 +22,8 @@ if (modal) {
     const optionModal = document.querySelector('.modal__option');
     const modalBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
     const optionBtn = modalBtn[0];
-    const completeBtn = modalBtn[1];
-
+    const eventOptionBtn = document.querySelector('.event-detail .option__btn');
+    const placeOptionBtn = document.querySelector('.place-detail .option__btn');
 
     function modalOpenHandler() {
       body.classList.add('overflow--hidden');
@@ -36,15 +36,43 @@ if (modal) {
       optionModal.classList.add('hidden');
     }
 
-    modalBtn.forEach((element) => {
-      element.addEventListener('click', modalOpenHandler);
-    });
+    optionBtn.addEventListener('click', modalOpenHandler);
     modalBackground.addEventListener('click', modalCloseHandler);
     optionBtn.addEventListener('click', () => {
       optionModal.classList.remove('hidden');
     });
+
+    if (eventOptionBtn) {
+      (function () {
+        const eventOption = document.querySelector('.event-detail .detail-bar-wrapper .heading4');
+        const completeBtn = modalBtn[1];
+
+        eventOptionBtn.addEventListener('click', () => {
+          let checkedRadio = document.querySelector('input[name="event-option"]:checked');
+          if (!checkedRadio) {
+            modalCloseHandler();
+            return;
+          }
+          let checkedSelector = `label[for="${checkedRadio.id}"] h3`;
+          let checkedLabel = document.querySelector(checkedSelector).innerHTML;
+          eventOption.innerHTML = checkedLabel;
+          modalCloseHandler();
+        });
+        completeBtn.addEventListener('click', () => {
+          let checkedRadio = document.querySelector('input[name="event-option"]:checked');
+          if (!checkedRadio) {
+            alert("옵션을 선택해주세요.");
+            return;
+          }
+          modalOpenHandler();
+        });
+      })();
+    }
   })();
 }
+
+// 이벤트 옵션
+
 
 // 달력
 if (calendar) {
