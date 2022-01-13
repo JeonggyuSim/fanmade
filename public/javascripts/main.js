@@ -19,7 +19,6 @@ if (modal) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
-    const optionModal = document.querySelector('.modal__option');
     const modalBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
     const optionBtn = modalBtn[0];
     const eventOptionBtn = document.querySelector('.event-detail .option__btn');
@@ -34,37 +33,37 @@ if (modal) {
     function modalCloseHandler() {
       body.classList.remove('overflow--hidden');
       modal.classList.add('hidden');
-      optionModal.classList.add('hidden');
     }
 
     optionBtn.addEventListener('click', modalOpenHandler);
     modalBackground.addEventListener('click', modalCloseHandler);
-    optionBtn.addEventListener('click', () => {
-      optionModal.classList.remove('hidden');
-    });
 
     if (eventOptionBtn) {
       (function () {
-        const eventOption = document.querySelector('.event-detail .detail-bar-wrapper .heading4');
+        const eventOption = document.querySelectorAll('.event-detail .detail-bar-wrapper span');
+        const optionTitle = eventOption[0];
+        const optionCost = eventOption[1];
 
+        optionBtn.addEventListener('click', () => {
+          let confirmedOption = optionTitle.dataset.selectedOption;
+          if (!confirmedOption) return;
+          let checkedSelector = `input#${confirmedOption}`;
+          document.querySelector(checkedSelector).checked = true;
+        });
         eventOptionBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
-          if (!checkedRadio) {
-            modalCloseHandler();
-            return;
-          }
+          if (!checkedRadio) return modalCloseHandler();
+          optionTitle.dataset.selectedOption = checkedRadio.id;
           let checkedSelector = `label[for="${checkedRadio.id}"] h3`;
           let checkedLabel = document.querySelector(checkedSelector).innerHTML;
-          eventOption.innerHTML = checkedLabel;
+          optionTitle.innerHTML = checkedLabel;
           modalCloseHandler();
         });
         completeBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) {
             alert("옵션을 선택해주세요.");
-            return;
           }
-          modalOpenHandler();
         });
       })();
     }
@@ -72,15 +71,22 @@ if (modal) {
     if (placeOptionBtn) {
       (function () {
         const placeOption = document.querySelectorAll('.place-detail .detail-bar-wrapper span');
-        const dateOption = placeOption[0];
-        const periodOption = placeOption[1];
+        const optionDate = placeOption[0];
+        const optionPeriod = placeOption[1];
         let selectedArray = [];
+
+        optionBtn.addEventListener('click', () => {
+          let confirmedOption = optionDate.dataset.selectedOption;
+          if (!confirmedOption) return calendar.dataset.selectedDate = "";
+          calendar.dataset.selectedDate = confirmedOption;
+        });
 
         placeOptionBtn.addEventListener('click', () => {
           let selectedDataset = calendar.dataset.selectedDate;
           if (!selectedDataset) {
-            dateOption.innerHTML = "선택 없음";
-            periodOption.innerHTML = "";
+            optionDate.innerHTML = "선택 없음";
+            optionPeriod.innerHTML = "";
+            optionDate.dataset.selectedOption = "";
             modalCloseHandler();
             return;
           }
@@ -90,8 +96,9 @@ if (modal) {
           let selectedMonth1 = Number(selected1.month);
           let selectedDate1 = Number(selected1.date);
           if (selectedArray.length === 1) {
-            dateOption.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일`;
-            periodOption.innerHTML = "(1일)";
+            optionDate.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일`;
+            optionPeriod.innerHTML = "(1일)";
+            optionDate.dataset.selectedOption = selectedDataset;
             modalCloseHandler();
             return;
           }
@@ -104,8 +111,9 @@ if (modal) {
             let diff = selectedFullDate2.getTime() - selectedFullDate1.getTime();
             let period = (diff / (1000 * 3600 * 24)) + 1;
 
-            dateOption.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일 ~ ${selectedMonth2 + 1}월 ${selectedDate2}일`;
-            periodOption.innerHTML = `(${period}일)`;
+            optionDate.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일 ~ ${selectedMonth2 + 1}월 ${selectedDate2}일`;
+            optionPeriod.innerHTML = `(${period}일)`;
+            optionDate.dataset.selectedOption = selectedDataset;
             modalCloseHandler();
             return;
           }
@@ -114,9 +122,7 @@ if (modal) {
           let selectedDataset = calendar.dataset.selectedDate;
           if (!selectedDataset) {
             alert("옵션을 선택해주세요.");
-            return;
           }
-          modalOpenHandler();
         });
       })();
     }
@@ -129,6 +135,7 @@ if (modal) {
 // 달력
 if (calendar) {
   (function () {
+    const optionBtn = document.querySelector('.detail-bar__button-wrapper .btn:first-child');
     const calendarTitle = document.querySelector('.datepicker__title h3');
     const previousBtn = document.querySelector('.datepicker__title .sprite.left-arrow');
     const nextBtn = document.querySelector('.datepicker__title .sprite.right-arrow');
@@ -376,6 +383,7 @@ if (calendar) {
     blockTableData(pastArray);
     addClickEvent();
 
+    optionBtn.addEventListener('click', () => moveMonthHandler(0));
     previousBtn.addEventListener('click', () => moveMonthHandler(-1));
     nextBtn.addEventListener('click', () => moveMonthHandler(1));
   })();
