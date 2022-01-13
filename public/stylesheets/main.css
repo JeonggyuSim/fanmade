@@ -320,6 +320,13 @@
   display: flex;
   cursor: pointer;
 }
+.event-detail .modal__option .option-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+.event-detail .modal__option h3 {
+  margin-right: 16px;
+}
 .event-detail .modal__option ul li p {
   margin-top: 14px;
   font-size: 16px;

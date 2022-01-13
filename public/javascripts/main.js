@@ -54,9 +54,10 @@ if (modal) {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return modalCloseHandler();
           optionTitle.dataset.selectedOption = checkedRadio.id;
-          let checkedSelector = `label[for="${checkedRadio.id}"] h3`;
-          let checkedLabel = document.querySelector(checkedSelector).innerHTML;
-          optionTitle.innerHTML = checkedLabel;
+          let checkedSelector = `label[for="${checkedRadio.id}"] .option-title-wrapper`;
+          let checkedLabel = document.querySelector(checkedSelector).children;
+          optionTitle.innerHTML = checkedLabel[0].innerHTML;
+          optionCost.innerHTML = checkedLabel[1].innerHTML;
           modalCloseHandler();
         });
         completeBtn.addEventListener('click', () => {
