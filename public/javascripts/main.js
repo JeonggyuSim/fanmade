@@ -24,6 +24,7 @@ if (modal) {
     const optionBtn = modalBtn[0];
     const eventOptionBtn = document.querySelector('.event-detail .option__btn');
     const placeOptionBtn = document.querySelector('.place-detail .option__btn');
+    const completeBtn = modalBtn[1];
 
     function modalOpenHandler() {
       body.classList.add('overflow--hidden');
@@ -45,7 +46,6 @@ if (modal) {
     if (eventOptionBtn) {
       (function () {
         const eventOption = document.querySelector('.event-detail .detail-bar-wrapper .heading4');
-        const completeBtn = modalBtn[1];
 
         eventOptionBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
@@ -61,6 +61,58 @@ if (modal) {
         completeBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) {
+            alert("옵션을 선택해주세요.");
+            return;
+          }
+          modalOpenHandler();
+        });
+      })();
+    }
+
+    if (placeOptionBtn) {
+      (function () {
+        const placeOption = document.querySelectorAll('.place-detail .detail-bar-wrapper span');
+        const dateOption = placeOption[0];
+        const periodOption = placeOption[1];
+        let selectedArray = [];
+
+        placeOptionBtn.addEventListener('click', () => {
+          let selectedDataset = calendar.dataset.selectedDate;
+          if (!selectedDataset) {
+            dateOption.innerHTML = "선택 없음";
+            periodOption.innerHTML = "";
+            modalCloseHandler();
+            return;
+          }
+
+          selectedArray = JSON.parse(selectedDataset);
+          let selected1 = selectedArray[0];
+          let selectedMonth1 = Number(selected1.month);
+          let selectedDate1 = Number(selected1.date);
+          if (selectedArray.length === 1) {
+            dateOption.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일`;
+            periodOption.innerHTML = "(1일)";
+            modalCloseHandler();
+            return;
+          }
+          else if (selectedArray.length === 2) {
+            let selected2 = selectedArray[1];
+            let selectedMonth2 = Number(selected2.month);
+            let selectedDate2 = Number(selected2.date);
+            let selectedFullDate1 = new Date(selected1.year, selectedMonth1, selectedDate1);
+            let selectedFullDate2 = new Date(selected2.year, selectedMonth2, selectedDate2);
+            let diff = selectedFullDate2.getTime() - selectedFullDate1.getTime();
+            let period = (diff / (1000 * 3600 * 24)) + 1;
+
+            dateOption.innerHTML = `${selectedMonth1 + 1}월 ${selectedDate1}일 ~ ${selectedMonth2 + 1}월 ${selectedDate2}일`;
+            periodOption.innerHTML = `(${period}일)`;
+            modalCloseHandler();
+            return;
+          }
+        });
+        completeBtn.addEventListener('click', () => {
+          let selectedDataset = calendar.dataset.selectedDate;
+          if (!selectedDataset) {
             alert("옵션을 선택해주세요.");
             return;
           }
@@ -184,9 +236,10 @@ if (calendar) {
 
       if (selectedDataset) {
         selectedArray = JSON.parse(selectedDataset);
-        let selectedYear1 = Number(selectedArray[0].year);
-        let selectedMonth1 = Number(selectedArray[0].month);
-        let selectedDate1 = Number(selectedArray[0].date);
+        let selectedFullDate1 = selectedArray[0];
+        let selectedYear1 = Number(selectedFullDate1.year);
+        let selectedMonth1 = Number(selectedFullDate1.month);
+        let selectedDate1 = Number(selectedFullDate1.date);
 
         if (selectedArray.length === 1) {
           if (selectedYear1 == year && selectedMonth1 == month) {
@@ -223,9 +276,10 @@ if (calendar) {
           }
         }
         else if (selectedArray.length === 2) {
-          let selectedYear2 = Number(selectedArray[1].year);
-          let selectedMonth2 = Number(selectedArray[1].month);
-          let selectedDate2 = Number(selectedArray[1].date);
+          let selectedFullDate2 = selectedArray[1];
+          let selectedYear2 = Number(selectedFullDate2.year);
+          let selectedMonth2 = Number(selectedFullDate2.month);
+          let selectedDate2 = Number(selectedFullDate2.date);
 
           if (selectedYear1 === year && selectedMonth1 === month) {
             if (selectedMonth1 !== selectedMonth2) selectedDate2 += lastDate;
