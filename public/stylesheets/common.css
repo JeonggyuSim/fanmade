@@ -366,6 +366,8 @@ nav {
   cursor: pointer;
 }
 .modal__content--bottom {
+  position: fixed;
+  bottom: 0;
   z-index: 102;
   width: 327px;
   background-color: #ffffff;

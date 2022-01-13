@@ -19,15 +19,30 @@ if (modal) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
-    const modalBtn = document.querySelector('.detail-bar__button-wrapper .btn:first-child');
+    const optionModal = document.querySelector('.modal__option');
+    const modalBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
+    const optionBtn = modalBtn[0];
+    const completeBtn = modalBtn[1];
 
-    function modalCloseHandler() {
-      body.classList.toggle('overflow--hidden');
-      modal.classList.toggle('hidden');
+
+    function modalOpenHandler() {
+      body.classList.add('overflow--hidden');
+      modal.classList.remove('hidden');
     }
 
-    modalBtn.addEventListener('click', modalCloseHandler);
+    function modalCloseHandler() {
+      body.classList.remove('overflow--hidden');
+      modal.classList.add('hidden');
+      optionModal.classList.add('hidden');
+    }
+
+    modalBtn.forEach((element) => {
+      element.addEventListener('click', modalOpenHandler);
+    });
     modalBackground.addEventListener('click', modalCloseHandler);
+    optionBtn.addEventListener('click', () => {
+      optionModal.classList.remove('hidden');
+    });
   })();
 }
 

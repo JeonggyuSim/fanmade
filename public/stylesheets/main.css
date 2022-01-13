@@ -306,25 +306,25 @@
   margin-top: 16px;
   object-fit: cotain;
 }
-.event-modal__content {
+.event-detail .modal__option {
   padding: 58px 24px 23px;
 }
-.event-modal__content ul li {
+.event-detail .modal__option ul li {
   padding: 14px 0;
   border-top: 2px solid #e5e5e5;
 }
-.event-modal__content ul li:last-child {
+.event-detail .modal__option ul li:last-child {
   border-bottom: 2px solid #e5e5e5;
 }
-.event-modal__content ul li label {
+.event-detail .modal__option ul li label {
   display: flex;
   cursor: pointer;
 }
-.event-modal__content ul li p {
+.event-detail .modal__option ul li p {
   margin-top: 14px;
   font-size: 16px;
 }
-.event-modal__btn {
+.event-detail .option__btn {
   margin-top: 36px;
 }
 
@@ -373,10 +373,10 @@
   height: 211px;
   margin-top: 13px;
 }
-.place-modal__content {
+.place-detail .modal__option {
   padding: 38px 24px 23px;
 }
-.place-modal__datepicker-wrapper {
+.option__datepicker-wrapper {
   height: 343.8px;
   padding: 29.5px 19px 2.2px;
   border-bottom: 2px solid #e5e5e5;
@@ -438,7 +438,7 @@
 .datepicker .date--selected.date--selected3 {
   border-radius: 0 50% 50% 0;
 }
-.place-modal__btn {
+.place-detail .option__btn {
   margin-top: 26px;
 }
 
