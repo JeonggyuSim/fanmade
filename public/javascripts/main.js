@@ -2,6 +2,7 @@ const backBtn = document.querySelectorAll('.back-btn');
 const modal = document.querySelector('.modal');
 const calendar = document.querySelector('.datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
+const eventAttend = document.querySelector('.event-attend .btn');
 
 // 뒤로가기
 if (backBtn) {
@@ -64,6 +65,7 @@ if (modal) {
         completeBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return alert("옵션을 선택해주세요.");
+          location.href = "./event_attend.html";
         });
       })();
     }
@@ -128,11 +130,21 @@ if (modal) {
   })();
 }
 
+// 이벤트 참가 
+if (eventAttend) {
+  (function () {
+    eventAttend.addEventListener('click', () => {
+      location.href = "./attend_complete.html";
+    })
+  })();
+
+}
+
 // 장소 예약 
 if (placeBook) {
   (function () {
     placeBook.addEventListener('click', () => {
-      location.href = "./place_complete.html";
+      location.href = "./book_complete.html";
     })
   })();
 }
