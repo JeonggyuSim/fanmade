@@ -1,6 +1,7 @@
 const backBtn = document.querySelectorAll('.back-btn');
 const modal = document.querySelector('.modal');
 const calendar = document.querySelector('.datepicker tbody');
+const placeBook = document.querySelector('.place-book .btn');
 
 // 뒤로가기
 if (backBtn) {
@@ -62,9 +63,7 @@ if (modal) {
         });
         completeBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
-          if (!checkedRadio) {
-            alert("옵션을 선택해주세요.");
-          }
+          if (!checkedRadio) return alert("옵션을 선택해주세요.");
         });
       })();
     }
@@ -121,17 +120,22 @@ if (modal) {
         });
         completeBtn.addEventListener('click', () => {
           let selectedDataset = calendar.dataset.selectedDate;
-          if (!selectedDataset) {
-            alert("옵션을 선택해주세요.");
-          }
+          if (!selectedDataset) return alert("날짜를 선택해주세요.");
+          location.href = "./place_book.html";
         });
       })();
     }
   })();
 }
 
-// 이벤트 옵션
-
+// 장소 예약 
+if (placeBook) {
+  (function () {
+    placeBook.addEventListener('click', () => {
+      location.href = "./place_complete.html";
+    })
+  })();
+}
 
 // 달력
 if (calendar) {

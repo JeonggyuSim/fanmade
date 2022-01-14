@@ -96,8 +96,6 @@
 .header__search {
   display: flex;
   padding: 3px 0px 3px 16px;
-  border-bottom: 2px solid #696969;
-  outline-style: none;
 }
 .header__search input {
   width: 259px;
@@ -449,6 +447,35 @@
   margin-top: 26px;
 }
 
+/* place book */
+.place-book form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+}
+.place-book input[type='text'],
+.place-book input[type='tel'] {
+  margin-top: 24px;
+}
+.place-book input#date {
+  text-align: center;
+}
+.place-book label[for='tel'] {
+  margin-top: 40px;
+}
+.place-book fieldset {
+  margin-top: 38px;
+}
+.place-book fieldset textarea:first-of-type {
+  margin-top: 27px;
+}
+.place-book fieldset textarea:last-of-type {
+  margin-top: 17px;
+}
+.place-book input[type='button'] {
+  margin-top: 45px;
+  margin-bottom: 23px;
+}
 /* notic */
 .notice-list {
   margin-top: 32px;
@@ -482,7 +509,7 @@
 }
 
 /* 404 */
-.error-404 {
+.error-404 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -492,13 +519,11 @@
   height: 287px;
   margin: 0 auto;
 }
-.error-404__title {
+.error-404__title-wrapper {
   margin-top: 33px;
-}
-.error-404__title p {
   text-align: center;
 }
-.error-404__subtitle {
+.error-404__title-wrapper .title__sub {
   size: 14px;
 }
 .error-404__button-wrapper {

@@ -1,5 +1,7 @@
 /* font */
-body {
+body,
+input,
+textarea {
   font-family: 'DM Sans Regular';
   font-weight: 400;
   font-size: 12px;
@@ -262,6 +264,29 @@ img {
   background-color: #ec1a2e;
 }
 
+/* input style */
+.input--bottom-line {
+  border-bottom: 2px solid #696969;
+  outline-style: none;
+}
+.input--box {
+  min-height: 50px;
+  padding: 16px 30px;
+  border: 1px solid #cfcfcf;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+input[type='text']:read-only,
+input[type='tel']:read-only {
+  outline-style: none;
+  cursor: default;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
 /* html */
 html {
   display: flex;
@@ -326,6 +351,36 @@ nav {
   color: #bbbbbb;
 }
 
+/* slider */
+.event-slider {
+  display: flex;
+  overflow: hidden;
+}
+.event-slider li {
+  margin-right: 16px;
+  border: 0.5px solid #e3e3e3;
+  box-sizing: content-box;
+  box-shadow: 0px 5px 25px -15px rgba(85, 85, 85, 0.25);
+  border-radius: 4px;
+}
+.event-slider li img {
+  width: 144px;
+  height: 120px;
+  border-radius: 4px 4px 0px 0px;
+}
+.event-slider li section {
+  position: relative;
+  height: 120px;
+  padding: 12px 8px;
+}
+.event-slider__title {
+  margin-top: 8px;
+}
+.event-slider__artist {
+  position: absolute;
+  bottom: 11px;
+}
+
 /* detail bar */
 .detail-bar {
   position: fixed;
@@ -373,32 +428,23 @@ nav {
   border-radius: 12px 12px 0px 0px;
 }
 
-/* slider */
-.event-slider {
+/* complete */
+.complete main {
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
 }
-.event-slider li {
-  margin-right: 16px;
-  border: 0.5px solid #e3e3e3;
-  box-sizing: content-box;
-  box-shadow: 0px 5px 25px -15px rgba(85, 85, 85, 0.25);
-  border-radius: 4px;
+.complete__title-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
-.event-slider li img {
-  width: 144px;
-  height: 120px;
-  border-radius: 4px 4px 0px 0px;
+.complete__title-wrapper .title__sub {
+  margin-top: 13px;
 }
-.event-slider li section {
-  position: relative;
-  height: 120px;
-  padding: 12px 8px;
-}
-.event-slider__title {
-  margin-top: 8px;
-}
-.event-slider__artist {
-  position: absolute;
-  bottom: 11px;
+.complete__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
 }

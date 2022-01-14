@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./public/stylesheets/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=375" />
+    <title>Fanmade</title>
+  </head>
+  <body class="place-book bottom-padding--none">
+    <header>
+      <section class="header-wrapper margin--side">
+        <section>
+          <button type="button" class="sprite back-btn">
+            <span>뒤로 가기</span>
+          </button>
+          <h1 class="header__title heading4">카페 쇼파르</h1>
+        </section>
+      </section>
+    </header>
+    <main>
+      <form action="" method="post" class="margin--side">
+        <label for="date" class="heading5">날짜를 확인해주세요.</label>
+        <input
+          type="text"
+          name=""
+          id="date"
+          class="input--box"
+          placeholder="21년 4월 6일 - YY.MM.DD"
+          readonly
+        />
+        <label for="tel" class="heading5">전화번호를 입력해주세요.</label>
+        <input
+          type="tel"
+          name=""
+          id="tel"
+          class="input--box"
+          placeholder="000 - 0000 - 0000"
+          pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+          readonly
+        />
+        <fieldset>
+          <legend class="heading5">신청내용을 입력해주세요.</legend>
+          <textarea
+            name=""
+            id=""
+            cols="40"
+            rows="6"
+            class="input--box"
+            placeholder="Typing...(누굴하는지)"
+          ></textarea>
+          <textarea
+            name=""
+            id=""
+            cols="40"
+            rows="6"
+            class="input--box"
+            placeholder="Typing...(예상인원, 필요 사항 등)"
+          ></textarea>
+        </fieldset>
+        <input
+          type="button"
+          value="신청 완료"
+          class="btn btn--large btn--red"
+        />
+      </form>
+    </main>
+    <script type="text/javascript" src="./public/javascripts/main.js"></script>
+  </body>
+</html>
