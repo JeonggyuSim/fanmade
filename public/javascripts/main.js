@@ -42,7 +42,7 @@ if (modal) {
 
     if (eventOptionBtn) {
       (function () {
-        const eventOption = document.querySelectorAll('.event-detail .detail-bar-wrapper span');
+        const eventOption = document.querySelectorAll('.event-detail .detail-bar__option span');
         const optionTitle = eventOption[0];
         const optionCost = eventOption[1];
 
@@ -56,7 +56,7 @@ if (modal) {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return modalCloseHandler();
           optionTitle.dataset.selectedOption = checkedRadio.id;
-          let checkedSelector = `label[for="${checkedRadio.id}"] .option-title-wrapper`;
+          let checkedSelector = `label[for="${checkedRadio.id}"] .option__label-wrapper div`;
           let checkedLabel = document.querySelector(checkedSelector).children;
           optionTitle.innerHTML = checkedLabel[0].innerHTML;
           optionCost.innerHTML = checkedLabel[1].innerHTML;
@@ -72,7 +72,7 @@ if (modal) {
 
     if (placeOptionBtn) {
       (function () {
-        const placeOption = document.querySelectorAll('.place-detail .detail-bar-wrapper span');
+        const placeOption = document.querySelectorAll('.place-detail .detail-bar__option span');
         const optionDate = placeOption[0];
         const optionPeriod = placeOption[1];
         let selectedArray = [];

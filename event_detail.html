@@ -10,57 +10,55 @@
   <body class="event-detail bottom-padding--large">
     <header>
       <section class="header-wrapper margin--side">
-        <section>
+        <div>
           <button type="button" class="sprite back-btn">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4 eliipsis--single">
             1/16 블랙핑크 제니 생일카페
           </h1>
-        </section>
+        </div>
         <button type="button" class="sprite like-btn">
           <span>좋아요</span>
         </button>
       </section>
     </header>
     <main>
-      <section class="event-main-image">
+      <section class="event__main-image">
         <img
           src="./public/images/event_detail_main_img.jpg"
           alt="event_detail_main_img.jpg"
         />
       </section>
-      <section class="event-head-wrapper">
-        <section class="event-head__main">
-          <p class="event-head__main__artist color--red">BlackPink</p>
-          <h1 class="event-head__main__title heading1">
-            1/16 블랙핑크 제니 생일카페
-          </h1>
-        </section>
-        <section class="event-head__sub">
-          <section class="event-head__sub__place">
+      <section class="event__head">
+        <div>
+          <p class="head__star color--red">BlackPink</p>
+          <h1 class="head__title heading1">1/16 블랙핑크 제니 생일카페</h1>
+        </div>
+        <div>
+          <section class="head__place">
             <span>행사 장소 :</span>
-            <span> 서울 마포구 독막로6길 1층(카페쇼파르) </span>
+            <span> 서울 마포구 독막로6길 1층(카페쇼파르)</span>
           </section>
-          <section class="event-head__sub__date">
+          <section class="head__date">
             <span>행사 일시 :</span>
             <span>2022년 1월 16일 ~ 2022년 1월 19일</span>
           </section>
-        </section>
+        </div>
       </section>
-      <section class="event-progress margin--side">
-        <section class="event-progress-wrapper">
-          <section class="event-progress__people">
+      <section class="event__progress margin--side">
+        <div>
+          <section class="progress__people">
             <h2 class="heading5">참여 인원</h2>
-            <p class="event-progress__num heading5">340명</p>
+            <p class="progress__num heading5">340명</p>
           </section>
-          <section class="event-progress__day color--red">D-7</section>
-        </section>
-        <section class="event-progress__bar"></section>
+          <span class="progress__day color--red">D-7</span>
+        </div>
+        <section class="progress__bar"></section>
       </section>
-      <section class="event-explain margin--side">
+      <section class="event__explain margin--side">
         <h2 class="heading5">이벤트 설명</h2>
-        <ol class="event-explain__desc">
+        <ol>
           <li>
             <span>1인 1음료 구매시 기본 굿즈(컵홀더) 증정</span>
           </li>
@@ -72,7 +70,7 @@
           </li>
         </ol>
       </section>
-      <section class="event-desc margin--side">
+      <section class="event__content margin--side">
         <p>1월 16일 블랙핑크 제니 생일카페 컵홀더 이벤트</p>
         <img
           src="./public/images/event_detail_desc.jpg"
@@ -80,13 +78,13 @@
         />
       </section>
       <section class="detail-bar">
-        <section class="detail-bar-wrapper margin--side">
+        <div class="margin--side">
           <h2 class="detail-bar__title">옵션 선택</h2>
           <section class="detail-bar__option">
             <span class="heading4">선택 없음</span>
             <span></span>
           </section>
-        </section>
+        </div>
         <seciton class="detail-bar__button-wrapper margin--side">
           <button type="button" class="btn btn--small btn--black">
             옵션 선택
@@ -94,7 +92,7 @@
           <button type="button" class="btn btn--small btn--red">완료</button>
         </seciton>
       </section>
-      <section class="event-modal modal hidden">
+      <section class="event__modal modal hidden">
         <section class="modal__background"></section>
         <section class="modal__option">
           <form>
@@ -102,11 +100,11 @@
               <li>
                 <input type="radio" name="event-option" id="option1" />
                 <label for="option1">
-                  <section>
-                    <section class="option-title-wrapper">
+                  <section class="option__label-wrapper">
+                    <div>
                       <h3 class="heading2">일반 참여</h3>
                       <span>(0원)</span>
-                    </section>
+                    </div>
                     <p>행사 안내 및 이벤트 실시간 알림</p>
                   </section>
                 </label>
@@ -114,11 +112,11 @@
               <li>
                 <input type="radio" name="event-option" id="option2" />
                 <label for="option2">
-                  <section>
-                    <section class="option-title-wrapper">
+                  <section class="option__label-wrapper">
+                    <div>
                       <h3 class="heading2">선착순 굿즈 A</h3>
                       <span>(10,000원)</span>
-                    </section>
+                    </div>
                     <p>포토카드 2매, 포토바인더 1개</p>
                   </section>
                 </label>
@@ -126,11 +124,11 @@
               <li>
                 <input type="radio" name="event-option" id="option3" />
                 <label for="option3">
-                  <section>
-                    <section class="option-title-wrapper">
+                  <section class="option__label-wrapper">
+                    <div>
                       <h3 class="heading2">선착순 굿즈 B</h3>
                       <span>(15,000원)</span>
-                    </section>
+                    </div>
                     <p>포토카드 2매, 포토바인더 1개, 한정판 굿즈</p>
                   </section>
                 </label>
