@@ -48,7 +48,11 @@ if (modal) {
 
         optionBtn.addEventListener('click', () => {
           let confirmedOption = optionTitle.dataset.selectedOption;
-          if (!confirmedOption) return;
+          if (!confirmedOption) {
+            let checkedRadio = document.querySelector('input[name="event-option"]:checked');
+            checkedRadio.checked = false;
+            return;
+          }
           let checkedSelector = `input#${confirmedOption}`;
           document.querySelector(checkedSelector).checked = true;
         });
