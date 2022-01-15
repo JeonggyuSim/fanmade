@@ -437,66 +437,66 @@
 .place-detail .modal__option {
   padding: 38px 24px 23px;
 }
-.option__datepicker-wrapper {
+.option__calendar {
   height: 343.8px;
   padding: 29.5px 19px 2.2px;
   border-bottom: 2px solid #e5e5e5;
 }
-.datepicker__title {
+.calendar__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.datepicker {
+.calendar__datepicker {
   width: 100%;
   margin-top: 29.5px;
 }
-.datepicker tbody {
+.calendar__datepicker tbody {
   margin-top: 7.87px;
 }
-.datepicker th,
-.datepicker td {
+.calendar__datepicker th,
+.calendar__datepicker td {
   table-layout: fixed;
   width: 41.28px;
   height: 41.3px;
   text-align: center;
   vertical-align: middle;
 }
-.datepicker td {
+.calendar__datepicker td {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-.datepicker tr th:first-child,
-.datepicker tr th:nth-child(7),
-.datepicker tr td:first-child,
-.datepicker tr td:nth-child(7) {
+.calendar__datepicker tr th:first-child,
+.calendar__datepicker tr th:nth-child(7),
+.calendar__datepicker tr td:first-child,
+.calendar__datepicker tr td:nth-child(7) {
   color: #ec1a2e;
 }
-.datepicker .date--blocked {
+.calendar__datepicker .date--blocked {
   opacity: 0.3;
   cursor: default;
 }
-.datepicker .date--max-blocked {
+.calendar__datepicker .date--max-blocked {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-.datepicker .date--btn {
+.calendar__datepicker .date--btn {
   cursor: pointer;
 }
-.datepicker .date--selected {
+.calendar__datepicker .date--selected {
   color: #ffffff !important;
   border-radius: 50%;
   background-color: #ec1a2e;
   cursor: pointer;
 }
-.datepicker .date--selected.date--selected1 {
+.calendar__datepicker .date--selected.date--selected1 {
   border-radius: 50% 0 0 50%;
 }
-.datepicker .date--selected.date--selected2 {
+.calendar__datepicker .date--selected.date--selected2 {
   border-radius: 0;
 }
-.datepicker .date--selected.date--selected3 {
+.calendar__datepicker .date--selected.date--selected3 {
   border-radius: 0 50% 50% 0;
 }
 .place-detail .option__btn {

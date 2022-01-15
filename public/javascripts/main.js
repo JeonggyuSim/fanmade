@@ -1,6 +1,6 @@
 const backBtn = document.querySelectorAll('.back-btn');
 const modal = document.querySelector('.modal');
-const calendar = document.querySelector('.datepicker tbody');
+const calendar = document.querySelector('.calendar__datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
 
@@ -157,9 +157,9 @@ if (placeBook) {
 if (calendar) {
   (function () {
     const optionBtn = document.querySelector('.detail-bar__button-wrapper .btn:first-child');
-    const calendarTitle = document.querySelector('.datepicker__title h3');
-    const previousBtn = document.querySelector('.datepicker__title .sprite.left-arrow');
-    const nextBtn = document.querySelector('.datepicker__title .sprite.right-arrow');
+    const calendarTitle = document.querySelector('.calendar__title h3');
+    const previousBtn = document.querySelector('.calendar__title .sprite.left-arrow');
+    const nextBtn = document.querySelector('.calendar__title .sprite.right-arrow');
     const BLOCK_CLASS = "datepicker__date date--blocked";
     const BTN_CLASS = "datepicker__date date--btn";
     const SELECTED_CLASS = "datepicker__date date--btn date--selected";
