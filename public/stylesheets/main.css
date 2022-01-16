@@ -331,23 +331,36 @@
 
 /* event attend */
 .attend-info {
-  padding: 32px 24px 12px 24px;
+  padding: 32px 24px 0 24px;
   box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
+}
+.attend-info > div {
+  margin-top: 16px;
+  padding: 12px 8px;
 }
 .attend-info__event {
   display: flex;
-  margin-top: 28px;
 }
 .event-attend .event__main-image img {
   width: 56px;
   height: 56px;
   margin-right: 12px;
 }
+.attend-info__event div p:last-child {
+  margin-top: 4px;
+}
 .attend-info__option {
   padding: 8px;
   margin-top: 12px;
   background: #f8f8f8;
   border-radius: 4px;
+}
+.attend-info__option p:first-child {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.attend-info__option p:last-child {
+  margin-top: 4px;
 }
 .attend-info__change-option,
 .pay-info__select {
