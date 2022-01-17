@@ -346,7 +346,7 @@
   height: 56px;
   margin-right: 12px;
 }
-.attend-info__event div p:last-child {
+.attend-info__event div p {
   margin-top: 4px;
 }
 .attend-info__option {
@@ -355,18 +355,18 @@
   background: #f8f8f8;
   border-radius: 4px;
 }
-.attend-info__option p:first-child {
+.attend-info__option h4 {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-.attend-info__option p:last-child {
+.attend-info__option p {
   margin-top: 4px;
 }
 .attend-info__change-option,
 .pay-info__select {
   display: flex;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 12px 12px 12px 16px;
   border: 0.5px solid #414040;
   box-sizing: border-box;
   border-radius: 4px;
@@ -374,7 +374,8 @@
 .attend-info__change-option {
   margin-top: 12px;
 }
-.attend-info__change-option p {
+.attend-info__change-option h4,
+.pay-info__select h4 {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
@@ -382,6 +383,11 @@
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+}
+.attend-info__cost span,
+.total-info span {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
 }
 .pay-info,
 .total-info {
