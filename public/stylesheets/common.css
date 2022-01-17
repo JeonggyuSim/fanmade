@@ -44,7 +44,7 @@ textarea {
 }
 .index .nav__index p,
 .search .nav__search p,
-.user .nav__user p,
+.my-profile .nav__user p,
 .more .nav__more p {
   color: #ec1a2e;
   font-family: 'DM Sans Bold';
@@ -108,7 +108,7 @@ input[type='radio']:checked + label::before {
 }
 .index .sprite.home-icon,
 .search .sprite.search-icon,
-.user .sprite.user-icon,
+.my-profile .sprite.user-icon,
 .more .sprite.more-icon {
   background-position-y: -100px;
 }
@@ -167,6 +167,16 @@ input[type='radio']:checked + label::before {
   width: 25px;
   height: 25px;
   background-position: -50px -200px;
+}
+.sprite.right-arrow2 {
+  width: 16px;
+  height: 16px;
+  background-position: -200px -200px;
+}
+.sprite.down-arrow2 {
+  width: 16px;
+  height: 16px;
+  background-position: -250px -200px;
 }
 
 /* common */
@@ -427,23 +437,44 @@ nav {
   border-radius: 12px 12px 0px 0px;
 }
 
-/* complete */
-.complete main {
-  display: flex;
-  flex-direction: column;
+/* tag box */
+.event--ing::after {
+  content: '모집 진행중';
+  border-color: #16c79a;
+  color: #16c79a;
 }
-.complete__title-wrapper {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+.event--end::after {
+  content: '모집 종료';
+  border-color: #555555;
+  color: #555555;
 }
-.complete__title-wrapper .title__sub {
-  margin-top: 13px;
+.event--cancel::after {
+  content: '행사 취소';
+  border-color: #ef4f4f;
+  color: #ef4f4f;
 }
-.complete__button-wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 26px;
+.event--wait::after {
+  content: '승인대기중';
+  border-color: #ffc107;
+  color: #ffc107;
+}
+.place--complete::after {
+  content: '예약 완료';
+  border-color: #16c79a;
+  color: #16c79a;
+}
+.place--decline::after {
+  content: '예약 불가';
+  border-color: #555555;
+  color: #555555;
+}
+.place--cancel::after {
+  content: '신청 취소';
+  border-color: #ef4f4f;
+  color: #ef4f4f;
+}
+.place--wait::after {
+  content: '승인대기중';
+  border-color: #ffc107;
+  color: #ffc107;
 }

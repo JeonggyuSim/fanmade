@@ -196,7 +196,7 @@
 .more section ul li {
   margin-bottom: 30px;
 }
-.more main a p {
+.more main a h3 {
   margin-left: 25px;
   font-family: 'DM Sans Medium';
   font-weight: 500;
@@ -546,6 +546,114 @@
   margin-bottom: 23px;
 }
 
+/* my profile */
+.personal-info {
+  display: flex;
+  position: relative;
+  margin-top: 32px;
+  padding: 16px;
+  box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
+  border-radius: 4px;
+}
+.personal-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.personal-info div a {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.member-level {
+  margin-top: 40px;
+}
+.member-level section {
+  display: flex;
+  align-items: center;
+  height: 106px;
+  margin-top: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+.member-level section div {
+  width: 50%;
+  text-align: center;
+}
+.member-level section div p {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.member-level section h3 {
+  margin-left: 35px;
+}
+.activity-history {
+  margin-top: 20px;
+}
+.activity-history li {
+  margin-bottom: 27px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #bbbbbb;
+}
+.activity-history li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-history li div h2 {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+
+.activity-history li div p {
+  margin-top: 4px;
+  font-size: 10px;
+}
+
+/* activity list */
+.activity__list li {
+  margin-top: 16px;
+  padding: 16px;
+  box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
+  border-radius: 4px;
+}
+.activity__list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e4e4e4;
+}
+.activity__list li::after {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 4px 12px;
+  border: 1px solid;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 10px;
+}
+.activity__list li a > div {
+  display: flex;
+}
+.activity__list li a img {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+.activity__list li a h2 {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+
+.activity__list li a p {
+  margin-top: 4px;
+  font-size: 10px;
+}
+
 /* notic */
 .notice-list {
   margin-top: 32px;
@@ -576,6 +684,27 @@
 }
 .notice-list li p {
   margin-top: 12px;
+}
+
+/* complete */
+.complete main {
+  display: flex;
+  flex-direction: column;
+}
+.complete__title-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.complete__title-wrapper .title__sub {
+  margin-top: 13px;
+}
+.complete__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
 }
 
 /* 404 */
