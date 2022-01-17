@@ -330,15 +330,15 @@
 }
 
 /* event attend */
-.attend-info {
+.event-attend .attend-info {
   padding: 32px 24px 0 24px;
   box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
 }
-.attend-info > div {
+.event-attend .attend-info > div {
   margin-top: 16px;
   padding: 12px 8px;
 }
-.attend-info__event {
+.event-attend .attend-info__event {
   display: flex;
 }
 .event-attend .event__main-image img {
@@ -346,24 +346,24 @@
   height: 56px;
   margin-right: 12px;
 }
-.attend-info__event div p {
+.event-attend .attend-info__event div p {
   margin-top: 4px;
 }
-.attend-info__option {
+.event-attend .attend-info__option {
   padding: 8px;
   margin-top: 12px;
   background: #f8f8f8;
   border-radius: 4px;
 }
-.attend-info__option h4 {
+.event-attend .attend-info__option h4 {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-.attend-info__option p {
+.event-attend .attend-info__option p {
   margin-top: 4px;
 }
-.attend-info__change-option,
-.pay-info__select {
+.event-attend .attend-info__change-option,
+.event-attend .pay-info__select {
   display: flex;
   justify-content: space-between;
   padding: 12px 12px 12px 16px;
@@ -371,39 +371,39 @@
   box-sizing: border-box;
   border-radius: 4px;
 }
-.attend-info__change-option {
+.event-attend .attend-info__change-option {
   margin-top: 12px;
 }
-.attend-info__change-option h4,
-.pay-info__select h4 {
+.event-attend .attend-info__change-option h4,
+.event-attend .pay-info__select h4 {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-.attend-info__cost {
+.event-attend .attend-info__cost {
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
 }
-.attend-info__cost span,
-.total-info span {
+.event-attend .attend-info__cost span,
+.event-attend .total-info span {
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-.pay-info,
-.total-info {
+.event-attend .pay-info,
+.event-attend .total-info {
   margin-top: 40px;
 }
-.pay-info__select {
+.event-attend .pay-info__select {
   margin-top: 16px;
 }
-.total-info section {
+.event-attend .total-info section {
   display: flex;
   justify-content: space-between;
 }
-.total-info section:first-of-type {
+.event-attend .total-info section:first-of-type {
   margin-top: 24px;
 }
-.total-info section:last-of-type {
+.event-attend .total-info section:last-of-type {
   margin-top: 20px;
   margin-bottom: 50px;
 }
@@ -558,6 +558,12 @@
   box-shadow: 0px 5px 30px -20px rgba(85, 85, 85, 0.25);
   border-radius: 4px;
 }
+.personal-info__image {
+  width: 64px;
+  height: 64px;
+  margin-right: 24px;
+  border-radius: 50%;
+}
 .personal-info div {
   display: flex;
   flex-direction: column;
@@ -585,7 +591,14 @@
   width: 50%;
   text-align: center;
 }
+.member-level__image {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border-radius: 50%;
+}
 .member-level section div p {
+  margin-top: 8px;
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
@@ -646,6 +659,7 @@
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  border-radius: 4px;
 }
 .activity__list li a h2 {
   font-family: 'DM Sans Bold';
@@ -655,6 +669,76 @@
 .activity__list li a p {
   margin-top: 4px;
   font-size: 10px;
+}
+
+/* attend_history.html */
+.attend-history .event-info {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+.attend-history .event-info img {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  border-radius: 4px;
+}
+.attend-history .event-info p {
+  margin-top: 8px;
+}
+.attend-history .detail-info {
+  margin-top: 32px;
+}
+.attend-history .detail-info h3 {
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e4e4e4;
+}
+.attend-history .detail-info > h4 {
+  margin-top: 16px;
+}
+.attend-history .detail-info div {
+  display: flex;
+  margin-top: 8px;
+}
+.attend-history .detail-info div span {
+  margin: 0 8px;
+}
+.attend-history .detail-info > p {
+  margin-top: 8px;
+  font-size: 10px;
+}
+.attend-history .detail-info section {
+  margin-top: 16px;
+  padding: 8px;
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+.attend-history .detail-info section h4 {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.attend-history .detail-info section p {
+  margin-top: 4px;
+}
+.attend-history .pay-info {
+  margin-top: 32px;
+}
+.attend-history .pay-info div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.attend-history .pay-info div:first-of-type {
+  margin-top: 20px;
+}
+.attend-history .pay-info h4 {
+  font-family: 'DM Sans Bold';
+  font-weight: 700;
+}
+.attend-history .a-btn {
+  margin-top: 32px;
+  border: 1px solid #16c79a;
+  color: #16c79a;
 }
 
 /* notic */

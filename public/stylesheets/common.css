@@ -255,6 +255,7 @@ img {
   color: #ffffff;
 }
 .a-btn {
+  display: inline-block;
   line-height: 40px;
   border-radius: 4px;
   color: #ffffff;
