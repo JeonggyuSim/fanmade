@@ -133,6 +133,11 @@ input[type='radio']:checked + label::before {
   height: 20px;
   background-position-x: -200px;
 }
+.sprite.like2-btn {
+  width: 20px;
+  height: 20px;
+  background-position-x: -250px;
+}
 .sprite.left-arrow {
   width: 20px;
   height: 20px;
