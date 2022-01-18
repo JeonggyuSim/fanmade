@@ -58,7 +58,7 @@ textarea {
   padding: 0;
   border: none;
   background: url(../images/sprite.png) no-repeat;
-  background-size: 270px 225px;
+  background-size: 270px 270px;
   text-indent: 101%;
   white-space: nowrap;
 }
@@ -70,7 +70,7 @@ input[type='radio'] + label::before {
   margin-top: 1 px;
   margin-right: 14px;
   background: url(../images/sprite.png) no-repeat;
-  background-size: 270px 225px;
+  background-size: 270px 270px;
   background-position-y: -150px;
 }
 input[type='radio']:checked + label::before {
@@ -183,6 +183,11 @@ input[type='radio']:checked + label::before {
   height: 16px;
   background-position: -250px -200px;
 }
+.sprite.photo-icon {
+  width: 20px;
+  height: 20px;
+  background-position-y: -250px;
+}
 
 /* common */
 a {
@@ -259,6 +264,12 @@ img {
   border-radius: 4px;
   color: #ffffff;
 }
+.btn2 {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+}
 .a-btn {
   display: inline-block;
   line-height: 40px;
@@ -282,7 +293,7 @@ img {
 /* input style */
 .input--bottom-line {
   border-bottom: 2px solid #696969;
-  outline-style: none;
+  outline: 0;
 }
 .input--box {
   min-height: 50px;
@@ -292,8 +303,9 @@ img {
   border-radius: 4px;
 }
 input[type='text']:read-only,
-input[type='tel']:read-only {
-  outline-style: none;
+input[type='tel']:read-only,
+input[type='email']:read-only {
+  outline: 0;
   cursor: default;
 }
 textarea {
@@ -336,6 +348,7 @@ header {
 .header-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 49px;
 }
 .header-wrapper div {
