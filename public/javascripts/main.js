@@ -3,6 +3,7 @@ const modal = document.querySelector('.modal');
 const calendar = document.querySelector('.calendar__datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
+const inputPersonalImg = document.querySelector('#input-personal-img');
 
 // 뒤로가기
 if (backBtn) {
@@ -139,7 +140,7 @@ if (eventAttend) {
   (function () {
     eventAttend.addEventListener('click', () => {
       location.href = "./attend_complete.html";
-    })
+    });
   })();
 
 }
@@ -149,6 +150,20 @@ if (placeBook) {
   (function () {
     placeBook.addEventListener('click', () => {
       location.href = "./book_complete.html";
+    });
+  })();
+}
+
+// 이미지 업로드
+if (inputPersonalImg) {
+  (function () {
+    inputPersonalImg.addEventListener('change', () => {
+      const personalImage = document.querySelector('.personal-img img');
+      let reader = new FileReader();
+      reader.addEventListener('load', (e) => {
+        personalImage.src = e.target.result;
+      });
+      if (inputPersonalImg.files[0]) reader.readAsDataURL(inputPersonalImg.files[0]);
     })
   })();
 }

@@ -195,7 +195,8 @@ a {
   text-decoration: none;
 }
 button,
-input[type='button'] {
+input[type='button'],
+input[type='file'] {
   cursor: pointer;
 }
 .hidden,

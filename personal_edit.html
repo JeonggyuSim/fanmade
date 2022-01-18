@@ -21,12 +21,18 @@
     </header>
     <main>
       <section class="personal-img">
-        <div>
+        <label for="input-personal-img">
           <img src="./public/images/profile_img.jpg" alt="profile_img.jpg" />
           <div>
-            <button type="button" class="sprite photo-icon"></button>
+            <input
+              type="file"
+              name=""
+              id="input-personal-img"
+              accept="image/*"
+              class="sprite photo-icon"
+            />
           </div>
-        </div>
+        </label>
       </section>
       <form action="" class="personal-form margin--side">
         <label for="" class="heading5">이름</label>

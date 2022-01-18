@@ -638,10 +638,14 @@
 .personal-img {
   text-align: center;
 }
-.personal-img > div {
+.personal-img > div,
+.personal-img label {
   display: inline-block;
   position: relative;
   margin-top: 32px;
+}
+.personal-img label {
+  cursor: pointer;
 }
 .personal-img img {
   position: relative;
@@ -649,7 +653,7 @@
   height: 88px;
   border-radius: 50%;
 }
-.personal-img div div {
+.personal-img label div {
   display: flex;
   position: absolute;
   justify-content: center;
