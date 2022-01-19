@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./public/stylesheets/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=375" />
+    <title>Fanmade</title>
+  </head>
+  <body class="creat_event">
+    <header>
+      <section class="header-wrapper margin--side">
+        <div>
+          <button type="button" class="sprite back-btn">
+            <span>뒤로 가기</span>
+          </button>
+          <h1 class="header__title heading4">행사 만들기</h1>
+        </div>
+      </section>
+    </header>
+    <main>
+      <form action="" class="paging-wrapper">
+        <ul class="paging">
+          <li class="paging__page">
+            <div class="margin--side">
+              <label for="" class="heading5">행사명을 작성해주세요.</label>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="ex) 최대 20자 이내"
+              />
+              <fieldset>
+                <legend class="heading5">
+                  모집 기간을 설정해주세요. (최대 30일)
+                </legend>
+                <div>
+                  <input type="date" name="" id="" />
+                  <span>~</span>
+                  <input type="date" name="" id="" />
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="heading5">행사 기간을 설정해주세요.</legend>
+                <div>
+                  <input type="date" name="" id="" />
+                  <span>~</span>
+                  <input type="date" name="" id="" />
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="heading5">행사 유형을 골라주세요.</legend>
+                <div>
+                  <input type="radio" name="" id="" />
+                  <input type="radio" name="" id="" />
+                  <input type="radio" name="" id="" />
+                </div>
+              </fieldset>
+            </div>
+          </li>
+          <li class="paging__page hidden">
+            <div class="margin--side">
+              <label for="" class="heading5">
+                행사 장소 주소를 선택해주세요.
+              </label>
+              <select name="">
+                <option value="none">예약된 장소 리스트</option>
+                <option value="">카페쇼파르</option>
+                <option value="">한솔이네 다방</option>
+              </select>
+              <label for="" class="heading5">
+                키워드를 입력해주세요. (최대 5개)
+              </label>
+              <input type="text" name=" " id="" />
+              <fieldset>
+                <legend class="heading5">
+                  대표 이미지를 첨부해주세요. (최대 5개)
+                </legend>
+                <ul>
+                  <li><input type="file" name="" id="" /></li>
+                  <li><input type="file" name="" id="" /></li>
+                  <li><input type="file" name="" id="" /></li>
+                  <li><input type="file" name="" id="" /></li>
+                  <li><input type="file" name="" id="" /></li>
+                </ul>
+              </fieldset>
+            </div>
+          </li>
+          <li class="paging__page hidden">
+            <div class="margin--side">
+              <label for="" class="heading5">
+                행사 안내 이미지를 첨부해주세요. (세로형, 최대 1개)
+              </label>
+              <input type="file" name="" id="" />
+              <label for="" class="heading5">
+                행사 안내 내용을 작성해주세요. (최대 500자)
+              </label>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+          </li>
+          <li class="paging__page hidden">
+            <div class="margin--side">
+              <fieldset class="option">
+                <legend class="heading5">
+                  옵션을 추가해주세요. (최대 3개)
+                </legend>
+                <fieldset class="option__content">
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                </fieldset>
+                <fieldset class="option__content">
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                </fieldset>
+                <fieldset class="option__content">
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                  <input type="text" name="" id="" />
+                </fieldset>
+              </fieldset>
+            </div>
+          </li>
+        </ul>
+        <section class="paging__btn margin--side">
+          <p>STEP <span>1</span> / <span></span></p>
+          <div>
+            <button type="button" class="btn btn--small btn--black">
+              이전
+            </button>
+            <button type="button" class="btn btn--small btn--red">다음</button>
+            <button type="button" class="btn btn--small btn--red hidden">
+              완료
+            </button>
+          </div>
+        </section>
+      </form>
+    </main>
+    <nav>
+      <ul class="nav__list">
+        <li class="nav__index">
+          <a href="./index.html">
+            <span class="sprite home-icon"></span>
+            <p>홈</p>
+          </a>
+        </li>
+        <li class="nav__search">
+          <a href="./search.html">
+            <span class="sprite search-icon"></span>
+            <p>검색</p>
+          </a>
+        </li>
+        <li class="nav__user">
+          <a href="./my_profile.html">
+            <span class="sprite user-icon"></span>
+            <p>내 정보</p>
+          </a>
+        </li>
+        <li class="nav__more">
+          <a href="./more.html">
+            <span class="sprite more-icon"></span>
+            <p>더 보기</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <script type="text/javascript" src="./public/javascripts/main.js"></script>
+  </body>
+</html>

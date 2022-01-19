@@ -100,8 +100,6 @@
 .header__search input {
   width: 259px;
   border: none;
-}
-.header__search input:focus {
   outline: none;
 }
 .search-recent {
@@ -215,6 +213,75 @@
 .more main a {
   display: flex;
   align-items: center;
+}
+
+/* create event */
+.paging-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.paging {
+  display: flex;
+}
+.paging__page {
+  flex: 0 0 375px;
+  min-height: calc(100vh - 80px - 92px - 132px);
+  padding-bottom: 132px;
+  overflow: hidden;
+}
+.paging__page > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 56px;
+}
+.paging__page label:not(:first-child),
+.paging__page fieldset:not(.option, .option__content) {
+  margin-top: 45px;
+}
+.paging__page fieldset div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.paging__page > input:not([type='text']),
+.paging__page textarea,
+.paging__page select {
+  margin-top: 20px;
+}
+.paging__page input[type='text'] {
+  width: 311px;
+  margin-top: 15px;
+  padding: 10px 8px 12px 8px;
+  border: none;
+  border-bottom: 2px solid #696969;
+  outline: none;
+}
+.paging__page input[type='date'],
+.paging__page select {
+  padding: 8px 8px;
+  border: 1px solid #bbbbbb;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+}
+.paging__page ul {
+  display: flex;
+  margin-top: 20px;
+}
+.paging__page .option .option__content:not(:first-of-type) {
+  margin-top: 65px;
+}
+.paging__btn {
+  position: absolute;
+  bottom: 26px;
+  width: 327px;
+  text-align: center;
+}
+.paging__btn div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
 }
 
 /* event detail*/
@@ -678,7 +745,7 @@
   padding: 10px 8px 12px 8px;
   border: none;
   border-bottom: 2px solid #696969;
-  outline-style: none;
+  outline: none;
 }
 .personal-form input:read-only {
   background: #f8f8f8;
@@ -721,7 +788,6 @@
   font-family: 'DM Sans Bold';
   font-weight: 700;
 }
-
 .activity__list li a p {
   margin-top: 4px;
   font-size: 10px;
@@ -732,7 +798,7 @@
   right: 16px;
 }
 
-/* attend_history.html */
+/* attend_history */
 .attend-history .event-info {
   display: flex;
   align-items: center;

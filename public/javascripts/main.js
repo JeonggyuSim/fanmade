@@ -4,6 +4,7 @@ const calendar = document.querySelector('.calendar__datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
 const inputPersonalImg = document.querySelector('#input-personal-img');
+const contentPaging = document.querySelectorAll('.paging__page');
 
 // 뒤로가기
 if (backBtn) {
@@ -165,6 +166,42 @@ if (inputPersonalImg) {
       });
       if (inputPersonalImg.files[0]) reader.readAsDataURL(inputPersonalImg.files[0]);
     })
+  })();
+}
+
+// 페이징
+if (contentPaging.length) {
+  (function () {
+    const pageTitle = document.querySelectorAll('.paging__btn p span');
+    const pageBtn = document.querySelectorAll('.paging__btn div .btn');
+    const currenPage = pageTitle[0];
+    const maxPage = pageTitle[1];
+    const previousPage = pageBtn[0];
+    const nextPage = pageBtn[1];
+    const completePage = pageBtn[2];
+    const maxPageNum = contentPaging.length;
+    maxPage.innerHTML = maxPageNum;
+    let pageNum = 0;
+
+    function pageHandler(n) {
+      if (pageNum + n < 0) return;
+      else if (pageNum + n >= maxPageNum) return;
+      else if (pageNum === maxPageNum - 1 && n === -1) {
+        nextPage.classList.remove('hidden');
+        completePage.classList.add('hidden');
+      }
+      contentPaging[pageNum].classList.toggle('hidden');
+      pageNum += n;
+      currenPage.innerHTML = pageNum + 1;
+      contentPaging[pageNum].classList.toggle('hidden');
+      if (pageNum === maxPageNum - 1) {
+        nextPage.classList.add('hidden');
+        completePage.classList.remove('hidden');
+      }
+    }
+
+    previousPage.addEventListener('click', () => pageHandler(-1));
+    nextPage.addEventListener('click', () => pageHandler(1));
   })();
 }
 
