@@ -62,7 +62,7 @@ textarea {
   text-indent: 101%;
   white-space: nowrap;
 }
-input[type='radio'] + label::before {
+.event-detail input[type='radio'] + label::before {
   content: '';
   display: inline-block;
   width: 26px;
@@ -73,7 +73,7 @@ input[type='radio'] + label::before {
   background-size: 270px 270px;
   background-position-y: -150px;
 }
-input[type='radio']:checked + label::before {
+.event-detail input[type='radio']:checked + label::before {
   background-position-x: -50px;
 }
 .sprite.logo-icon {

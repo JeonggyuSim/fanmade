@@ -51,9 +51,18 @@
               <fieldset>
                 <legend class="heading5">행사 유형을 골라주세요.</legend>
                 <div>
-                  <input type="radio" name="" id="" />
-                  <input type="radio" name="" id="" />
-                  <input type="radio" name="" id="" />
+                  <input type="radio" name="event-type" id="option1" />
+                  <label for="option1">
+                    <section><p>기념일 카페</p></section>
+                  </label>
+                  <input type="radio" name="event-type" id="option2" />
+                  <label for="option2">
+                    <section><p>지하철 광고</p></section>
+                  </label>
+                  <input type="radio" name="event-type" id="option3" />
+                  <label for="option3">
+                    <section><p>팝업스토어</p></section>
+                  </label>
                 </div>
               </fieldset>
             </div>
@@ -64,7 +73,7 @@
                 행사 장소 주소를 선택해주세요.
               </label>
               <select name="">
-                <option value="none">예약된 장소 리스트</option>
+                <option value="none" class="hidden">예약된 장소 리스트</option>
                 <option value="">카페쇼파르</option>
                 <option value="">한솔이네 다방</option>
               </select>
@@ -95,7 +104,18 @@
               <label for="" class="heading5">
                 행사 안내 내용을 작성해주세요. (최대 500자)
               </label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="예시)
+
+1. 1인 1음료 구매시 기본 굿즈(컵홀더) 증정
+2. 일반 참여 수요조사 참여자 랜덤굿즈 증정
+3. 후기 공유 이벤트
+4. 안내 문의는 카카오 오픈톡으로 문의"
+              ></textarea>
             </div>
           </li>
           <li class="paging__page hidden">
@@ -105,19 +125,64 @@
                   옵션을 추가해주세요. (최대 3개)
                 </legend>
                 <fieldset class="option__content">
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) 일반 참여 / 수요조사용 (타이틀, 20자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) 이벤트 알림 및 랜덤 게임 참가 1회 (세부내용, 25자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="금액을 입력해주세요. (숫자만)"
+                  />
                 </fieldset>
                 <fieldset class="option__content">
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) A 굿즈 구매 (타이틀, 20자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) A 굿즈 구매 (타이틀, 20자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="금액을 입력해주세요. (숫자만)"
+                  />
                 </fieldset>
                 <fieldset class="option__content">
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) B 굿즈 구매 (타이틀, 20자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) 포토카드 5종, 포토바인더 (세부내용, 25자 이내)"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="ex) 포토카드 5종, 포토바인더 (세부내용, 25자 이내)"
+                  />
                 </fieldset>
               </fieldset>
             </div>

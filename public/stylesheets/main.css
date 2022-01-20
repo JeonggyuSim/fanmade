@@ -234,7 +234,7 @@
   flex-direction: column;
   margin-top: 56px;
 }
-.paging__page label:not(:first-child),
+.paging__page > div > label:not(:first-child),
 .paging__page fieldset:not(.option, .option__content) {
   margin-top: 45px;
 }
@@ -265,9 +265,25 @@
   border-radius: 4px;
   outline: none;
 }
+.paging__page input[type='radio'] + label {
+  min-width: 98px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #bbbbbb;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 32px;
+}
 .paging__page ul {
   display: flex;
   margin-top: 20px;
+}
+.paging__page textarea {
+  padding: 16px;
+  border: 1px solid #bbbbbb;
+  box-sizing: border-box;
+  border-radius: 2px;
 }
 .paging__page .option .option__content:not(:first-of-type) {
   margin-top: 65px;
