@@ -7,6 +7,8 @@ const inputPersonalImg = document.querySelector('#input-personal-img');
 const contentPaging = document.querySelectorAll('.multi-step__tab');
 const dropDownBtn = document.querySelectorAll('button.drop-down__btn');
 const tagInput = document.querySelector('#creat-event__tag-input');
+const imageMutiInput = document.querySelector('#creat-event__main-image');
+const descImageInput = document.querySelector('#creat-event__desc-image');
 
 // 뒤로가기
 if (backBtn) {
@@ -161,13 +163,72 @@ if (placeBook) {
 if (inputPersonalImg) {
   (function () {
     inputPersonalImg.addEventListener('change', () => {
-      const personalImage = document.querySelector('.personal-img img');
-      let reader = new FileReader();
+      if (!inputPersonalImg.files[0]) return;
+      const reader = new FileReader();
       reader.addEventListener('load', (e) => {
+        const personalImage = document.querySelector('.personal-img img');
         personalImage.src = e.target.result;
       });
-      if (inputPersonalImg.files[0]) reader.readAsDataURL(inputPersonalImg.files[0]);
+      reader.readAsDataURL(inputPersonalImg.files[0]);
+    });
+  })();
+}
+
+if (descImageInput) {
+  (function () {
+    const imageBtnWrapper = document.querySelectorAll('.desc-image__btn-wrapper > *');
+    const imageLabel = imageBtnWrapper[0];
+    const imageBtn = imageBtnWrapper[1];
+    const viewBtn = imageBtnWrapper[2];
+
+    descImageInput.addEventListener('change', () => {
+      if (!descImageInput.files[0]) return;
+      imageLabel.classList.add('hidden');
+      imageBtn.classList.remove('hidden');
+      imageBtn.children[0].innerHTML = descImageInput.files[0].name;
+    });
+    imageBtn.addEventListener('click', () => {
+      imageLabel.classList.remove('hidden');
+      imageBtn.classList.add('hidden');
     })
+  })();
+}
+
+// 이미지 여러개 
+if (imageMutiInput) {
+  (function () {
+    imageMutiInput.addEventListener('change', () => {
+      if (!imageMutiInput.files) return;
+      const imageArr = Array.from(imageMutiInput.files);
+      const imageView = document.querySelector('.main-image__list');
+      const imageViewList = document.querySelectorAll('.main-image__list li');
+      const inputImage = document.querySelectorAll('.main-image__list li img');
+
+      if ((inputImage.length + imageArr.length) > 5) return alert("5개 초과");
+      imageArr.forEach((file, index) => {
+        const reader = new FileReader();
+        const image = document.createElement('img');
+        const button = document.createElement('button');
+        button.type = "button";
+        button.classList = "sprite x-icon";
+
+        image.addEventListener('click', (event) => {
+          event.preventDefault();
+        });
+        button.addEventListener('click', function (event) {
+          event.preventDefault();
+          this.parentNode.remove();
+          const li = document.createElement('li');
+          imageView.appendChild(li);
+        });
+        reader.addEventListener('load', (e) => {
+          image.src = e.target.result;
+        });
+        imageViewList[inputImage.length + index].appendChild(image);
+        imageViewList[inputImage.length + index].appendChild(button);
+        reader.readAsDataURL(file);
+      });
+    });
   })();
 }
 
@@ -193,7 +254,7 @@ if (dropDownBtn) {
     dropDownList.forEach((element) => {
       element.addEventListener('click', function () {
         selectedList = this.innerHTML;
-        this.parentNode.previousElementSibling.childNodes[1].innerHTML = selectedList;
+        this.parentNode.previousElementSibling.children[0].innerHTML = selectedList;
       })
     })
   })();
@@ -206,14 +267,11 @@ if (tagInput) {
     const tag = tagList.childNodes;
 
     tagInput.addEventListener('change', () => {
-      if (tag.length > 4) {
-        alert("5개 초과");
-        return;
-      }
+      if (tag.length > 4) return alert("5개 초과");
       tag.forEach((element) => {
         if (element.innerText === tagInput.value) {
-          alert("중복");
           tagInput.value = "";
+          alert("중복");
         }
       });
       if (!tagInput.value) return;

@@ -295,10 +295,23 @@
   display: flex;
   margin-top: 20px;
 }
-.creat-event .main-image__list img {
+.creat-event .main-image__list li {
+  position: relative;
   width: 164px;
   height: 123px;
   margin-right: 8px;
+  background: url(../images/image_default.png) no-repeat;
+  background-size: 164px 123px;
+}
+.creat-event .main-image__list img {
+  width: 164px;
+  height: 123px;
+}
+.creat-event .main-image__list button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 98;
 }
 .creat-event .desc-image__btn-wrapper {
   display: flex;
