@@ -5,7 +5,7 @@ const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
 const inputPersonalImg = document.querySelector('#input-personal-img');
 const contentPaging = document.querySelectorAll('.multi-step__tab');
-const dropDownBtn = document.querySelectorAll('.drop-down__btn');
+const dropDownBtn = document.querySelectorAll('button.drop-down__btn');
 const tagInput = document.querySelector('#creat-event__tag-input');
 
 // 뒤로가기
@@ -199,6 +199,7 @@ if (dropDownBtn) {
   })();
 }
 
+// 태그 입력
 if (tagInput) {
   (function () {
     const tagList = document.querySelector('.tag__list');
