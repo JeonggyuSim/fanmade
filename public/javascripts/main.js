@@ -4,7 +4,8 @@ const calendar = document.querySelector('.calendar__datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
 const inputPersonalImg = document.querySelector('#input-personal-img');
-const contentPaging = document.querySelectorAll('.paging__page');
+const contentPaging = document.querySelectorAll('.multi-step__tab');
+const dropDownBtn = document.querySelectorAll('.drop-down__btn');
 
 // 뒤로가기
 if (backBtn) {
@@ -169,11 +170,39 @@ if (inputPersonalImg) {
   })();
 }
 
+// 드롭 다운 버튼
+if (dropDownBtn) {
+  (function () {
+    const dropDownList = document.querySelectorAll('.drop-down__menu li');
+
+    dropDownBtn.forEach((element) => {
+      element.addEventListener('click', function () {
+        const dropDownMenu = this.nextElementSibling;
+        dropDownMenu.classList.toggle('hidden');
+      });
+    });
+    window.addEventListener('click', (event) => {
+      if (!event.target.matches('.drop-down__btn')) {
+        const dropDownMenus = document.querySelectorAll('.drop-down__menu');
+        dropDownMenus.forEach((element) => {
+          element.classList.add('hidden');
+        })
+      }
+    });
+    dropDownList.forEach((element) => {
+      element.addEventListener('click', function () {
+        selectedList = this.innerHTML;
+        this.parentNode.previousElementSibling.childNodes[1].innerHTML = selectedList;
+      })
+    })
+  })();
+}
+
 // 페이징
 if (contentPaging.length) {
   (function () {
-    const pageTitle = document.querySelectorAll('.paging__btn p span');
-    const pageBtn = document.querySelectorAll('.paging__btn div .btn');
+    const pageTitle = document.querySelectorAll('.multi-step-form__btn p span');
+    const pageBtn = document.querySelectorAll('.multi-step-form__btn div .btn');
     const currenPage = pageTitle[0];
     const maxPage = pageTitle[1];
     const previousPage = pageBtn[0];
