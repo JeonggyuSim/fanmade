@@ -276,19 +276,19 @@
 }
 .creat-event .tag__list {
   display: flex;
-  margin-top: 15px;
+  flex-wrap: wrap;
 }
-.creat-event .tag__list button {
+.creat-event .tag__list li {
   display: flex;
   align-items: center;
   height: 24px;
+  margin-top: 15px;
   margin-right: 8px;
   padding: 0 12px;
   background: #f5f5f5;
   border-radius: 24px;
-  border: none;
 }
-.creat-event .tag__list button .sprite {
+.creat-event .tag__list li .sprite {
   margin-left: 8px;
 }
 .creat-event .main-image__list {

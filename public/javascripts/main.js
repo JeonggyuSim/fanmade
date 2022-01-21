@@ -6,6 +6,7 @@ const eventAttend = document.querySelector('.event-attend .btn');
 const inputPersonalImg = document.querySelector('#input-personal-img');
 const contentPaging = document.querySelectorAll('.multi-step__tab');
 const dropDownBtn = document.querySelectorAll('.drop-down__btn');
+const tagInput = document.querySelector('#creat-event__tag-input');
 
 // 뒤로가기
 if (backBtn) {
@@ -195,6 +196,36 @@ if (dropDownBtn) {
         this.parentNode.previousElementSibling.childNodes[1].innerHTML = selectedList;
       })
     })
+  })();
+}
+
+if (tagInput) {
+  (function () {
+    const tagList = document.querySelector('.tag__list');
+    const tag = tagList.childNodes;
+
+    tagInput.addEventListener('change', () => {
+      if (tag.length > 4) {
+        alert("5개 초과");
+        return;
+      }
+      tag.forEach((element) => {
+        if (element.innerText === tagInput.value) {
+          alert("중복");
+          tagInput.value = "";
+        }
+      });
+      if (!tagInput.value) return;
+
+      let li = document.createElement('li');
+      li.innerHTML = `<span>${tagInput.value}</span><span class="sprite x-icon"></span>`;
+      li.addEventListener('click', function () {
+        this.remove();
+      });
+      tagList.appendChild(li);
+      tagInput.value = "";
+    })
+
   })();
 }
 
