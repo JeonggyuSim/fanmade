@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=375" />
     <title>Fanmade</title>
   </head>
-  <body class="creat-event">
+  <body class="create-event">
     <header>
       <section class="header-wrapper margin--side">
         <div>
@@ -23,13 +23,13 @@
         <ul class="multi-step">
           <li class="multi-step__tab">
             <div class="margin--side">
-              <label for="creat-event__location" class="heading5">
+              <label for="create-event__location" class="heading5">
                 행사 장소 주소를 선택해주세요.
               </label>
               <input
                 type="hidden"
-                name="creat-event__location"
-                id="creat-event__location"
+                name="create-event__location"
+                id="create-event__location"
                 required
               />
               <section class="drop-down">
@@ -42,39 +42,39 @@
                   <li>한솔이네 다방</li>
                 </ul>
               </section>
-              <label for="creat-event__title" class="heading5">
+              <label for="create-event__title" class="heading5">
                 행사명을 작성해주세요.
               </label>
               <input
                 type="text"
-                name="creat-event__title"
-                id="creat-event__title"
+                name="create-event__title"
+                id="create-event__title"
                 placeholder="ex) 최대 20자 이내"
                 autocomplete="off"
                 required
               />
-              <label for="creat-event__preiod" class="heading5">
+              <label for="create-event__preiod" class="heading5">
                 행사 기간을 확인해주세요.
               </label>
               <input
                 type="text"
-                name="creat-event__preiod"
-                id="creat-event__preiod"
+                name="create-event__preiod"
+                id="create-event__preiod"
                 placeholder="YY.MM.DD - YY.MM.DD"
-                value="21년 4월 6일 - 21년 4월 10일"
+                value="22년 4월 6일 - 22년 4월 10일"
                 class="input--box"
                 readonly
                 required
               />
-              <label for="creat-event__apply-preiod" class="heading5">
+              <label for="create-event__apply-preiod" class="heading5">
                 모집 기간을 설정해주세요. (최대 30일)
               </label>
               <input
                 type="text"
-                name="creat-event__apply-preiod"
-                id="creat-event__apply-preiod"
+                name="create-event__apply-preiod"
+                id="create-event__apply-preiod"
                 placeholder="YY.MM.DD - YY.MM.DD"
-                class="input--box"
+                class="calendar-btn input--box"
                 readonly
                 required
               />
@@ -82,36 +82,36 @@
           </li>
           <li class="multi-step__tab hidden">
             <div class="margin--side">
-              <fieldset class="creat-event__type-wrapper">
+              <fieldset class="create-event__type-wrapper">
                 <legend class="heading5">행사 유형을 골라주세요.</legend>
                 <div>
                   <input
                     type="radio"
-                    name="creat-event__type"
+                    name="create-event__type"
                     id="option1"
                     required
                   />
                   <label for="option1">기념일 카페</label>
-                  <input type="radio" name="creat-event__type" id="option2" />
+                  <input type="radio" name="create-event__type" id="option2" />
                   <label for="option2">지하철 광고</label>
-                  <input type="radio" name="creat-event__type" id="option3" />
+                  <input type="radio" name="create-event__type" id="option3" />
                   <label for="option3">팝업스토어</label>
                 </div>
               </fieldset>
-              <label for="creat-event__tag" class="heading5">
+              <label for="create-event__tag" class="heading5">
                 키워드를 입력해주세요. (최대 5개)
               </label>
               <input
                 type="hidden"
-                name="creat-event__tag"
-                id="creat-event__tag"
+                name="create-event__tag"
+                id="create-event__tag"
                 required
               />
               <ul class="tag__list"></ul>
               <input
                 type="text"
-                name="creat-event__tag-input"
-                id="creat-event__tag-input"
+                name="create-event__tag-input"
+                id="create-event__tag-input"
                 placeholder="원하는 키워드를 여기에 작성해주세요. "
                 autocomplete="off"
               />
@@ -121,14 +121,14 @@
                 </legend>
                 <input
                   type="file"
-                  name="creat-event__main-image"
-                  id="creat-event__main-image"
+                  name="create-event__main-image"
+                  id="create-event__main-image"
                   accept="image/jpg, image/jpeg, image/png"
                   class="hidden"
                   multiple
                   required
                 />
-                <label for="creat-event__main-image">
+                <label for="create-event__main-image">
                   <ul class="main-image__list">
                     <li></li>
                     <li></li>
@@ -148,14 +148,14 @@
                 </legend>
                 <input
                   type="file"
-                  name="creat-event__desc-image"
-                  id="creat-event__desc-image"
+                  name="create-event__desc-image"
+                  id="create-event__desc-image"
                   accept="image/jpg, image/jpeg, image/png"
                   class="hidden"
                   required
                 />
                 <section class="desc-image__btn-wrapper">
-                  <label for="creat-event__desc-image">이미지 첨부</label>
+                  <label for="create-event__desc-image">이미지 첨부</label>
                   <button type="button" class="hidden">
                     <span class="eliipsis--single">이미지 선택</span>
                     <span class="sprite x-icon2"></span>
@@ -183,13 +183,13 @@
           </li>
           <li class="multi-step__tab hidden">
             <div class="margin--side">
-              <label for="creat-event__options" class="heading5">
+              <label for="create-event__options" class="heading5">
                 옵션을 추가해주세요. (최대 3개)
               </label>
               <input
                 type="hidden"
-                name="creat-event__options"
-                id="creat-event__options"
+                name="create-event__options"
+                id="create-event__options"
                 required
               />
               <div>
@@ -279,6 +279,39 @@
           </div>
         </section>
       </form>
+      <section class="calendar-modal modal hidden">
+        <section class="modal__background"></section>
+        <section class="modal__option">
+          <section class="option__calendar">
+            <section class="calendar__title">
+              <button type="button" class="sprite left-arrow">
+                <span><</span>
+              </button>
+              <h3 class="heading3"></h3>
+              <button type="button" class="sprite right-arrow">
+                <span>></span>
+              </button>
+            </section>
+            <table class="calendar__datepicker">
+              <thead>
+                <tr>
+                  <th>일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th>토</th>
+                </tr>
+              </thead>
+              <tbody data-max-period="28"></tbody>
+            </table>
+          </section>
+          <button type="button" class="option__btn btn btn--large btn--red">
+            선택 완료
+          </button>
+        </section>
+      </section>
     </main>
     <nav>
       <ul class="nav__list">

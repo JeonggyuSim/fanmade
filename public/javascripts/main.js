@@ -27,11 +27,13 @@ if (modal) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
-    const modalBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
-    const optionBtn = modalBtn[0];
+    const detailBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
+    const datepickerBtn = document.querySelector('.create-event .calendar-btn');
+    const optionBtn = detailBtn[0];
+    const completeBtn = detailBtn[1];
     const eventOptionBtn = document.querySelector('.event-detail .option__btn');
     const placeOptionBtn = document.querySelector('.place-detail .option__btn');
-    const completeBtn = modalBtn[1];
+
 
     function modalOpenHandler() {
       body.classList.add('overflow--hidden');
@@ -43,8 +45,9 @@ if (modal) {
       modal.classList.add('hidden');
     }
 
-    optionBtn.addEventListener('click', modalOpenHandler);
     modalBackground.addEventListener('click', modalCloseHandler);
+
+    if (optionBtn) optionBtn.addEventListener('click', modalOpenHandler);
 
     if (eventOptionBtn) {
       (function () {
@@ -137,6 +140,18 @@ if (modal) {
         });
       })();
     }
+
+    if (datepickerBtn) {
+      (function () {
+        calendar.dataset.maxDate = JSON.stringify({ year: 2022, month: 3, date: 6 });
+
+        datepickerBtn.addEventListener('click', () => {
+          body.classList.add('overflow--hidden');
+          modal.classList.remove('hidden');
+        });
+      })();
+    }
+
   })();
 }
 
@@ -328,7 +343,7 @@ if (contentPaging.length) {
 // 달력
 if (calendar) {
   (function () {
-    const optionBtn = document.querySelector('.detail-bar__button-wrapper .btn:first-child');
+    const optionBtn = document.querySelector('.calendar-btn');
     const calendarTitle = document.querySelector('.calendar__title h3');
     const previousBtn = document.querySelector('.calendar__title .sprite.left-arrow');
     const nextBtn = document.querySelector('.calendar__title .sprite.right-arrow');
@@ -336,7 +351,7 @@ if (calendar) {
     const BTN_CLASS = "datepicker__date date--btn";
     const SELECTED_CLASS = "datepicker__date date--btn date--selected";
     const MAX_BLOCK_CLASS = "datepicker__date date--max-blocked";
-    const MAX_PERIOD = 14;
+    const MAX_PERIOD = Number(calendar.dataset.maxPeriod);
 
     function makeTableData(year, month, date, row, cellClass) {
       cell = row.insertCell();
@@ -350,7 +365,7 @@ if (calendar) {
     }
 
     function makeCalendar() {
-      let lastDate = new Date(year, month + 1, 0).getDate();
+      const lastDate = new Date(year, month + 1, 0).getDate();
       let insertDay = new Date(year, month, 1).getDay();
 
       calendarTitle.innerHTML = `${year}. ${month + 1}월`;
@@ -375,12 +390,7 @@ if (calendar) {
     }
 
     function moveMonthHandler(n) {
-      let calendarDate = new Date(year, month + n + 1, 1);
-      let maxCalendarFullDate = new Date(currentYear, currentMonth, currentDate + 90);
-      let maxCalendarYear = maxCalendarFullDate.getFullYear();
-      let maxCalendarMonth = maxCalendarFullDate.getMonth();
-      let maxCalendarDate = maxCalendarFullDate.getDate();
-      let maxCalendar = new Date(maxCalendarYear, maxCalendarMonth + 1, 1);
+      const calendarDate = new Date(year, month + n + 1, 1);
 
       if (today > calendarDate) return;
       else if (calendarDate > maxCalendar) return;
@@ -392,13 +402,13 @@ if (calendar) {
         year += 1;
         month -= 12;
       }
-      let lastDate = new Date(year, month + 1, 0).getDate();
+      const lastDate = new Date(year, month + 1, 0).getDate();
       makeCalendar();
       if (currentYear === year && currentMonth === month) {
         blockTableData(pastArray);
       }
       else if (maxCalendarYear === year && maxCalendarMonth === month) {
-        let blockArray = [];
+        const blockArray = [];
 
         for (let i = maxCalendarDate; i <= lastDate; i++) {
           blockArray[i - maxCalendarDate] = { year: maxCalendarYear, month: maxCalendarMonth, date: i };
@@ -426,42 +436,44 @@ if (calendar) {
     }
 
     function addSelectedStyle() {
-      let dateBtn = document.querySelectorAll(".date--btn");
-      let selectedBtn = document.querySelectorAll(".date--selected");
-      let maxBlockedBtn = document.querySelectorAll(".date--max-blocked");
-      let selectedDataset = calendar.dataset.selectedDate;
+      const dateBtn = document.querySelectorAll(".date--btn");
+      const selectedBtn = document.querySelectorAll(".date--selected");
+      const maxBlockedBtn = document.querySelectorAll(".date--max-blocked");
+      const selectedDataset = calendar.dataset.selectedDate;
       let selectedArray = [];
       let dateSelector, checkBtn;
-      let lastDate = new Date(year, month + 1, 0).getDate();
+      const lastDate = new Date(year, month + 1, 0).getDate();
 
       if (selectedDataset) {
         selectedArray = JSON.parse(selectedDataset);
-        let selectedFullDate1 = selectedArray[0];
-        let selectedYear1 = Number(selectedFullDate1.year);
-        let selectedMonth1 = Number(selectedFullDate1.month);
-        let selectedDate1 = Number(selectedFullDate1.date);
+        const selectedFullDate1 = selectedArray[0];
+        const selectedYear1 = Number(selectedFullDate1.year);
+        const selectedMonth1 = Number(selectedFullDate1.month);
+        const selectedDate1 = Number(selectedFullDate1.date);
 
         if (selectedArray.length === 1) {
           if (selectedYear1 == year && selectedMonth1 == month) {
             selectedBtn.forEach((element) => {
               element.classList = BTN_CLASS;
             });
-            for (i = selectedDate1 + MAX_PERIOD; i <= lastDate; i++) {
-              if (i <= lastDate) {
-                dateSelector = `.date--btn[data-date="${i}"]`;
-                checkBtn = document.querySelector(dateSelector);
-                if (checkBtn) checkBtn.classList = MAX_BLOCK_CLASS;
+            if (MAX_PERIOD) {
+              for (i = selectedDate1 + MAX_PERIOD; i <= lastDate; i++) {
+                if (i <= lastDate) {
+                  dateSelector = `.date--btn[data-date="${i}"]`;
+                  checkBtn = document.querySelector(dateSelector);
+                  if (checkBtn) checkBtn.classList = MAX_BLOCK_CLASS;
+                }
               }
             }
             dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
             document.querySelector(dateSelector).classList = SELECTED_CLASS;
           }
-          else if (new Date(year, month, 1) > new Date(selectedYear1, selectedMonth1, 1)) {
+          else if (MAX_PERIOD && new Date(year, month, 1) > new Date(selectedYear1, selectedMonth1, 1)) {
             dateBtn.forEach((element) => {
               element.classList = MAX_BLOCK_CLASS;
             });
-            let selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
-            let selectedNext = new Date(selectedYear1, selectedMonth1 + 1, 1);
+            const selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
+            const selectedNext = new Date(selectedYear1, selectedMonth1 + 1, 1);
 
             if (selectedNext.getFullYear() === year && selectedNext.getMonth() === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
               for (i = 1; i < selectedDate1 + MAX_PERIOD - selectedLastDate; i++) {
@@ -476,9 +488,9 @@ if (calendar) {
           }
         }
         else if (selectedArray.length === 2) {
-          let selectedFullDate2 = selectedArray[1];
-          let selectedYear2 = Number(selectedFullDate2.year);
-          let selectedMonth2 = Number(selectedFullDate2.month);
+          const selectedFullDate2 = selectedArray[1];
+          const selectedYear2 = Number(selectedFullDate2.year);
+          const selectedMonth2 = Number(selectedFullDate2.month);
           let selectedDate2 = Number(selectedFullDate2.date);
 
           if (selectedYear1 === year && selectedMonth1 === month) {
@@ -520,22 +532,22 @@ if (calendar) {
     }
 
     function clickBtnHandler(event) {
-      let targetDate = event.currentTarget;
-      let selectedDataset = calendar.dataset.selectedDate;
+      const targetDate = event.currentTarget;
+      const selectedDataset = calendar.dataset.selectedDate;
       let selectedArray = [];
 
       if (selectedDataset) {
         selectedArray = JSON.parse(selectedDataset);
         if (selectedArray.length === 1) {
-          let selectedDate = selectedArray[0];
+          const selectedDate = selectedArray[0];
 
           if (JSON.stringify(selectedDate) === JSON.stringify(targetDate.dataset)) {
             calendar.dataset.selectedDate = "";
             addSelectedStyle();
             return;
           }
-          let selectedDate1 = new Date(selectedDate.year, selectedDate.month, selectedDate.date);
-          let selectedDate2 = new Date(targetDate.dataset.year, targetDate.dataset.month, targetDate.dataset.date);
+          const selectedDate1 = new Date(selectedDate.year, selectedDate.month, selectedDate.date);
+          const selectedDate2 = new Date(targetDate.dataset.year, targetDate.dataset.month, targetDate.dataset.date);
           if (selectedDate1 > selectedDate2) {
             selectedArray = [targetDate.dataset];
             calendar.dataset.selectedDate = JSON.stringify(selectedArray);
@@ -556,11 +568,12 @@ if (calendar) {
     }
 
     function addClickEvent() {
-      let dateBtn = document.querySelectorAll(".date--btn");
+      const dateBtn = document.querySelectorAll(".date--btn");
       dateBtn.forEach((element) => {
         element.addEventListener('click', clickBtnHandler);
       });
     }
+
 
     const today = new Date();
     const currentYear = today.getFullYear();
@@ -568,8 +581,25 @@ if (calendar) {
     const currentDate = today.getDate();
     let year = today.getFullYear();
     let month = today.getMonth();
+    let maxCalendarFullDate;
+    const maxDataset = calendar.dataset.maxDate;
+
+    if (maxDataset) {
+      const maxDate = JSON.parse(maxDataset);
+      maxCalendarFullDate = new Date(maxDate.year, maxDate.month, maxDate.date);
+
+    }
+    else {
+      maxCalendarFullDate = new Date(currentYear, currentMonth, currentDate + 90);
+    }
+    const maxCalendarYear = maxCalendarFullDate.getFullYear();
+    const maxCalendarMonth = maxCalendarFullDate.getMonth();
+    const maxCalendarDate = maxCalendarFullDate.getDate();
+    const maxCalendar = new Date(maxCalendarYear, maxCalendarMonth + 1, 1);
+
+
     makeCalendar();
-    let pastArray = [];
+    const pastArray = [];
     for (let i = 1; i < currentDate; i++) {
       pastArray[i - 1] = { year: currentYear, month: currentMonth, date: i };
     }
