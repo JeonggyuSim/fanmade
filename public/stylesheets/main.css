@@ -215,7 +215,7 @@
   align-items: center;
 }
 
-/* createe event */
+/* create event */
 .multi-step-form {
   overflow: hidden;
   position: relative;
@@ -240,7 +240,8 @@
 }
 .multi-step__tab > div > input,
 .multi-step__tab textarea,
-.multi-step__tab section {
+.multi-step__tab section,
+.multi-step__tab > div > button {
   margin-top: 20px;
 }
 .multi-step__tab .input--box {

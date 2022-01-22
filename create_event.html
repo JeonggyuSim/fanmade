@@ -53,31 +53,30 @@
                 autocomplete="off"
                 required
               />
-              <label for="create-event__preiod" class="heading5">
+              <label for="create-event__period" class="heading5">
                 행사 기간을 확인해주세요.
               </label>
               <input
-                type="text"
-                name="create-event__preiod"
-                id="create-event__preiod"
-                placeholder="YY.MM.DD - YY.MM.DD"
-                value="22년 4월 6일 - 22년 4월 10일"
-                class="input--box"
-                readonly
+                type="hidden"
+                name="create-event__period"
+                id="create-event__period"
                 required
               />
-              <label for="create-event__apply-preiod" class="heading5">
+              <section class="input--box">
+                <span>YY.MM.DD - YY.MM.DD</span>
+              </section>
+              <label for="create-event__apply-period" class="heading5">
                 모집 기간을 설정해주세요. (최대 30일)
               </label>
               <input
-                type="text"
-                name="create-event__apply-preiod"
-                id="create-event__apply-preiod"
-                placeholder="YY.MM.DD - YY.MM.DD"
-                class="calendar-btn input--box"
-                readonly
+                type="hidden"
+                name="create-event__apply-period"
+                id="create-event__apply-period"
                 required
               />
+              <button type="button" class="calendar-btn input--box">
+                YY.MM.DD - YY.MM.DD
+              </button>
             </div>
           </li>
           <li class="multi-step__tab hidden">

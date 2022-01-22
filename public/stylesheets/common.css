@@ -313,6 +313,8 @@ img {
   box-sizing: border-box;
   border-radius: 4px;
   outline: 0;
+  background: none;
+  color: #bbbbbb;
 }
 input[type='text']:read-only,
 input[type='tel']:read-only,

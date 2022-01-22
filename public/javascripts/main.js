@@ -6,9 +6,9 @@ const eventAttend = document.querySelector('.event-attend .btn');
 const inputPersonalImg = document.querySelector('#input-personal-img');
 const contentPaging = document.querySelectorAll('.multi-step__tab');
 const dropDownBtn = document.querySelectorAll('button.drop-down__btn');
-const tagInput = document.querySelector('#creat-event__tag-input');
-const imageMutiInput = document.querySelector('#creat-event__main-image');
-const descImageInput = document.querySelector('#creat-event__desc-image');
+const tagInput = document.querySelector('#create-event__tag-input');
+const imageMutiInput = document.querySelector('#create-event__main-image');
+const descImageInput = document.querySelector('#create-event__desc-image');
 
 // 뒤로가기
 if (backBtn) {
@@ -28,11 +28,11 @@ if (modal) {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
     const detailBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
-    const datepickerBtn = document.querySelector('.create-event .calendar-btn');
     const optionBtn = detailBtn[0];
     const completeBtn = detailBtn[1];
     const eventOptionBtn = document.querySelector('.event-detail .option__btn');
     const placeOptionBtn = document.querySelector('.place-detail .option__btn');
+    const createOptionBtn = document.querySelector('.create-event .option__btn');
 
 
     function modalOpenHandler() {
@@ -141,14 +141,64 @@ if (modal) {
       })();
     }
 
-    if (datepickerBtn) {
+    if (createOptionBtn) {
       (function () {
-        calendar.dataset.maxDate = JSON.stringify({ year: 2022, month: 3, date: 6 });
+        const datePickerBtn = document.querySelector('.create-event .calendar-btn');
+        const eventPeriodInput = document.querySelector('#create-event__period');
+        const datePickerInput = datePickerBtn.previousElementSibling;
+        eventPeriodInput.value = JSON.stringify([{ year: 2022, month: 3, date: 6 }, { year: 2022, month: 3, date: 10 }]);
+        let dateArray = [];
+        const eventPeriod = eventPeriodInput.value;
 
-        datepickerBtn.addEventListener('click', () => {
+        if (!eventPeriod) location.href = "./404.html";
+        dateArray = JSON.parse(eventPeriod);
+        const eventDate1 = dateArray[0];
+        if (dateArray.length > 1) {
+          const eventDate2 = dateArray[1];
+          eventPeriodInput.nextElementSibling.innerText = `${eventDate1.year}년 ${eventDate1.month + 1}월 ${eventDate1.date}일 - ${eventDate2.year}년 ${eventDate2.month + 1}월 ${eventDate2.date}일`;
+        }
+        else eventPeriodInput.nextElementSibling.innerText = `${eventDate1.year}년 ${eventDate1.month + 1}월 ${eventDate1.date}일`;
+
+        calendar.dataset.maxDate = JSON.stringify(eventDate1);
+
+        datePickerBtn.addEventListener('click', () => {
           body.classList.add('overflow--hidden');
           modal.classList.remove('hidden');
         });
+        createOptionBtn.addEventListener('click', () => {
+          let selectedDataset = calendar.dataset.selectedDate;
+          if (!selectedDataset) {
+            datePickerBtn.innerText = "YY.MM.DD - YY.MM.DD";
+            datePickerInput.value = "";
+            modalCloseHandler();
+            return;
+          }
+
+          dateArray = JSON.parse(selectedDataset);
+          let selected1 = dateArray[0];
+          let selectedYear1 = selected1.year;
+          let selectedMonth1 = selected1.month;
+          let selectedDate1 = selected1.date;
+          if (dateArray.length === 1) {
+            datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일`;
+            datePickerInput.value = selectedDataset;
+            modalCloseHandler();
+            return;
+          }
+          else if (dateArray.length === 2) {
+            let selected2 = dateArray[1];
+            let selectedYear2 = selected2.year;
+            let selectedMonth2 = selected2.month;
+            let selectedDate2 = selected2.date;
+
+            datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일 - ${selectedYear2}년 ${selectedMonth2 + 1}월 ${selectedDate2}일`;
+            datePickerInput.value = selectedDataset;
+            modalCloseHandler();
+            return;
+          }
+
+        })
+
       })();
     }
 
