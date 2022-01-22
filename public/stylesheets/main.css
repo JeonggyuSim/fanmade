@@ -339,6 +339,9 @@
   height: 34px;
   background: #bbbbbb;
 }
+.creat-event .desc-image__btn-wrapper button span {
+  max-width: 107.5px;
+}
 .creat-event .desc-image__btn-wrapper button .sprite {
   margin-left: 8px;
 }

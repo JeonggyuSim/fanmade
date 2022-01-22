@@ -188,6 +188,7 @@ if (descImageInput) {
       imageBtn.children[0].innerHTML = descImageInput.files[0].name;
     });
     imageBtn.addEventListener('click', () => {
+      descImageInput.value = "";
       imageLabel.classList.remove('hidden');
       imageBtn.classList.add('hidden');
     })
