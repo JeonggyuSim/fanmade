@@ -176,9 +176,9 @@ if (modal) {
 
           dateArray = JSON.parse(selectedDataset);
           let selected1 = dateArray[0];
-          let selectedYear1 = selected1.year;
-          let selectedMonth1 = selected1.month;
-          let selectedDate1 = selected1.date;
+          let selectedYear1 = Number(selected1.year);
+          let selectedMonth1 = Number(selected1.month);
+          let selectedDate1 = Number(selected1.date);
           if (dateArray.length === 1) {
             datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일`;
             datePickerInput.value = selectedDataset;
@@ -187,9 +187,9 @@ if (modal) {
           }
           else if (dateArray.length === 2) {
             let selected2 = dateArray[1];
-            let selectedYear2 = selected2.year;
-            let selectedMonth2 = selected2.month;
-            let selectedDate2 = selected2.date;
+            let selectedYear2 = Number(selected2.year);
+            let selectedMonth2 = Number(selected2.month);
+            let selectedDate2 = Number(selected2.date);
 
             datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일 - ${selectedYear2}년 ${selectedMonth2 + 1}월 ${selectedDate2}일`;
             datePickerInput.value = selectedDataset;
