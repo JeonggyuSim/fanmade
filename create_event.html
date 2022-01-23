@@ -30,7 +30,6 @@
                 type="hidden"
                 name="create-event__location"
                 id="create-event__location"
-                required
               />
               <section class="drop-down">
                 <button type="button" class="drop-down__btn">
@@ -60,7 +59,6 @@
                 type="hidden"
                 name="create-event__period"
                 id="create-event__period"
-                required
               />
               <section class="input--box">
                 <span>YY.MM.DD - YY.MM.DD</span>
@@ -72,7 +70,6 @@
                 type="hidden"
                 name="create-event__apply-period"
                 id="create-event__apply-period"
-                required
               />
               <button type="button" class="calendar-btn input--box">
                 YY.MM.DD - YY.MM.DD
@@ -88,12 +85,23 @@
                     type="radio"
                     name="create-event__type"
                     id="option1"
+                    value="option1"
                     required
                   />
                   <label for="option1">기념일 카페</label>
-                  <input type="radio" name="create-event__type" id="option2" />
+                  <input
+                    type="radio"
+                    name="create-event__type"
+                    id="option2"
+                    value="option2"
+                  />
                   <label for="option2">지하철 광고</label>
-                  <input type="radio" name="create-event__type" id="option3" />
+                  <input
+                    type="radio"
+                    name="create-event__type"
+                    id="option3"
+                    value="option3"
+                  />
                   <label for="option3">팝업스토어</label>
                 </div>
               </fieldset>
@@ -104,7 +112,6 @@
                 type="hidden"
                 name="create-event__tag"
                 id="create-event__tag"
-                required
               />
               <ul class="tag__list"></ul>
               <input
@@ -189,7 +196,6 @@
                 type="hidden"
                 name="create-event__options"
                 id="create-event__options"
-                required
               />
               <div>
                 <fieldset class="option__content">

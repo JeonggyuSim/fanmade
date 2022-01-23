@@ -302,6 +302,7 @@ if (imageMutiInput) {
 if (dropDownBtn) {
   (function () {
     const dropDownList = document.querySelectorAll('.drop-down__menu li');
+    const dropDownInput = document.querySelector('#create-event__location');
 
     dropDownBtn.forEach((element) => {
       element.addEventListener('click', function () {
@@ -319,8 +320,9 @@ if (dropDownBtn) {
     });
     dropDownList.forEach((element) => {
       element.addEventListener('click', function () {
-        selectedList = this.innerHTML;
+        const selectedList = this.innerHTML;
         this.parentNode.previousElementSibling.children[0].innerHTML = selectedList;
+        if (dropDownInput) dropDownInput.value = selectedList;
       })
     })
   })();
@@ -330,9 +332,11 @@ if (dropDownBtn) {
 if (tagInput) {
   (function () {
     const tagList = document.querySelector('.tag__list');
+    const tagValue = document.querySelector('#create-event__tag');
     const tag = tagList.childNodes;
+    const tagArray = [];
 
-    tagInput.addEventListener('change', () => {
+    tagInput.addEventListener('change', function () {
       if (tag.length > 4) return alert("5개 초과");
       tag.forEach((element) => {
         if (element.innerText === tagInput.value) {
@@ -345,10 +349,19 @@ if (tagInput) {
       let li = document.createElement('li');
       li.innerHTML = `<span>${tagInput.value}</span><span class="sprite x-icon"></span>`;
       li.addEventListener('click', function () {
+        tagArray.forEach((element, index) => {
+          if (element === this.innerText) {
+            tagArray.splice(index, 1);
+            index--;
+          }
+        });
         this.remove();
+        tagValue.value = JSON.stringify(tagArray);
       });
       tagList.appendChild(li);
+      tagArray.push(tagInput.value);
       tagInput.value = "";
+      tagValue.value = JSON.stringify(tagArray);
     })
 
   })();
@@ -359,7 +372,7 @@ if (contentPaging.length) {
   (function () {
     const pageTitle = document.querySelectorAll('.multi-step-form__btn p span');
     const pageBtn = document.querySelectorAll('.multi-step-form__btn div .btn');
-    const currenPage = pageTitle[0];
+    const currentPage = pageTitle[0];
     const maxPage = pageTitle[1];
     const previousPage = pageBtn[0];
     const nextPage = pageBtn[1];
@@ -368,16 +381,32 @@ if (contentPaging.length) {
     maxPage.innerHTML = maxPageNum;
     let pageNum = 0;
 
+    function validateForm() {
+      const requiredInput = contentPaging[pageNum].querySelectorAll(':required, input[type="hidden"]');
+      let valid = true;
+      requiredInput.forEach((element) => {
+        console.log(element.value);
+        if (!element.value) valid = false;
+        console.log(valid);
+      })
+      return valid;
+    }
+
     function pageHandler(n) {
       if (pageNum + n < 0) return;
       else if (pageNum + n >= maxPageNum) return;
-      else if (pageNum === maxPageNum - 1 && n === -1) {
+
+      if (n > 0) {
+        if (!validateForm()) return alert("입력 필수");
+      }
+
+      if (pageNum === maxPageNum - 1 && n === -1) {
         nextPage.classList.remove('hidden');
         completePage.classList.add('hidden');
       }
       contentPaging[pageNum].classList.toggle('hidden');
       pageNum += n;
-      currenPage.innerHTML = pageNum + 1;
+      currentPage.innerHTML = pageNum + 1;
       contentPaging[pageNum].classList.toggle('hidden');
       if (pageNum === maxPageNum - 1) {
         nextPage.classList.add('hidden');
