@@ -383,11 +383,15 @@ if (contentPaging.length) {
 
     function validateForm() {
       const requiredInput = contentPaging[pageNum].querySelectorAll(':required, input[type="hidden"]');
+      const radioInput = contentPaging[pageNum].querySelectorAll('input[type="radio"]');
       let valid = true;
+
+      if (radioInput.length) {
+        const radioChecked = contentPaging[pageNum].querySelector('input[type="radio"]:checked');
+        if (!radioChecked) valid = false;
+      }
       requiredInput.forEach((element) => {
-        console.log(element.value);
         if (!element.value) valid = false;
-        console.log(valid);
       })
       return valid;
     }
