@@ -27,12 +27,14 @@ if (modal) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
+    const modalBackBtn = document.querySelector('.modal__back-btn');
     const detailBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
     const optionBtn = detailBtn[0];
     const completeBtn = detailBtn[1];
     const eventOptionBtn = document.querySelector('.event-detail .option__btn');
     const placeOptionBtn = document.querySelector('.place-detail .option__btn');
     const createOptionBtn = document.querySelector('.create-event .option__btn');
+    const imageModalBtn = document.querySelector('.image-modal-btn');
 
 
     function modalOpenHandler() {
@@ -197,8 +199,24 @@ if (modal) {
             return;
           }
 
-        })
+        });
+      })();
+    }
 
+    if (imageModalBtn) {
+      (function () {
+        const imageModal = document.querySelector('.image-modal');
+
+
+        modalBackBtn.addEventListener('click', () => {
+          body.classList.remove('overflow--hidden');
+          imageModal.classList.add('hidden');
+        });
+
+        imageModalBtn.addEventListener('click', () => {
+          body.classList.add('overflow--hidden');
+          imageModal.classList.remove('hidden');
+        });
       })();
     }
 
@@ -242,6 +260,7 @@ if (inputPersonalImg) {
 if (descImageInput) {
   (function () {
     const imageBtnWrapper = document.querySelectorAll('.desc-image__btn-wrapper > *');
+    const modalView = document.querySelector('.image-modal .modal__image');
     const imageLabel = imageBtnWrapper[0];
     const imageBtn = imageBtnWrapper[1];
     const viewBtn = imageBtnWrapper[2];
@@ -251,11 +270,22 @@ if (descImageInput) {
       imageLabel.classList.add('hidden');
       imageBtn.classList.remove('hidden');
       imageBtn.children[0].innerHTML = descImageInput.files[0].name;
+
+      const reader = new FileReader();
+      const image = document.createElement('img');
+
+      reader.addEventListener('load', (event) => {
+        image.src = event.target.result;
+      });
+      modalView.appendChild(image);
+      reader.readAsDataURL(descImageInput.files[0]);
+      viewBtn.classList.remove('btn--block');
     });
     imageBtn.addEventListener('click', () => {
       descImageInput.value = "";
       imageLabel.classList.remove('hidden');
       imageBtn.classList.add('hidden');
+      viewBtn.classList.add('btn--block');
     })
   })();
 }
@@ -287,8 +317,8 @@ if (imageMutiInput) {
           const li = document.createElement('li');
           imageView.appendChild(li);
         });
-        reader.addEventListener('load', (e) => {
-          image.src = e.target.result;
+        reader.addEventListener('load', (event) => {
+          image.src = event.target.result;
         });
         imageViewList[inputImage.length + index].appendChild(image);
         imageViewList[inputImage.length + index].appendChild(button);

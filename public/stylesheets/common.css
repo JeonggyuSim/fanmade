@@ -300,6 +300,9 @@ img {
 .btn--red {
   background-color: #ec1a2e;
 }
+.btn--block {
+  pointer-events: none;
+}
 
 /* input style */
 .input--bottom-line {
@@ -468,6 +471,31 @@ nav {
   width: 327px;
   background-color: #ffffff;
   border-radius: 12px 12px 0px 0px;
+}
+.image-modal {
+  background: #000000 !important;
+}
+.modal__header {
+  height: 82px;
+}
+.modal__header div {
+  display: flex;
+  margin-top: 49px;
+  color: #ffffff;
+}
+.modal__image {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-bottom: 82px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+.modal__image::-webkit-scrollbar {
+  display: none;
+}
+.modal__image img {
+  width: 375px;
 }
 
 /* drop down */
