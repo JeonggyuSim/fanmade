@@ -11,7 +11,7 @@ const imageMutiInput = document.querySelector('#create-event__main-image');
 const descImageInput = document.querySelector('#create-event__desc-image');
 
 // 뒤로가기
-if (backBtn) {
+if (backBtn.length) {
   (function () {
     backBtn.forEach((element) => {
       element.addEventListener('click', () => {
@@ -27,7 +27,6 @@ if (modal) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
-    const modalBackBtn = document.querySelector('.modal__back-btn');
     const detailBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
     const optionBtn = detailBtn[0];
     const completeBtn = detailBtn[1];
@@ -205,6 +204,7 @@ if (modal) {
 
     if (imageModalBtn) {
       (function () {
+        const modalBackBtn = document.querySelector('.modal__back-btn');
         const imageModal = document.querySelector('.image-modal');
 
 
@@ -272,12 +272,10 @@ if (descImageInput) {
       imageBtn.children[0].innerHTML = descImageInput.files[0].name;
 
       const reader = new FileReader();
-      const image = document.createElement('img');
 
       reader.addEventListener('load', (event) => {
-        image.src = event.target.result;
+        modalView.children[0].src = event.target.result;
       });
-      modalView.appendChild(image);
       reader.readAsDataURL(descImageInput.files[0]);
       viewBtn.classList.remove('btn--block');
     });

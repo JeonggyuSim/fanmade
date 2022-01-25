@@ -112,7 +112,8 @@ textarea {
 .more .sprite.more-icon {
   background-position-y: -100px;
 }
-.sprite.back-btn {
+.sprite.back-btn,
+.sprite.modal__back-btn {
   width: 20px;
   height: 20px;
   margin-right: 12px;
