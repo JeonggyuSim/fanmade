@@ -225,8 +225,7 @@
 }
 .multi-step__tab {
   flex: 0 0 375px;
-  min-height: calc(100vh - 80px - 92px - 132px);
-  padding-bottom: 132px;
+  min-height: calc(100vh - 80px - 118.8px);
   overflow: hidden;
 }
 .multi-step__tab > div {
@@ -368,9 +367,9 @@
   margin-top: 65px;
 }
 .multi-step-form__btn {
-  position: absolute;
-  bottom: 26px;
   width: 327px;
+  margin-top: 21px;
+  margin-bottom: 23px;
   text-align: center;
 }
 .multi-step-form__btn div {
