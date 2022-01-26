@@ -9,6 +9,13 @@ const dropDownBtn = document.querySelectorAll('button.drop-down__btn');
 const tagInput = document.querySelector('#create-event__tag-input');
 const imageMutiInput = document.querySelector('#create-event__main-image');
 const descImageInput = document.querySelector('#create-event__desc-image');
+const viewport = document.querySelector("meta[name=viewport]");
+
+if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
+screen.orientation.addEventListener('change', () => {
+  if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
+  else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
+});
 
 // 뒤로가기
 if (backBtn.length) {
@@ -206,8 +213,6 @@ if (modal) {
       (function () {
         const modalBackBtn = document.querySelector('.modal__back-btn');
         const imageModal = document.querySelector('.image-modal');
-        const viewport = document.querySelector("meta[name=viewport]");
-
 
         modalBackBtn.addEventListener('click', () => {
           viewport.setAttribute('content', 'width=375, user-scalable=no');
