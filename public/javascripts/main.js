@@ -206,14 +206,17 @@ if (modal) {
       (function () {
         const modalBackBtn = document.querySelector('.modal__back-btn');
         const imageModal = document.querySelector('.image-modal');
+        const viewport = document.querySelector("meta[name=viewport]");
 
 
         modalBackBtn.addEventListener('click', () => {
+          viewport.setAttribute('content', 'width=375, user-scalable=no');
           body.classList.remove('block-scroll');
           imageModal.classList.add('hidden');
         });
 
         imageModalBtn.addEventListener('click', () => {
+          viewport.setAttribute('content', 'width=375');
           body.classList.add('block-scroll');
           imageModal.classList.remove('hidden');
         });
