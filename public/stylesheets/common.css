@@ -461,7 +461,7 @@ nav {
   flex-direction: column;
   position: fixed;
   z-index: 101;
-  top: 0;
+  bottom: 0;
   width: 375px;
   height: 100vh;
   background: rgba(65, 64, 64, 0.5);
