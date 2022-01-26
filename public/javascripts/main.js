@@ -37,12 +37,12 @@ if (modal) {
 
 
     function modalOpenHandler() {
-      body.classList.add('overflow--hidden');
+      body.classList.add('block-scroll');
       modal.classList.remove('hidden');
     }
 
     function modalCloseHandler() {
-      body.classList.remove('overflow--hidden');
+      body.classList.remove('block-scroll');
       modal.classList.add('hidden');
     }
 
@@ -163,7 +163,7 @@ if (modal) {
         calendar.dataset.maxDate = JSON.stringify(eventDate1);
 
         datePickerBtn.addEventListener('click', () => {
-          body.classList.add('overflow--hidden');
+          body.classList.add('block-scroll');
           modal.classList.remove('hidden');
         });
         createOptionBtn.addEventListener('click', () => {
@@ -209,12 +209,12 @@ if (modal) {
 
 
         modalBackBtn.addEventListener('click', () => {
-          body.classList.remove('overflow--hidden');
+          body.classList.remove('block-scroll');
           imageModal.classList.add('hidden');
         });
 
         imageModalBtn.addEventListener('click', () => {
-          body.classList.add('overflow--hidden');
+          body.classList.add('block-scroll');
           imageModal.classList.remove('hidden');
         });
       })();

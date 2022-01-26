@@ -215,8 +215,11 @@ input[type='file'] {
 input[type='radio'] {
   display: none !important;
 }
-.overflow--hidden {
+.block-scroll {
   overflow: hidden !important;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 li > a {
   display: block;
