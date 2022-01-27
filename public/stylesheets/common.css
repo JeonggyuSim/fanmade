@@ -461,10 +461,15 @@ nav {
   flex-direction: column;
   position: fixed;
   z-index: 101;
-  bottom: 0;
   width: 375px;
   height: 100vh;
   background: rgba(65, 64, 64, 0.5);
+}
+.modal--top {
+  top: 0;
+}
+.modal--bottom {
+  bottom: 0;
 }
 .modal__background {
   flex: 1;
@@ -490,13 +495,20 @@ nav {
 .modal__image {
   display: flex;
   flex: 1;
-  align-items: center;
   padding-bottom: 82px;
   overflow-y: auto;
   -ms-overflow-style: none;
 }
 .modal__image::-webkit-scrollbar {
   display: none;
+}
+.modal__image > div {
+  display: table;
+  flex: 1;
+}
+.modal__image > div > div {
+  display: table-cell;
+  vertical-align: middle;
 }
 .modal__image img {
   width: 375px;

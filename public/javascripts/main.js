@@ -268,7 +268,7 @@ if (inputPersonalImg) {
 if (descImageInput) {
   (function () {
     const imageBtnWrapper = document.querySelectorAll('.desc-image__btn-wrapper > *');
-    const modalView = document.querySelector('.image-modal .modal__image');
+    const modalViewImage = document.querySelector('.image-modal .modal__image img');
     const imageLabel = imageBtnWrapper[0];
     const imageBtn = imageBtnWrapper[1];
     const viewBtn = imageBtnWrapper[2];
@@ -282,7 +282,7 @@ if (descImageInput) {
       const reader = new FileReader();
 
       reader.addEventListener('load', (event) => {
-        modalView.children[0].src = event.target.result;
+        modalViewImage.src = event.target.result;
       });
       reader.readAsDataURL(descImageInput.files[0]);
       viewBtn.classList.remove('btn--block');
