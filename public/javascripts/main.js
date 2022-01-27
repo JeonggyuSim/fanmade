@@ -11,11 +11,15 @@ const imageMutiInput = document.querySelector('#create-event__main-image');
 const descImageInput = document.querySelector('#create-event__desc-image');
 const viewport = document.querySelector("meta[name=viewport]");
 
-if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
-screen.orientation.addEventListener('change', () => {
-  if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
-  else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
-});
+if (window.orientation !== undefined) {
+  (function () {
+    if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
+    window.addEventListener('orientationchange', () => {
+      if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
+      else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
+    });
+  })();
+}
 
 // 뒤로가기
 if (backBtn.length) {
