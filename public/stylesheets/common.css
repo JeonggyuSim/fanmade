@@ -309,6 +309,11 @@ img {
 }
 
 /* input style */
+input {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+}
 .input--bottom-line {
   border-bottom: 2px solid #696969;
   outline: 0;
