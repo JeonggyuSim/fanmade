@@ -203,6 +203,11 @@ button {
 }
 
 /* common */
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
 a {
   color: #000;
   text-decoration: none;
