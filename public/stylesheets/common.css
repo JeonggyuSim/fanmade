@@ -1,10 +1,12 @@
 /* font */
 body,
 input,
-textarea {
+textarea,
+button {
   font-family: 'DM Sans Regular';
   font-weight: 400;
   font-size: 12px;
+  color: #000000;
 }
 .heading1 {
   font-family: 'DM Sans Bold';
