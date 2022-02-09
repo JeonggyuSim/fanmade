@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Fanmade</title>
   </head>
-  <body class="place-book bottom-padding--none">
+  <body>
     <header>
-      <section class="header-wrapper margin--side">
+      <section class="header-wrapper header-padding--large">
         <div>
-          <button type="button" class="sprite back-btn">
+          <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">카페 쇼파르</h1>
         </div>
       </section>
     </header>
-    <main>
+    <main class="place-book main-bottom--none">
       <form action="" method="post" class="margin--side">
         <label for="date" class="heading5">날짜를 확인해주세요.</label>
         <input
           type="text"
           name=""
           id="date"
-          class="input--box"
-          placeholder="21년 4월 6일 - YY.MM.DD"
+          class="input--box input--center"
+          value="21년 4월 6일 - YY.MM.DD"
           readonly
         />
         <label for="tel" class="heading5">전화번호를 입력해주세요.</label>
@@ -35,7 +35,7 @@
           name=""
           id="tel"
           class="input--box"
-          placeholder="000 - 0000 - 0000"
+          value="010 - 1234 - 1234"
           pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
           readonly
         />

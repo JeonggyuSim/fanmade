@@ -1,5 +1,5 @@
 const backBtn = document.querySelectorAll('.back-btn');
-const modal = document.querySelector('.modal');
+const modal = document.querySelectorAll('.modal');
 const calendar = document.querySelector('.calendar__datepicker tbody');
 const placeBook = document.querySelector('.place-book .btn');
 const eventAttend = document.querySelector('.event-attend .btn');
@@ -34,41 +34,41 @@ if (backBtn.length) {
 }
 
 // modal 열기
-if (modal) {
+if (modal.length) {
   (function () {
     const body = document.body;
     const modalBackground = document.querySelector('.modal__background');
-    const detailBtn = document.querySelectorAll('.detail-bar__button-wrapper .btn');
-    const optionBtn = detailBtn[0];
-    const completeBtn = detailBtn[1];
-    const eventOptionBtn = document.querySelector('.event-detail .option__btn');
-    const placeOptionBtn = document.querySelector('.place-detail .option__btn');
-    const createOptionBtn = document.querySelector('.create-event .option__btn');
+    const optionBtn = document.querySelector('.option-btn');
+    const calendarBtn = document.querySelector('.place-detail .calendar-btn');
+    const datePickerBtn = document.querySelector('.create-event .calendar-btn');
+    const completeBtn = document.querySelector('.detail-bar__button-wrapper .complete-btn');
+    const modalBtn = document.querySelector('.modal__btn');
     const imageModalBtn = document.querySelector('.image-modal-btn');
 
 
-    function modalOpenHandler() {
+    function modalOpenHandler(modal) {
       body.classList.add('block-scroll');
       modal.classList.remove('hidden');
     }
 
     function modalCloseHandler() {
       body.classList.remove('block-scroll');
-      modal.classList.add('hidden');
+      modal.forEach((element) => element.classList.add('hidden'));
     }
 
     modalBackground.addEventListener('click', modalCloseHandler);
 
-    if (optionBtn) optionBtn.addEventListener('click', modalOpenHandler);
-
-    if (eventOptionBtn) {
+    if (optionBtn) {
       (function () {
+        const optionModal = document.querySelector('.option-modal');
         const eventOption = document.querySelectorAll('.event-detail .detail-bar__option span');
         const optionTitle = eventOption[0];
         const optionCost = eventOption[1];
 
         optionBtn.addEventListener('click', () => {
           let confirmedOption = optionTitle.dataset.selectedOption;
+
+          modalOpenHandler(optionModal);
           if (!confirmedOption) {
             let checkedRadio = document.querySelector('input[name="event-option"]:checked');
             if (checkedRadio) checkedRadio.checked = false;
@@ -77,7 +77,7 @@ if (modal) {
           let checkedSelector = `input#${confirmedOption}`;
           document.querySelector(checkedSelector).checked = true;
         });
-        eventOptionBtn.addEventListener('click', () => {
+        modalBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return modalCloseHandler();
           optionTitle.dataset.selectedOption = checkedRadio.id;
@@ -95,20 +95,23 @@ if (modal) {
       })();
     }
 
-    if (placeOptionBtn) {
+    if (calendarBtn) {
       (function () {
+        const calendarModal = document.querySelector('.calendar-modal');
         const placeOption = document.querySelectorAll('.place-detail .detail-bar__option span');
         const optionDate = placeOption[0];
         const optionPeriod = placeOption[1];
         let selectedArray = [];
 
-        optionBtn.addEventListener('click', () => {
+        calendarBtn.addEventListener('click', () => {
           let confirmedOption = optionDate.dataset.selectedOption;
+
+          modalOpenHandler(calendarModal);
           if (!confirmedOption) return calendar.dataset.selectedDate = "";
           calendar.dataset.selectedDate = confirmedOption;
         });
 
-        placeOptionBtn.addEventListener('click', () => {
+        modalBtn.addEventListener('click', () => {
           let selectedDataset = calendar.dataset.selectedDate;
           if (!selectedDataset) {
             optionDate.innerHTML = "선택 없음";
@@ -153,9 +156,9 @@ if (modal) {
       })();
     }
 
-    if (createOptionBtn) {
+    if (datePickerBtn) {
       (function () {
-        const datePickerBtn = document.querySelector('.create-event .calendar-btn');
+        const calendarModal = document.querySelector('.calendar-modal');
         const eventPeriodInput = document.querySelector('#create-event__period');
         const datePickerInput = datePickerBtn.previousElementSibling;
         eventPeriodInput.value = JSON.stringify([{ year: 2022, month: 3, date: 6 }, { year: 2022, month: 3, date: 10 }]);
@@ -174,12 +177,17 @@ if (modal) {
         calendar.dataset.maxDate = JSON.stringify(eventDate1);
 
         datePickerBtn.addEventListener('click', () => {
-          body.classList.add('block-scroll');
-          modal.classList.remove('hidden');
+          let pickedDate = datePickerInput.value;
+
+          modalOpenHandler(calendarModal);
+          if (!pickedDate) return calendar.dataset.selectedDate = "";
+          calendar.dataset.selectedDate = pickedDate;
         });
-        createOptionBtn.addEventListener('click', () => {
+
+        modalBtn.addEventListener('click', () => {
           let selectedDataset = calendar.dataset.selectedDate;
           if (!selectedDataset) {
+            datePickerBtn.classList.add('input--placeholder');
             datePickerBtn.innerText = "YY.MM.DD - YY.MM.DD";
             datePickerInput.value = "";
             modalCloseHandler();
@@ -192,6 +200,7 @@ if (modal) {
           let selectedMonth1 = Number(selected1.month);
           let selectedDate1 = Number(selected1.date);
           if (dateArray.length === 1) {
+            datePickerBtn.classList.remove('input--placeholder');
             datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일`;
             datePickerInput.value = selectedDataset;
             modalCloseHandler();
@@ -203,6 +212,7 @@ if (modal) {
             let selectedMonth2 = Number(selected2.month);
             let selectedDate2 = Number(selected2.date);
 
+            datePickerBtn.classList.remove('input--placeholder');
             datePickerBtn.innerText = `${selectedYear1}년 ${selectedMonth1 + 1}월 ${selectedDate1}일 - ${selectedYear2}년 ${selectedMonth2 + 1}월 ${selectedDate2}일`;
             datePickerInput.value = selectedDataset;
             modalCloseHandler();
@@ -215,19 +225,17 @@ if (modal) {
 
     if (imageModalBtn) {
       (function () {
-        const modalBackBtn = document.querySelector('.modal__back-btn');
         const imageModal = document.querySelector('.image-modal');
+        const modalBackBtn = document.querySelector('.modal__back-btn');
 
         modalBackBtn.addEventListener('click', () => {
           viewport.setAttribute('content', 'width=375, user-scalable=no');
-          body.classList.remove('block-scroll');
-          imageModal.classList.add('hidden');
+          modalCloseHandler();
         });
 
         imageModalBtn.addEventListener('click', () => {
           viewport.setAttribute('content', 'width=375');
-          body.classList.add('block-scroll');
-          imageModal.classList.remove('hidden');
+          modalOpenHandler(imageModal)
         });
       })();
     }
@@ -316,7 +324,7 @@ if (imageMutiInput) {
         const image = document.createElement('img');
         const button = document.createElement('button');
         button.type = "button";
-        button.classList = "sprite x-icon";
+        button.classList = "sprite sprite--x-icon";
 
         image.addEventListener('click', (event) => {
           event.preventDefault();
@@ -361,7 +369,7 @@ if (dropDownBtn) {
     dropDownList.forEach((element) => {
       element.addEventListener('click', function () {
         const selectedList = this.innerHTML;
-        this.parentNode.previousElementSibling.children[0].innerHTML = selectedList;
+        this.parentNode.previousElementSibling.innerText = selectedList;
         if (dropDownInput) dropDownInput.value = selectedList;
       })
     })
@@ -387,17 +395,20 @@ if (tagInput) {
       if (!tagInput.value) return;
 
       let li = document.createElement('li');
-      li.innerHTML = `<span>${tagInput.value}</span><span class="sprite x-icon"></span>`;
-      li.addEventListener('click', function () {
+      let button = document.createElement('button');
+      button.type = "button";
+      button.innerHTML = `<span>${tagInput.value}</span><span class="sprite sprite--x-icon"></span>`;
+      button.addEventListener('click', function () {
         tagArray.forEach((element, index) => {
           if (element === this.innerText) {
             tagArray.splice(index, 1);
             index--;
           }
         });
-        this.remove();
+        this.parentNode.remove();
         tagValue.value = JSON.stringify(tagArray);
       });
+      li.appendChild(button);
       tagList.appendChild(li);
       tagArray.push(tagInput.value);
       tagInput.value = "";
@@ -466,10 +477,10 @@ if (contentPaging.length) {
 // 달력
 if (calendar) {
   (function () {
-    const optionBtn = document.querySelector('.calendar-btn');
+    const calendarBtn = document.querySelector('.calendar-btn');
     const calendarTitle = document.querySelector('.calendar__title h3');
-    const previousBtn = document.querySelector('.calendar__title .sprite.left-arrow');
-    const nextBtn = document.querySelector('.calendar__title .sprite.right-arrow');
+    const previousBtn = document.querySelector('.calendar__title .left-btn');
+    const nextBtn = document.querySelector('.calendar__title .right-btn');
     const BLOCK_CLASS = "datepicker__date date--blocked";
     const BTN_CLASS = "datepicker__date date--btn";
     const SELECTED_CLASS = "datepicker__date date--btn date--selected";
@@ -729,7 +740,7 @@ if (calendar) {
     blockTableData(pastArray);
     addClickEvent();
 
-    optionBtn.addEventListener('click', () => moveMonthHandler(0));
+    calendarBtn.addEventListener('click', () => moveMonthHandler(0));
     previousBtn.addEventListener('click', () => moveMonthHandler(-1));
     nextBtn.addEventListener('click', () => moveMonthHandler(1));
   })();

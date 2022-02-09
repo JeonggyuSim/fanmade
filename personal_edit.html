@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Fanmade</title>
   </head>
-  <body class="personal-edit bottom-padding--none">
+  <body>
     <header>
-      <section class="header-wrapper margin--side">
+      <section class="header-wrapper header-padding--large">
         <div>
-          <button type="button" class="sprite back-btn">
+          <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">개인 정보 수정</h1>
         </div>
-        <button type="button" class="btn2 heading5"><span>Save</span></button>
+        <button type="button" class="heading5">Save</button>
       </section>
     </header>
-    <main>
+    <main class="personal-edit main-bottom--none">
       <section class="personal-img">
         <label for="input-personal-img">
           <img src="./public/images/profile_img.jpg" alt="profile_img.jpg" />
@@ -29,20 +29,44 @@
               name="input-personal-img"
               id="input-personal-img"
               accept="image/jpg, image/jpeg, image/png"
-              class="sprite photo-icon"
+              class="sprite sprite--photo"
             />
           </div>
         </label>
       </section>
       <form action="" class="personal-form margin--side">
         <label for="" class="heading5">이름</label>
-        <input type="text" name="" id="" value="고양이" />
+        <input
+          type="text"
+          name=""
+          id=""
+          value="고양이"
+          class="input--bottom-line"
+        />
         <label for="" class="heading5">생년월일</label>
-        <input type="text" name="" id="" value="2022.01.13" />
+        <input
+          type="text"
+          name=""
+          id=""
+          value="2022.01.13"
+          class="input--bottom-line"
+        />
         <label for="" class="heading5">이메일</label>
-        <input type="email" name="" id="" value="fanmade@naver.com" />
+        <input
+          type="email"
+          name=""
+          id=""
+          value="fanmade@naver.com"
+          class="input--bottom-line"
+        />
         <label for="" class="heading5">휴대폰 번호</label>
-        <input type="tel" name="" id="" value="010.1234.5678" />
+        <input
+          type="tel"
+          name=""
+          id=""
+          value="010.1234.5678"
+          class="input--bottom-line"
+        />
       </form>
     </main>
     <script type="text/javascript" src="./public/javascripts/main.js"></script>

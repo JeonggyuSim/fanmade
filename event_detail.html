@@ -7,23 +7,23 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Fanmade</title>
   </head>
-  <body class="event-detail bottom-padding--large">
+  <body>
     <header>
-      <section class="header-wrapper margin--side">
+      <section class="header-wrapper header-padding--large">
         <div>
-          <button type="button" class="sprite back-btn">
+          <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4 eliipsis--single">
             1/16 블랙핑크 제니 생일카페
           </h1>
         </div>
-        <button type="button" class="sprite like-btn">
+        <button type="button" class="sprite sprite--like">
           <span>좋아요</span>
         </button>
       </section>
     </header>
-    <main>
+    <main class="event-detail main-bottom--detail-bar">
       <section class="event__main-image">
         <img
           src="./public/images/event_detail_main_img.jpg"
@@ -32,7 +32,7 @@
       </section>
       <section class="event__head">
         <div>
-          <p class="head__star color--red">BlackPink</p>
+          <p class="head__writer">방작가</p>
           <h1 class="head__title heading1">1/16 블랙핑크 제니 생일카페</h1>
         </div>
         <div>
@@ -52,7 +52,7 @@
             <h2 class="heading5">참여 인원</h2>
             <p class="progress__num heading5">340명</p>
           </section>
-          <span class="progress__day color--red">D-7</span>
+          <span class="progress__day">D-7</span>
         </div>
         <section class="progress__bar"></section>
       </section>
@@ -86,13 +86,15 @@
           </section>
         </div>
         <seciton class="detail-bar__button-wrapper margin--side">
-          <button type="button" class="btn btn--small btn--black">
+          <button type="button" class="option-btn btn btn--small btn--black">
             옵션 선택
           </button>
-          <button type="button" class="btn btn--small btn--red">완료</button>
+          <button type="button" class="complete-btn btn btn--small btn--red">
+            완료
+          </button>
         </seciton>
       </section>
-      <section class="event__modal modal modal--bottom hidden">
+      <section class="option-modal modal modal--bottom hidden">
         <section class="modal__background"></section>
         <section class="modal__option">
           <form>
@@ -137,7 +139,7 @@
             <input
               type="button"
               value="선택 완료"
-              class="option__btn btn btn--large btn--red"
+              class="modal__btn btn btn--large btn--red"
             />
           </form>
         </section>

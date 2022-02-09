@@ -7,42 +7,44 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Fanmade</title>
   </head>
-  <body class="event-attend bottom-padding--large">
+  <body>
     <header>
-      <section class="header-wrapper margin--side">
+      <section class="header-wrapper header-padding--large">
         <div>
-          <button type="button" class="sprite back-btn">
+          <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">결제 진행</h1>
         </div>
       </section>
     </header>
-    <main>
+    <main class="event-attend main-bottom--detail-bar">
       <section class="attend-info">
         <h2 class="heading4">참여 내용</h2>
         <div>
           <section class="attend-info__event">
-            <section class="event__main-image">
-              <img
-                src="./public/images/event_detail_main_img.jpg"
-                alt="event_detail_main_img.jpg"
-              />
-            </section>
+            <img
+              src="./public/images/event_detail_main_img.jpg"
+              alt="event_detail_main_img.jpg"
+            />
             <div>
-              <h3 class="heading4">1/16 블랙핑크 제니 생일 카페</h3>
-              <p>22년 1월 16일 ~ 22년 1월 19일</p>
+              <h3 class="event__title heading4">
+                1/16 블랙핑크 제니 생일 카페
+              </h3>
+              <p class="event__period">22년 1월 16일 ~ 22년 1월 19일</p>
             </div>
           </section>
           <section class="attend-info__option">
             <h4>상세 내용</h4>
             <p>일반참여, 행사 안내 및 이벤트 실시간 알림 참여</p>
           </section>
-          <section class="attend-info__change-option">
-            <h4>옵션 변경</h4>
-            <button type="button" class="sprite down-arrow2">
-              <span>더 보기</span>
-            </button>
+          <section
+            class="attend-info__change-option drop-down drop-down--large"
+          >
+            <button type="button" class="drop-down__btn">옵션 변경</button>
+            <ul class="drop-down__menu hidden">
+              <li>옵션</li>
+            </ul>
           </section>
           <section class="attend-info__cost">
             <h4>결제 금액</h4>
@@ -50,16 +52,16 @@
           </section>
         </div>
       </section>
-      <section class="pay-info margin--side">
+      <section class="attend-pay-info margin--side">
         <h2 class="heading4">결제 내용</h2>
-        <section class="pay-info__select">
+        <section class="attend-pay-info__select">
           <h4>결제 방법 선택</h4>
-          <button type="button" class="sprite right-arrow2">
+          <button type="button" class="sprite sprite--right-arrow3">
             <span>더 보기</span>
           </button>
         </section>
       </section>
-      <section class="total-info margin--side">
+      <section class="attend-total-info margin--side">
         <h2 class="heading4">구매 내역</h2>
         <section>
           <h4>총 지불액 합계</h4>

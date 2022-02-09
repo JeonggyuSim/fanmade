@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Fanmade</title>
   </head>
-  <body class="index">
+  <body>
     <header>
-      <section class="header-wrapper margin--side top-padding--small">
-        <h1><a href="./index.html" class="sprite logo-icon">fanmade</a></h1>
-        <a href="./notice.html" class="sprite notice-icon">notice</a>
+      <section class="header-wrapper header-padding--small">
+        <h1><a href="./index.html" class="sprite sprite--logo">fanmade</a></h1>
+        <a href="./notice.html" class="sprite sprite--notice">notice</a>
       </section>
     </header>
-    <main>
+    <main class="index main-bottom--nav">
       <section class="banner">
         <ul class="banner__slider">
           <li>
@@ -43,18 +43,18 @@
           </li>
         </ul>
       </section>
-      <section class="recommend-artist margin--left">
-        <section class="index__list-title">
+      <section class="recommend-artist">
+        <section class="index__list-title margin--side">
           <h2 class="heading5">추천 아티스트</h2>
         </section>
-        <ul class="recommend-artist__list">
+        <ul class="recommend-artist__list margin--left">
           <li>
             <a href="">
               <img
                 src="./public/images/recommend_image.png"
                 alt="recommend_image.png"
               />
-              <h3 class="heading6">bts</h3>
+              <h3>bts</h3>
             </a>
           </li>
           <li>
@@ -63,7 +63,7 @@
                 src="./public/images/recommend_image.png"
                 alt="recommend_image.png"
               />
-              <h3 class="heading6">bts</h3>
+              <h3>bts</h3>
             </a>
           </li>
           <li>
@@ -72,7 +72,7 @@
                 src="./public/images/recommend_image.png"
                 alt="recommend_image.png"
               />
-              <h3 class="heading6">bts</h3>
+              <h3>bts</h3>
             </a>
           </li>
           <li>
@@ -98,52 +98,52 @@
       <section class="popular-event">
         <section class="index__list-title margin--side">
           <h2 class="heading5">인기 행사</h2>
-          <a href="./list.html" class="color--red">View All</a>
+          <a href="./list.html">View All</a>
         </section>
         <ul class="popular-event__list event-slider margin--left">
-          <li>
+          <li class="event-container event-container--slider">
             <a href="./event_detail.html">
               <img
                 src="./public/images/popular_image.jpg"
                 alt="popular_image"
               />
-              <section>
-                <p class="color--red">D-7</p>
-                <h3 class="event-slider__title heading5 ellipsis--multi">
+              <div class="event-container__body">
+                <p class="event-container__d-day">D-7</p>
+                <h3 class="event-container__title heading5 ellipsis--multi">
                   아이즈원 데뷔 3주년 기념일 행사
                 </h3>
-                <p class="event-slider__artist">아이즈원</p>
-              </section>
+                <p class="event-container__writer">방작가</p>
+              </div>
             </a>
           </li>
-          <li>
+          <li class="event-container event-container--slider">
             <a href="./event_detail.html">
               <img
                 src="./public/images/popular_image.jpg"
                 alt="popular_image"
               />
-              <section>
-                <p class="color--red">D-7</p>
-                <h3 class="event-slider__title heading5 ellipsis--multi">
+              <div class="event-container__body">
+                <p class="event-container__d-day">D-7</p>
+                <h3 class="event-container__title heading5 ellipsis--multi">
                   아이즈원 데뷔 3주년 기념일 행사
                 </h3>
-                <p class="event-slider__artist">아이즈원</p>
-              </section>
+                <p class="event-container__writer">방작가</p>
+              </div>
             </a>
           </li>
-          <li>
+          <li class="event-container event-container--slider">
             <a href="./event_detail.html">
               <img
                 src="./public/images/popular_image.jpg"
                 alt="popular_image"
               />
-              <section>
-                <p class="color--red">D-7</p>
-                <h3 class="event-slider__title heading5 ellipsis--multi">
+              <div class="event-container__body">
+                <p class="event-container__d-day">D-7</p>
+                <h3 class="event-container__title heading5 ellipsis--multi">
                   아이즈원 데뷔 3주년 기념일 행사
                 </h3>
-                <p class="event-slider__artist">아이즈원</p>
-              </section>
+                <p class="event-container__writer">방작가</p>
+              </div>
             </a>
           </li>
         </ul>
@@ -160,49 +160,49 @@
       <section class="new-event margin--side">
         <section class="index__list-title">
           <h2 class="heading5">신규 행사</h2>
-          <a href="./list.html" class="color--red">View All</a>
+          <a href="./list.html">View All</a>
         </section>
         <ul class="new-event__list">
-          <li>
+          <li class="new-event-container">
             <a href="./event_detail.html">
               <img src="./public/images/new_image.jpg" alt="new_image" />
-              <section>
+              <div class="new-event-container__body">
                 <div>
-                  <p class="new-event__artist">아이즈원</p>
-                  <p class="new-event__day color--red">D-27</p>
+                  <p class="new-event-container__writer">방작가</p>
+                  <p class="new-event-container__d-day">D-27</p>
                 </div>
-                <h3 class="new-event__title heading5 ellipsis--multi">
+                <h3 class="new-event-container__title heading5 ellipsis--multi">
                   아이즈원 각 맴버별 포토 스티커 (씰 스티커 3종 + 기본 스티커)
                 </h3>
-              </section>
+              </div>
             </a>
           </li>
-          <li>
+          <li class="new-event-container">
             <a href="./event_detail.html">
               <img src="./public/images/new_image.jpg" alt="new_image" />
-              <section>
+              <div class="new-event-container__body">
                 <div>
-                  <p class="new-event__artist">아이즈원</p>
-                  <p class="new-event__day color--red">D-27</p>
+                  <p class="new-event-container__writer">방작가</p>
+                  <p class="new-event-container__d-day">D-27</p>
                 </div>
-                <h3 class="new-event__title heading5 ellipsis--multi">
+                <h3 class="new-event-container__title heading5 ellipsis--multi">
                   아이즈원 각 맴버별 포토 스티커 (씰 스티커 3종 + 기본 스티커)
                 </h3>
-              </section>
+              </div>
             </a>
           </li>
-          <li>
+          <li class="new-event-container">
             <a href="./event_detail.html">
               <img src="./public/images/new_image.jpg" alt="new_image" />
-              <section>
+              <div class="new-event-container__body">
                 <div>
-                  <p class="new-event__artist">아이즈원</p>
-                  <p class="new-event__day color--red">D-27</p>
+                  <p class="new-event-container__writer">방작가</p>
+                  <p class="new-event-container__d-day">D-27</p>
                 </div>
-                <h3 class="new-event__title heading5 ellipsis--multi">
+                <h3 class="new-event-container__title heading5 ellipsis--multi">
                   아이즈원 각 맴버별 포토 스티커 (씰 스티커 3종 + 기본 스티커)
                 </h3>
-              </section>
+              </div>
             </a>
           </li>
         </ul>
@@ -210,27 +210,27 @@
     </main>
     <nav>
       <ul class="nav__list">
-        <li class="nav__index">
+        <li class="nav__index on">
           <a href="./index.html">
-            <span class="sprite home-icon"></span>
+            <span class="sprite sprite--home"></span>
             <p>홈</p>
           </a>
         </li>
         <li class="nav__search">
           <a href="./search.html">
-            <span class="sprite search-icon"></span>
+            <span class="sprite sprite--search"></span>
             <p>검색</p>
           </a>
         </li>
         <li class="nav__user">
           <a href="./my_profile.html">
-            <span class="sprite user-icon"></span>
+            <span class="sprite sprite--user"></span>
             <p>내 정보</p>
           </a>
         </li>
         <li class="nav__more">
           <a href="./more.html">
-            <span class="sprite more-icon"></span>
+            <span class="sprite sprite--more"></span>
             <p>더 보기</p>
           </a>
         </li>
