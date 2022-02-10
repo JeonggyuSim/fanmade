@@ -21,6 +21,7 @@ if (window.orientation !== undefined) {
     });
   })();
 }
+
 // 뒤로가기
 if (confirmBackBtn) {
   (function () {
@@ -55,15 +56,21 @@ if (modal.length) {
     const modalBtn = document.querySelector('.modal__btn');
     const imageModalBtn = document.querySelector('.image-modal-btn');
 
-
     function modalOpenHandler(modal) {
+      const scrollY = window.pageYOffset;
+
       body.classList.add('block-scroll');
+      body.style.top = `-${scrollY}px`;
       modal.classList.remove('hidden');
     }
 
     function modalCloseHandler() {
+      const scrollY = body.style.top;
+
       body.classList.remove('block-scroll');
+      body.style.top = '';
       modal.forEach((element) => element.classList.add('hidden'));
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
 
     modalBackground.addEventListener('click', modalCloseHandler);
@@ -87,6 +94,7 @@ if (modal.length) {
           let checkedSelector = `input#${confirmedOption}`;
           document.querySelector(checkedSelector).checked = true;
         });
+
         modalBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return modalCloseHandler();
@@ -97,6 +105,7 @@ if (modal.length) {
           optionCost.innerHTML = checkedLabel[1].innerHTML;
           modalCloseHandler();
         });
+
         completeBtn.addEventListener('click', () => {
           let checkedRadio = document.querySelector('input[name="event-option"]:checked');
           if (!checkedRadio) return alert("옵션을 선택해주세요.");
@@ -158,6 +167,7 @@ if (modal.length) {
             return;
           }
         });
+
         completeBtn.addEventListener('click', () => {
           let selectedDataset = calendar.dataset.selectedDate;
           if (!selectedDataset) return alert("날짜를 선택해주세요.");
