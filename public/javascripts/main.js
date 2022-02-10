@@ -1,3 +1,4 @@
+const confirmBackBtn = document.querySelector('.back-btn--confirm');
 const backBtn = document.querySelectorAll('.back-btn');
 const modal = document.querySelectorAll('.modal');
 const calendar = document.querySelector('.calendar__datepicker tbody');
@@ -20,8 +21,17 @@ if (window.orientation !== undefined) {
     });
   })();
 }
-
 // 뒤로가기
+if (confirmBackBtn) {
+  (function () {
+    confirmBackBtn.addEventListener('click', (event) => {
+      if (!confirm("뒤로?")) {
+        event.stopImmediatePropagation();
+      }
+    });
+  })();
+}
+
 if (backBtn.length) {
   (function () {
     backBtn.forEach((element) => {
