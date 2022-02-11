@@ -595,7 +595,8 @@ if (calendar) {
       const selectedDataset = calendar.dataset.selectedDate;
       let selectedArray = [];
       let dateSelector, checkBtn;
-      const lastDate = new Date(year, month + 1, 0).getDate();
+      const lastFullDate = new Date(year, month + 1, 0);
+      const lastDate = lastFullDate.getDate();
 
       if (selectedDataset) {
         selectedArray = JSON.parse(selectedDataset);
@@ -609,35 +610,29 @@ if (calendar) {
             selectedBtn.forEach((element) => {
               element.classList = BTN_CLASS;
             });
-            if (MAX_PERIOD) {
-              for (i = selectedDate1 + MAX_PERIOD; i <= lastDate; i++) {
-                if (i <= lastDate) {
-                  dateSelector = `.date--btn[data-date="${i}"]`;
-                  checkBtn = document.querySelector(dateSelector);
-                  if (checkBtn) checkBtn.classList = MAX_DISABLED_CLASS;
-                }
-              }
-            }
-            dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
-            document.querySelector(dateSelector).classList = SELECTED_CLASS;
           }
-          else if (MAX_PERIOD && new Date(year, month, 1) > new Date(selectedYear1, selectedMonth1, 1)) {
-            dateBtn.forEach((element) => {
-              element.classList = MAX_DISABLED_CLASS;
-            });
-            const selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
-            const selectedNext = new Date(selectedYear1, selectedMonth1 + 1, 1);
+          if (MAX_PERIOD) {
+            const maxPeriodFullDate = new Date(selectedYear1, selectedMonth1, selectedDate1 + MAX_PERIOD);
+            const maxPeriodYear = maxPeriodFullDate.getFullYear();
+            const maxPeriodMonth = maxPeriodFullDate.getMonth();
+            const maxPeriodDate = maxPeriodFullDate.getDate();
 
-            if (selectedNext.getFullYear() === year && selectedNext.getMonth() === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
-              for (i = 1; i < selectedDate1 + MAX_PERIOD - selectedLastDate; i++) {
-                if (i <= lastDate) {
+            if (lastFullDate >= maxPeriodFullDate) {
+              dateBtn.forEach((element) => {
+                element.classList = MAX_DISABLED_CLASS;
+              });
+              if (maxPeriodYear == year && maxPeriodMonth == month) {
+                for (i = 1; i < maxPeriodDate; i++) {
                   dateSelector = `.date--max-disabled[data-date="${i}"]`;
                   checkBtn = document.querySelector(dateSelector);
                   if (checkBtn) checkBtn.classList = BTN_CLASS;
                 }
               }
-
             }
+          }
+          if (selectedYear1 == year && selectedMonth1 == month) {
+            dateSelector = `.date--btn[data-date="${selectedDate1}"]`;
+            document.querySelector(dateSelector).classList = SELECTED_CLASS;
           }
         }
         else if (selectedArray.length === 2) {
@@ -645,6 +640,7 @@ if (calendar) {
           const selectedYear2 = Number(selectedFullDate2.year);
           const selectedMonth2 = Number(selectedFullDate2.month);
           let selectedDate2 = Number(selectedFullDate2.date);
+          const selectedFullDate = new Date(selectedYear2, selectedMonth2, selectedDate2);
 
           if (selectedYear1 === year && selectedMonth1 === month) {
             if (selectedMonth1 !== selectedMonth2) selectedDate2 += lastDate;
@@ -668,6 +664,12 @@ if (calendar) {
             }
             dateSelector = `.date--btn[data-date="${selectedDate2}"]`;
             document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected3`;
+          }
+          else if (lastFullDate < selectedFullDate) {
+            for (let i = 1; i <= lastDate; i++) {
+              dateSelector = `.date--btn[data-date="${i}"]`;
+              document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected2`;
+            }
           }
           if (maxDisabledBtn.length) {
             maxDisabledBtn.forEach((element) => {
