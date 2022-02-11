@@ -501,10 +501,10 @@ if (calendar) {
     const calendarTitle = document.querySelector('.calendar__title h3');
     const previousBtn = document.querySelector('.calendar__title .left-btn');
     const nextBtn = document.querySelector('.calendar__title .right-btn');
-    const BLOCK_CLASS = "datepicker__date date--blocked";
+    const DISABLED_CLASS = "datepicker__date date--disabled";
     const BTN_CLASS = "datepicker__date date--btn";
     const SELECTED_CLASS = "datepicker__date date--btn date--selected";
-    const MAX_BLOCK_CLASS = "datepicker__date date--max-blocked";
+    const MAX_DISABLED_CLASS = "datepicker__date date--max-disabled";
     const MAX_PERIOD = Number(calendar.dataset.maxPeriod);
 
     function makeTableData(year, month, date, row, cellClass) {
@@ -528,7 +528,7 @@ if (calendar) {
       }
       row = calendar.insertRow();
       for (let i = 0; i < insertDay; i++) {
-        makeTableData(0, 0, 0, row, BLOCK_CLASS);
+        makeTableData(0, 0, 0, row, DISABLED_CLASS);
       }
       for (let i = 1; i <= lastDate; i++) {
         if (insertDay !== 7) {
@@ -569,7 +569,6 @@ if (calendar) {
         }
         blockTableData(blockArray);
       }
-      addClickEvent();
       addSelectedStyle();
     }
 
@@ -585,14 +584,14 @@ if (calendar) {
       }
       for (let i = 0; i < blockArray.length; i++) {
         blockSelector = `.date--btn[data-date="${blockArray[i].date}"]`;
-        document.querySelector(blockSelector).classList = BLOCK_CLASS;
+        document.querySelector(blockSelector).classList = DISABLED_CLASS;
       }
     }
 
     function addSelectedStyle() {
       const dateBtn = document.querySelectorAll(".date--btn");
       const selectedBtn = document.querySelectorAll(".date--selected");
-      const maxBlockedBtn = document.querySelectorAll(".date--max-blocked");
+      const maxDisabledBtn = document.querySelectorAll(".date--max-disabled");
       const selectedDataset = calendar.dataset.selectedDate;
       let selectedArray = [];
       let dateSelector, checkBtn;
@@ -615,7 +614,7 @@ if (calendar) {
                 if (i <= lastDate) {
                   dateSelector = `.date--btn[data-date="${i}"]`;
                   checkBtn = document.querySelector(dateSelector);
-                  if (checkBtn) checkBtn.classList = MAX_BLOCK_CLASS;
+                  if (checkBtn) checkBtn.classList = MAX_DISABLED_CLASS;
                 }
               }
             }
@@ -624,7 +623,7 @@ if (calendar) {
           }
           else if (MAX_PERIOD && new Date(year, month, 1) > new Date(selectedYear1, selectedMonth1, 1)) {
             dateBtn.forEach((element) => {
-              element.classList = MAX_BLOCK_CLASS;
+              element.classList = MAX_DISABLED_CLASS;
             });
             const selectedLastDate = new Date(selectedYear1, selectedMonth1 + 1, 0).getDate();
             const selectedNext = new Date(selectedYear1, selectedMonth1 + 1, 1);
@@ -632,7 +631,7 @@ if (calendar) {
             if (selectedNext.getFullYear() === year && selectedNext.getMonth() === month && selectedDate1 + MAX_PERIOD > selectedLastDate) {
               for (i = 1; i < selectedDate1 + MAX_PERIOD - selectedLastDate; i++) {
                 if (i <= lastDate) {
-                  dateSelector = `.date--max-blocked[data-date="${i}"]`;
+                  dateSelector = `.date--max-disabled[data-date="${i}"]`;
                   checkBtn = document.querySelector(dateSelector);
                   if (checkBtn) checkBtn.classList = BTN_CLASS;
                 }
@@ -670,8 +669,8 @@ if (calendar) {
             dateSelector = `.date--btn[data-date="${selectedDate2}"]`;
             document.querySelector(dateSelector).classList = `${SELECTED_CLASS} date--selected3`;
           }
-          if (maxBlockedBtn.length) {
-            maxBlockedBtn.forEach((element) => {
+          if (maxDisabledBtn.length) {
+            maxDisabledBtn.forEach((element) => {
               element.classList = BTN_CLASS;
             });
           }
@@ -679,14 +678,14 @@ if (calendar) {
       }
       else {
         if (selectedBtn.length) selectedBtn[0].classList = BTN_CLASS;
-        maxBlockedBtn.forEach((element) => {
+        maxDisabledBtn.forEach((element) => {
           element.classList = BTN_CLASS;
         });
       }
     }
 
     function clickBtnHandler(event) {
-      const targetDate = event.currentTarget;
+      const targetDate = event.target;
       const selectedDataset = calendar.dataset.selectedDate;
       let selectedArray = [];
 
@@ -721,14 +720,6 @@ if (calendar) {
       addSelectedStyle();
     }
 
-    function addClickEvent() {
-      const dateBtn = document.querySelectorAll(".date--btn");
-      dateBtn.forEach((element) => {
-        element.addEventListener('click', clickBtnHandler);
-      });
-    }
-
-
     const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth();
@@ -758,8 +749,10 @@ if (calendar) {
       pastArray[i - 1] = { year: currentYear, month: currentMonth, date: i };
     }
     blockTableData(pastArray);
-    addClickEvent();
 
+    calendar.addEventListener('click', (event) => {
+      if (event.target.matches('.date--btn')) clickBtnHandler(event);
+    });
     calendarBtn.addEventListener('click', () => moveMonthHandler(0));
     previousBtn.addEventListener('click', () => moveMonthHandler(-1));
     nextBtn.addEventListener('click', () => moveMonthHandler(1));

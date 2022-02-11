@@ -632,14 +632,10 @@ nav {
 .calendar__datepicker tr td:nth-child(7) {
   color: var(--color-red);
 }
-.calendar__datepicker .date--blocked {
+.calendar__datepicker .date--disabled,
+.calendar__datepicker .date--max-disabled {
   opacity: 0.3;
   cursor: default;
-}
-.calendar__datepicker .date--max-blocked {
-  opacity: 0.3;
-  cursor: default;
-  pointer-events: none;
 }
 .calendar__datepicker .date--btn {
   cursor: pointer;
