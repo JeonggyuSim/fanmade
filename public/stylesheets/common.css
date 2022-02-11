@@ -226,7 +226,9 @@ textarea::placeholder,
 /* common */
 a,
 button,
-input {
+input,
+label,
+.date--btn {
   -webkit-tap-highlight-color: transparent;
 }
 a {
