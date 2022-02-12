@@ -31,7 +31,6 @@
   margin-top: 20px;
 }
 .recommend-artist__list h3 {
-  font-family: 'DM Sans Medium';
   font-weight: 500;
 }
 .recommend-artist__list li {
@@ -170,9 +169,8 @@
 }
 .more h3 {
   margin-left: 25px;
-  font-family: 'DM Sans Medium';
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--color-dark-black);
 }
 .normal-service {
@@ -345,7 +343,6 @@
   margin: 0 auto;
 }
 .event-detail .head__writer {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-red);
 }
@@ -407,7 +404,6 @@
   margin-top: 12px;
 }
 .event-detail .event__content p {
-  font-family: 'DM Sans Medium';
   font-weight: 500;
   text-align: center;
 }
@@ -445,7 +441,6 @@
   border-radius: 4px;
 }
 .attend-info__option h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
@@ -457,7 +452,6 @@
 }
 .attend-info__change-option button,
 .attend-pay-info__select h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
 }
 .attend-info__change-option .drop-down__menu {
@@ -470,7 +464,6 @@
 }
 .attend-info__cost span,
 .attend-total-info span {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
 }
 .attend-pay-info,
@@ -516,9 +509,8 @@
 .place-detail .head__place,
 .place-detail .head__tag {
   margin-top: 8px;
-  font-family: 'DM Sans Medium';
   font-weight: 500;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .place-detail .head__tag {
   display: flex;
@@ -606,7 +598,6 @@
   bottom: 4.4px;
   width: 40px;
   height: 40px;
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-red);
 }
@@ -633,7 +624,6 @@
 }
 .member-level section div p {
   margin-top: 8px;
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
@@ -655,14 +645,13 @@
 }
 
 .activity-history li div h2 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
 
 .activity-history li div p {
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 /* personal data */
@@ -733,7 +722,7 @@
   border: 1px solid;
   box-sizing: border-box;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .activity__list li a > div {
   display: flex;
@@ -745,13 +734,12 @@
   border-radius: 4px;
 }
 .activity__list li a h2 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
 .activity__list li a p {
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .activity__list .sprite--like {
   position: absolute;
@@ -793,7 +781,7 @@
 }
 .attend-detail__address {
   margin-top: 8px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .attend-detail__option {
   margin-top: 16px;
@@ -802,7 +790,6 @@
   border-radius: 4px;
 }
 .attend-detail__option h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
@@ -821,12 +808,10 @@
   margin-top: 20px;
 }
 .attend-pay h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
 .attend-pay span {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-soft-black);
 }
@@ -863,7 +848,7 @@
 }
 .book-detail__address {
   margin-top: 8px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .book-detail__content {
   margin-top: 16px;
@@ -872,7 +857,6 @@
   border-radius: 4px;
 }
 .book-detail__content h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
@@ -900,12 +884,10 @@
   margin-top: 21px;
 }
 .book-date h4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-dark-black);
 }
 .book-date span {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
   color: var(--color-soft-black);
 }
@@ -941,7 +923,7 @@
   align-items: center;
 }
 .notice-list li span {
-  font-size: 10px;
+  font-size: 1rem;
   color: var(--color-soft-black);
 }
 .notice-list li p {

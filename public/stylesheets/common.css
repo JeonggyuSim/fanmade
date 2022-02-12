@@ -20,13 +20,20 @@
 }
 
 /* font */
-body,
+html {
+  font-size: 62.5%;
+  color: var(--color-black);
+}
+body {
+  font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
 input,
 textarea,
 button {
-  font-family: 'DM Sans Regular';
-  font-weight: 400;
-  font-size: 12px;
+  font-family: inherit;
+  font-size: 1.2rem;
   color: var(--color-black);
 }
 input::placeholder,
@@ -35,46 +42,39 @@ textarea::placeholder,
   color: var(--color-placeholder);
 }
 .heading1 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--color-dark-black);
 }
 .heading2 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 2rem;
   color: var(--color-dark-black);
 }
 .heading3 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--color-dark-black);
 }
 .heading4 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--color-dark-black);
 }
 .heading5 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--color-dark-black);
 }
 .heading6 {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--color-dark-black);
 }
 .btn,
 .a-btn {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 /* icons */
@@ -443,7 +443,6 @@ nav {
 }
 .nav__list li.on p {
   color: var(--color-red);
-  font-family: 'DM Sans Bold';
   font-weight: 700;
 }
 
@@ -534,7 +533,7 @@ nav {
   margin-top: 12px;
 }
 .detail-bar__title {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--color-dark-black);
 }
 .detail-bar__button-wrapper {
@@ -591,7 +590,7 @@ nav {
 }
 .option__label-wrapper p {
   margin-top: 14px;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .modal__option .modal__btn {
   margin-top: 36px;
@@ -625,7 +624,6 @@ nav {
   vertical-align: middle;
 }
 .calendar__datepicker td {
-  font-family: 'DM Sans Bold';
   font-weight: 700;
 }
 .calendar__datepicker tr th:first-child,
@@ -712,7 +710,7 @@ nav {
   width: 104px;
   height: 32px;
   border: 1px solid var(--color-border2);
-  font-size: 10px;
+  font-size: 1rem;
 }
 .drop-down--large .drop-down__btn {
   width: 100%;
@@ -730,7 +728,7 @@ nav {
 }
 .drop-down--small .drop-down__menu {
   width: 76px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .drop-down--large .drop-down__menu {
   width: 299px;
