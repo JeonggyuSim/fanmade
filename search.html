@@ -9,105 +9,129 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--medium">
-        <div>
-          <button type="button" class="back-btn sprite sprite--left-arrow">
-            <span>뒤로 가기</span>
+      <div class="header-wrapper header-padding--medium">
+        <button type="button" class="back-btn sprite sprite--left-arrow">
+          <span>뒤로 가기</span>
+        </button>
+        <form action="" class="header__search">
+          <input
+            type="text"
+            placeholder="아티스트 혹은 상품명을 검색해주세요"
+          />
+          <button type="submit" class="sprite sprite--small-search">
+            <span>검색</span>
           </button>
-          <form action="" class="header__search">
-            <input
-              type="text"
-              placeholder="아티스트 혹은 상품명을 검색해주세요"
-            />
-            <a href="" class="sprite sprite--small-search">검색</a>
-          </form>
-        </div>
-      </section>
+        </form>
+      </div>
     </header>
     <main class="search main-bottom--nav">
-      <section class="search-recent margin--side">
+      <section class="search-recent padding--side">
         <h1 class="heading5">최근 검색 기록</h1>
         <ul class="search-recent__list">
           <li>
             <span>BTS</span>
-            <a href="" class="sprite sprite--small-search">검색</a>
+            <button type="button" class="sprite sprite--small-search">
+              <span>검색</span>
+            </button>
           </li>
           <li>
             <span>스티커</span>
-            <a href="" class="sprite sprite--small-search">검색</a>
+            <button type="button" class="sprite sprite--small-search">
+              <span>검색</span>
+            </button>
           </li>
           <li>
             <span>포토카드</span>
-            <a href="" class="sprite sprite--small-search">검색</a>
+            <button type="button" class="sprite sprite--small-search">
+              <span>검색</span>
+            </button>
           </li>
           <li>
             <span>아이유</span>
-            <a href="" class="sprite sprite--small-search">검색</a>
+            <button type="button" class="sprite sprite--small-search">
+              <span>검색</span>
+            </button>
           </li>
         </ul>
       </section>
-      <section class="search-visit margin--left">
+      <section class="search-visit padding--left">
         <p class="heading5">최근 방문한 프로젝트</p>
         <ul class="search-visit__list event-slider">
-          <li class="event-container event-container--slider">
-            <a href="./event_detail.html">
-              <img
-                src="./public/images/popular_image.jpg"
-                alt="popular_image"
-              />
-              <div class="event-container__body">
-                <p class="event-container__d-day">D-7</p>
-                <h3 class="event-container__title heading5 ellipsis--multi">
-                  아이즈원 데뷔 3주년 기념일 행사
-                </h3>
-                <p class="event-container__writer">방작가</p>
-              </div>
-            </a>
+          <li>
+            <section class="slider-container">
+              <a href="./event_detail.html">
+                <div class="slider-container__img-wrapper">
+                  <img
+                    src="./public/images/popular_image.jpg"
+                    alt="popular_image"
+                  />
+                </div>
+                <div class="slider-container__body">
+                  <p class="slider-container__d-day">D-7</p>
+                  <h3 class="slider-container__title heading5 ellipsis--multi">
+                    아이즈원 데뷔 3주년 기념일 행사
+                  </h3>
+                  <p class="slider-container__writer">방작가</p>
+                </div>
+              </a>
+            </section>
           </li>
-          <li class="event-container event-container--slider">
-            <a href="./event_detail.html">
-              <img
-                src="./public/images/popular_image.jpg"
-                alt="popular_image"
-              />
-              <div class="event-container__body">
-                <p class="event-container__d-day">D-7</p>
-                <h3 class="event-container__title heading5 ellipsis--multi">
-                  아이즈원 데뷔 3주년 기념일 행사
-                </h3>
-                <p class="event-container__writer">방작가</p>
-              </div>
-            </a>
+          <li>
+            <section class="slider-container">
+              <a href="./event_detail.html">
+                <div class="slider-container__img-wrapper">
+                  <img
+                    src="./public/images/popular_image.jpg"
+                    alt="popular_image"
+                  />
+                </div>
+                <div class="slider-container__body">
+                  <p class="slider-container__d-day">D-7</p>
+                  <h3 class="slider-container__title heading5 ellipsis--multi">
+                    아이즈원 데뷔 3주년 기념일 행사
+                  </h3>
+                  <p class="slider-container__writer">방작가</p>
+                </div>
+              </a>
+            </section>
           </li>
-          <li class="event-container event-container--slider">
-            <a href="./event_detail.html">
-              <img
-                src="./public/images/popular_image.jpg"
-                alt="popular_image"
-              />
-              <div class="event-container__body">
-                <p class="event-container__d-day">D-7</p>
-                <h3 class="event-container__title heading5 ellipsis--multi">
-                  아이즈원 데뷔 3주년 기념일 행사
-                </h3>
-                <p class="event-container__writer">방작가</p>
-              </div>
-            </a>
+          <li>
+            <section class="slider-container">
+              <a href="./event_detail.html">
+                <div class="slider-container__img-wrapper">
+                  <img
+                    src="./public/images/popular_image.jpg"
+                    alt="popular_image"
+                  />
+                </div>
+                <div class="slider-container__body">
+                  <p class="slider-container__d-day">D-7</p>
+                  <h3 class="slider-container__title heading5 ellipsis--multi">
+                    아이즈원 데뷔 3주년 기념일 행사
+                  </h3>
+                  <p class="slider-container__writer">방작가</p>
+                </div>
+              </a>
+            </section>
           </li>
-          <li class="event-container event-container--slider">
-            <a href="./event_detail.html">
-              <img
-                src="./public/images/popular_image.jpg"
-                alt="popular_image"
-              />
-              <div class="event-container__body">
-                <p class="event-container__d-day">D-7</p>
-                <h3 class="event-container__title heading5 ellipsis--multi">
-                  아이즈원 데뷔 3주년 기념일 행사
-                </h3>
-                <p class="event-container__writer">방작가</p>
-              </div>
-            </a>
+          <li>
+            <section class="slider-container">
+              <a href="./event_detail.html">
+                <div class="slider-container__img-wrapper">
+                  <img
+                    src="./public/images/popular_image.jpg"
+                    alt="popular_image"
+                  />
+                </div>
+                <div class="slider-container__body">
+                  <p class="slider-container__d-day">D-7</p>
+                  <h3 class="slider-container__title heading5 ellipsis--multi">
+                    아이즈원 데뷔 3주년 기념일 행사
+                  </h3>
+                  <p class="slider-container__writer">방작가</p>
+                </div>
+              </a>
+            </section>
           </li>
         </ul>
       </section>

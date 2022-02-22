@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
@@ -21,15 +21,15 @@
         <button type="button" class="sprite sprite--like">
           <span>좋아요</span>
         </button>
-      </section>
+      </div>
     </header>
     <main class="event-detail main-bottom--detail-bar">
-      <section class="event__main-image">
+      <div class="event__main-img-wrapper">
         <img
           src="./public/images/event_detail_main_img.jpg"
           alt="event_detail_main_img.jpg"
         />
-      </section>
+      </div>
       <section class="event__head">
         <div>
           <p class="head__writer">방작가</p>
@@ -46,7 +46,7 @@
           </section>
         </div>
       </section>
-      <section class="event__progress margin--side">
+      <section class="event__progress padding--side">
         <div>
           <section class="progress__people">
             <h2 class="heading5">참여 인원</h2>
@@ -56,7 +56,7 @@
         </div>
         <section class="progress__bar"></section>
       </section>
-      <section class="event__explain margin--side">
+      <section class="event__explain padding--side">
         <h2 class="heading5">이벤트 설명</h2>
         <ol>
           <li>
@@ -70,29 +70,35 @@
           </li>
         </ol>
       </section>
-      <section class="event__content margin--side">
+      <section class="event__content padding--side">
         <p>1월 16일 블랙핑크 제니 생일카페 컵홀더 이벤트</p>
-        <img
-          src="./public/images/event_detail_desc.jpg"
-          alt="event_detail_desc.jpg"
-        />
+        <div class="event__content__img-wrapper">
+          <img
+            src="./public/images/event_detail_desc.jpg"
+            alt="event_detail_desc.jpg"
+          />
+        </div>
       </section>
       <section class="detail-bar">
-        <div class="margin--side">
+        <div class="detail-bar__contents padding--side">
           <h2 class="detail-bar__title">옵션 선택</h2>
           <section class="detail-bar__option">
             <span class="heading4">선택 없음</span>
             <span></span>
           </section>
         </div>
-        <seciton class="detail-bar__button-wrapper margin--side">
-          <button type="button" class="option-btn btn btn--small btn--black">
-            옵션 선택
-          </button>
-          <button type="button" class="complete-btn btn btn--small btn--red">
-            완료
-          </button>
-        </seciton>
+        <div class="detail-bar__btn-wrapper btn-wrapper padding--side">
+          <div>
+            <button type="button" class="option-btn btn btn--black">
+              옵션 선택
+            </button>
+          </div>
+          <div>
+            <button type="button" class="complete-btn btn btn--red">
+              완료
+            </button>
+          </div>
+        </div>
       </section>
       <section class="option-modal modal modal--bottom hidden">
         <section class="modal__background"></section>
@@ -102,44 +108,44 @@
               <li>
                 <input type="radio" name="event-option" id="option1" />
                 <label for="option1">
-                  <section class="option__label-wrapper">
+                  <div class="option__label-wrapper">
                     <div>
                       <h3 class="heading2">일반 참여</h3>
                       <span>(0원)</span>
                     </div>
                     <p>행사 안내 및 이벤트 실시간 알림</p>
-                  </section>
+                  </div>
                 </label>
               </li>
               <li>
                 <input type="radio" name="event-option" id="option2" />
                 <label for="option2">
-                  <section class="option__label-wrapper">
+                  <div class="option__label-wrapper">
                     <div>
                       <h3 class="heading2">선착순 굿즈 A</h3>
                       <span>(10,000원)</span>
                     </div>
                     <p>포토카드 2매, 포토바인더 1개</p>
-                  </section>
+                  </div>
                 </label>
               </li>
               <li>
                 <input type="radio" name="event-option" id="option3" />
                 <label for="option3">
-                  <section class="option__label-wrapper">
+                  <div class="option__label-wrapper">
                     <div>
                       <h3 class="heading2">선착순 굿즈 B</h3>
                       <span>(15,000원)</span>
                     </div>
                     <p>포토카드 2매, 포토바인더 1개, 한정판 굿즈</p>
-                  </section>
+                  </div>
                 </label>
               </li>
             </ul>
             <input
               type="button"
               value="선택 완료"
-              class="modal__btn btn btn--large btn--red"
+              class="modal__btn btn btn--red"
             />
           </form>
         </section>

@@ -9,28 +9,32 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">404 에러</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="error-404 main-bottom--nav">
-      <section class="error-404__image">
+      <div class="error-404__img-wrapper">
         <img src="./public/images/404_image.jpg" alt="404_image.jpg" />
-      </section>
-      <section class="error-404__title-wrapper">
+      </div>
+      <section class="error-404__title">
         <p class="title__sub">404 error not found</p>
         <p class="title__main heading3">해당 페이지를 찾을 수 없습니다</p>
       </section>
-      <section class="error-404__btn-wrapper margin--side">
-        <button type="button" class="back-btn btn btn--small btn--black">
-          이전페이지
-        </button>
-        <a href="./index.html" class="a-btn btn--small btn--red">홈 화면</a>
+      <section class="error-404__btn btn-wrapper padding--side">
+        <div>
+          <button type="button" class="back-btn btn btn--black">
+            이전페이지
+          </button>
+        </div>
+        <div>
+          <a href="./index.html" class="a-btn btn--red">홈 화면</a>
+        </div>
       </section>
     </main>
     <nav>

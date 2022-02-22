@@ -9,24 +9,22 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">내 정보</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="my-profile main-bottom--nav">
-      <section class="profile-info margin--side">
-        <a href="./personal_data.html">
-          <img
-            src="./public/images/profile_img.jpg"
-            alt="profile_img.jpg"
-            class="profile-info__image"
-          />
-          <div>
+      <section class="profile-info padding--side">
+        <a href="./personal_data.html" class="profile-info-container">
+          <div class="profile-info__img-wrapper">
+            <img src="./public/images/profile_img.jpg" alt="profile_img.jpg" />
+          </div>
+          <div class="profile-info__body">
             <h2 class="heading4">고 양 이</h2>
             <p>010.1234.5678</p>
             <p>fanmade@naver.com</p>
@@ -34,21 +32,23 @@
         </a>
         <a href="./personal_edit.html" class="profile-info__edit">수정</a>
       </section>
-      <section class="member-level margin--side">
+      <section class="member-level padding--side">
         <h2 class="heading4">멤버등급</h2>
-        <section>
+        <section class="member-level-container">
           <div>
-            <img
-              src="./public/images/profile_img.jpg"
-              alt="profile_img.jpg"
-              class="member-level__image"
-            />
+            <div class="member-level__img-wrapper">
+              <img
+                src="./public/images/profile_img.jpg"
+                alt="profile_img.jpg"
+                class="member-level__image"
+              />
+            </div>
             <p>Lv. 1</p>
           </div>
           <h3 class="heading4">준 비 중</h3>
         </section>
       </section>
-      <ul class="activity-history margin--side">
+      <ul class="activity-history padding--side">
         <li>
           <a href="./activity_list1.html">
             <div>

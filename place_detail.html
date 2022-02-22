@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
@@ -19,15 +19,15 @@
         <button type="button" class="sprite sprite--like">
           <span>좋아요</span>
         </button>
-      </section>
+      </div>
     </header>
     <main class="place-detail main-bottom--detail-bar">
-      <section class="place__main-image">
+      <div class="place__main-img-wrapper">
         <img
           src="./public/images/place_detail_main_img.jpg"
           alt="place_detail_main_img.jpg"
         />
-      </section>
+      </div>
       <section class="place__head">
         <h1 class="head__title heading1">카페 쇼파르</h1>
         <p class="head__place">서울 마포구 독막로6길 15 1층</p>
@@ -38,7 +38,7 @@
           <li>#설치 수거 지원</li>
         </ul>
       </section>
-      <section class="place__explain margin--side">
+      <section class="place__explain padding--side">
         <h2 class="heading5">공간 이용 안내</h2>
         <ol>
           <li>공간대여비 및 보증금 없습니다.</li>
@@ -48,34 +48,40 @@
           <li>벽면 테이프 사용 가능</li>
         </ol>
       </section>
-      <section class="place__location margin--side">
+      <section class="place__location padding--side">
         <h2 class="heading5">위치</h2>
-        <img
-          src="./public/images/place_location_img.jpg"
-          alt="place_location_img.jpg"
-        />
+        <div class="place__location__img-wrapper">
+          <img
+            src="./public/images/place_location_img.jpg"
+            alt="place_location_img.jpg"
+          />
+        </div>
       </section>
       <section class="detail-bar">
-        <div class="margin--side">
+        <div class="detail-bar__contents padding--side">
           <h2 class="detail-bar__title">날짜 선택</h2>
           <section class="detail-bar__option">
             <span class="heading4">선택 없음</span>
             <span></span>
           </section>
         </div>
-        <seciton class="detail-bar__button-wrapper margin--side">
-          <button type="button" class="calendar-btn btn btn--small btn--black">
-            날짜 선택
-          </button>
-          <button type="button" class="complete-btn btn btn--small btn--red">
-            완료
-          </button>
-        </seciton>
+        <div class="detail-bar__btn-wrapper btn-wrapper padding--side">
+          <div>
+            <button type="button" class="calendar-btn btn btn--black">
+              날짜 선택
+            </button>
+          </div>
+          <div>
+            <button type="button" class="complete-btn btn btn--red">
+              완료
+            </button>
+          </div>
+        </div>
       </section>
       <section class="calendar-modal modal modal--bottom hidden">
         <section class="modal__background"></section>
         <section class="modal__calendar">
-          <div>
+          <div class="calendar-wrapper">
             <section class="calendar__title">
               <button type="button" class="left-btn sprite sprite--left-arrow2">
                 <span><</span>
@@ -88,22 +94,24 @@
                 <span>></span>
               </button>
             </section>
-            <table class="calendar__datepicker">
-              <thead>
-                <tr>
-                  <th>일</th>
-                  <th>월</th>
-                  <th>화</th>
-                  <th>수</th>
-                  <th>목</th>
-                  <th>금</th>
-                  <th>토</th>
-                </tr>
-              </thead>
-              <tbody data-max-period="14"></tbody>
-            </table>
+            <div class="calendar__datepicker-wrapper">
+              <table class="calendar__datepicker">
+                <thead>
+                  <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                  </tr>
+                </thead>
+                <tbody data-max-period="14"></tbody>
+              </table>
+            </div>
           </div>
-          <button type="button" class="modal__btn btn btn--large btn--red">
+          <button type="button" class="modal__btn btn btn--red">
             선택 완료
           </button>
         </section>

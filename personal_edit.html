@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
@@ -17,24 +17,26 @@
           <h1 class="header__title heading4">개인 정보 수정</h1>
         </div>
         <button type="button" class="heading5">Save</button>
-      </section>
+      </div>
     </header>
     <main class="personal-edit main-bottom--none">
       <section class="personal-img">
-        <label for="input-personal-img">
-          <img src="./public/images/profile_img.jpg" alt="profile_img.jpg" />
-          <div>
+        <label for="input--personal-img">
+          <div class="personal-img-wrapper">
+            <img src="./public/images/profile_img.jpg" alt="profile_img.jpg" />
+          </div>
+          <div class="personal-input-wrapper">
             <input
               type="file"
-              name="input-personal-img"
-              id="input-personal-img"
+              name="input--personal-img"
+              id="input--personal-img"
               accept="image/jpg, image/jpeg, image/png"
               class="sprite sprite--photo"
             />
           </div>
         </label>
       </section>
-      <form action="" class="personal-form margin--side">
+      <form action="" class="personal-form padding--side">
         <label for="" class="heading5">이름</label>
         <input
           type="text"

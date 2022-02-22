@@ -12,16 +12,6 @@ const imageMutiInput = document.querySelector('#create-event__main-image');
 const descImageInput = document.querySelector('#create-event__desc-image');
 const viewport = document.querySelector("meta[name=viewport]");
 
-if (window.orientation !== undefined) {
-  (function () {
-    if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
-    window.addEventListener('orientationchange', () => {
-      if (screen.width < 500) viewport.setAttribute('content', 'width=375, user-scalable=no');
-      else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
-    });
-  })();
-}
-
 // 뒤로가기
 if (confirmBackBtn) {
   (function () {
@@ -52,7 +42,7 @@ if (modal.length) {
     const optionBtn = document.querySelector('.option-btn');
     const calendarBtn = document.querySelector('.place-detail .calendar-btn');
     const datePickerBtn = document.querySelector('.create-event .calendar-btn');
-    const completeBtn = document.querySelector('.detail-bar__button-wrapper .complete-btn');
+    const completeBtn = document.querySelector('.complete-btn');
     const modalBtn = document.querySelector('.modal__btn');
     const imageModalBtn = document.querySelector('.image-modal-btn');
 
@@ -442,7 +432,7 @@ if (tagInput) {
 if (contentPaging.length) {
   (function () {
     const pageTitle = document.querySelectorAll('.multi-step-form__btn p span');
-    const pageBtn = document.querySelectorAll('.multi-step-form__btn div .btn');
+    const pageBtn = document.querySelectorAll('.multi-step-form__btn .btn-wrapper div');
     const currentPage = pageTitle[0];
     const maxPage = pageTitle[1];
     const previousPage = pageBtn[0];

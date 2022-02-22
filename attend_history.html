@@ -9,24 +9,26 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">참여한 행사 상세 정보</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="attend-history main-bottom--nav">
-      <section class="attend-event margin--side">
-        <img src="./public/images/search_image.jpg" alt="search_image.jpg" />
+      <section class="attend-event padding--side">
+        <div class="attend-event__img-wrapper">
+          <img src="./public/images/search_image.jpg" alt="search_image.jpg" />
+        </div>
         <div>
           <h2 class="attend-event__title heading4">프로젝트 이름</h2>
           <p class="attend-event__period">모집기간 : 2022.01.13 ~ 2022.01.27</p>
         </div>
       </section>
-      <section class="attend-detail margin--side">
+      <section class="attend-detail padding--side">
         <h3 class="attend-detail__title heading4">상세 내용</h3>
         <h4 class="attend-detail__place heading5">카페 쇼파르</h4>
         <div>
@@ -40,7 +42,7 @@
           <p>일반참여, 행사 안내 및 이벤트 실시간 알림 참여</p>
         </section>
       </section>
-      <section class="attend-pay margin--side">
+      <section class="attend-pay padding--side">
         <h3 class="heading4">결제 내용</h3>
         <div>
           <h4>결제 방법</h4>
@@ -55,9 +57,9 @@
           <span>0원</span>
         </div>
       </section>
-      <a href="./event_detail.html" class="a-btn btn--large margin--side">
-        행사 모집글로 이동
-      </a>
+      <div class="btn-wrapper padding--side">
+        <a href="./event_detail.html" class="a-btn"> 행사 모집글로 이동 </a>
+      </div>
     </main>
     <nav>
       <ul class="nav__list">

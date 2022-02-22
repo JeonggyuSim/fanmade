@@ -9,24 +9,26 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">결제 진행</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="event-attend main-bottom--detail-bar">
       <section class="attend-info">
         <h2 class="heading4">참여 내용</h2>
         <div>
           <section class="attend-info__event">
-            <img
-              src="./public/images/event_detail_main_img.jpg"
-              alt="event_detail_main_img.jpg"
-            />
+            <div class="event__main-img-wrapper">
+              <img
+                src="./public/images/event_detail_main_img.jpg"
+                alt="event_detail_main_img.jpg"
+              />
+            </div>
             <div>
               <h3 class="event__title heading4">
                 1/16 블랙핑크 제니 생일 카페
@@ -52,7 +54,7 @@
           </section>
         </div>
       </section>
-      <section class="attend-pay-info margin--side">
+      <section class="attend-pay-info padding--side">
         <h2 class="heading4">결제 내용</h2>
         <section class="attend-pay-info__select">
           <h4>결제 방법 선택</h4>
@@ -61,7 +63,7 @@
           </button>
         </section>
       </section>
-      <section class="attend-total-info margin--side">
+      <section class="attend-total-info padding--side">
         <h2 class="heading4">구매 내역</h2>
         <section>
           <h4>총 지불액 합계</h4>
@@ -73,17 +75,15 @@
         </section>
       </section>
       <section class="detail-bar">
-        <div class="margin--side">
+        <div class="detail-bar__contents padding--side">
           <h2 class="detail-bar__title">총 결제 금액</h2>
           <section class="detail-bar__option">
             <span class="heading4">0원</span>
           </section>
         </div>
-        <seciton class="detail-bar__button-wrapper margin--side">
-          <button type="button" class="btn btn--large btn--red">
-            참여 완료
-          </button>
-        </seciton>
+        <div class="detail-bar__btn-wrapper padding--side">
+          <button type="button" class="btn btn--red">참여 완료</button>
+        </div>
       </section>
     </main>
     <script type="text/javascript" src="./public/javascripts/main.js"></script>

@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button
             type="button"
@@ -19,13 +19,13 @@
           </button>
           <h1 class="header__title heading4">행사 만들기</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="create-event main-bottom--none">
       <form action="" class="multi-step-form">
         <ul class="multi-step">
           <li class="multi-step__tab">
-            <div class="margin--side">
+            <div class="padding--side">
               <label for="create-event__location" class="heading5">
                 행사 장소 주소를 선택해주세요.
               </label>
@@ -83,32 +83,38 @@
             </div>
           </li>
           <li class="multi-step__tab hidden">
-            <div class="margin--side">
+            <div class="padding--side">
               <fieldset class="create-event__type-wrapper">
                 <legend class="heading5">행사 유형을 골라주세요.</legend>
-                <div>
-                  <input
-                    type="radio"
-                    name="create-event__type"
-                    id="option1"
-                    value="option1"
-                  />
-                  <label for="option1">기념일 카페</label>
-                  <input
-                    type="radio"
-                    name="create-event__type"
-                    id="option2"
-                    value="option2"
-                  />
-                  <label for="option2">지하철 광고</label>
-                  <input
-                    type="radio"
-                    name="create-event__type"
-                    id="option3"
-                    value="option3"
-                  />
-                  <label for="option3">팝업스토어</label>
-                </div>
+                <ul class="create-event__type-list">
+                  <li>
+                    <input
+                      type="radio"
+                      name="create-event__type"
+                      id="option1"
+                      value="option1"
+                    />
+                    <label for="option1">기념일 카페</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="create-event__type"
+                      id="option2"
+                      value="option2"
+                    />
+                    <label for="option2">지하철 광고</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="create-event__type"
+                      id="option3"
+                      value="option3"
+                    />
+                    <label for="option3">팝업스토어</label>
+                  </li>
+                </ul>
               </fieldset>
               <label for="create-event__tag" class="heading5">
                 키워드를 입력해주세요. (최대 5개)
@@ -153,7 +159,7 @@
             </div>
           </li>
           <li class="multi-step__tab hidden">
-            <div class="margin--side">
+            <div class="padding--side">
               <fieldset>
                 <legend class="heading5">
                   행사 안내 이미지를 첨부해주세요. (세로형, 최대 1개)
@@ -192,7 +198,7 @@
             </div>
           </li>
           <li class="multi-step__tab hidden">
-            <div class="margin--side">
+            <div class="padding--side">
               <label for="create-event__options" class="heading5">
                 옵션을 추가해주세요. (최대 3개)
               </label>
@@ -284,23 +290,25 @@
             </div>
           </li>
         </ul>
-        <section class="multi-step-form__btn margin--side">
+        <section class="multi-step-form__btn padding--side">
           <p>STEP <span>1</span> / <span></span></p>
-          <div>
-            <button type="button" class="btn btn--small btn--black">
-              이전
-            </button>
-            <button type="button" class="btn btn--small btn--red">다음</button>
-            <button type="button" class="btn btn--small btn--red hidden">
-              완료
-            </button>
+          <div class="btn-wrapper">
+            <div>
+              <button type="button" class="btn btn--black">이전</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn--red">다음</button>
+            </div>
+            <div class="hidden">
+              <button type="button" class="btn btn--red">완료</button>
+            </div>
           </div>
         </section>
       </form>
       <section class="calendar-modal modal modal--bottom hidden">
         <section class="modal__background"></section>
         <section class="modal__calendar">
-          <div>
+          <div class="calendar-wrapper">
             <section class="calendar__title">
               <button type="button" class="left-btn sprite sprite--left-arrow2">
                 <span><</span>
@@ -313,28 +321,30 @@
                 <span>></span>
               </button>
             </section>
-            <table class="calendar__datepicker">
-              <thead>
-                <tr>
-                  <th>일</th>
-                  <th>월</th>
-                  <th>화</th>
-                  <th>수</th>
-                  <th>목</th>
-                  <th>금</th>
-                  <th>토</th>
-                </tr>
-              </thead>
-              <tbody data-max-period="28"></tbody>
-            </table>
+            <div class="calendar__datepicker-wrapper">
+              <table class="calendar__datepicker">
+                <thead>
+                  <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                  </tr>
+                </thead>
+                <tbody data-max-period="28"></tbody>
+              </table>
+            </div>
           </div>
-          <button type="button" class="modal__btn btn btn--large btn--red">
+          <button type="button" class="modal__btn btn btn--red">
             선택 완료
           </button>
         </section>
       </section>
       <section class="image-modal modal modal--top hidden">
-        <section class="modal__header margin--side">
+        <section class="modal__header padding--side">
           <div>
             <button
               type="button"

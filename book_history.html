@@ -9,27 +9,29 @@
   </head>
   <body>
     <header>
-      <section class="header-wrapper header-padding--large">
+      <div class="header-wrapper header-padding--large">
         <div>
           <button type="button" class="back-btn sprite sprite--left-arrow">
             <span>뒤로 가기</span>
           </button>
           <h1 class="header__title heading4">신청한 내역 상세 정보</h1>
         </div>
-      </section>
+      </div>
     </header>
     <main class="book-history main-bottom--nav">
-      <section class="book-place margin--side">
-        <img
-          src="./public/images/place_list_img.jpg"
-          alt="place_list_img.jpg"
-        />
+      <section class="book-place padding--side">
+        <div class="book-place__img-wrapper">
+          <img
+            src="./public/images/place_list_img.jpg"
+            alt="place_list_img.jpg"
+          />
+        </div>
         <div>
           <h2 class="book-place__title heading4">테르 프로미즈</h2>
           <p class="book-place__period">행사기간 : 2022.01.13 ~ 2022.01.15</p>
         </div>
       </section>
-      <section class="book-detail margin--side">
+      <section class="book-detail padding--side">
         <h3 class="book-detail__title heading4">상세 내용</h3>
         <p class="book-detail__time">운영 시간 11:00 ~ 22:00</p>
         <p class="book-detail__address">서울 마포구 독막로6길 15 1층</p>
@@ -41,7 +43,7 @@
           <p>트위터 아이디 : @fanmade</p>
         </section>
       </section>
-      <section class="book-place-explain margin--side">
+      <section class="book-place-explain padding--side">
         <h3 class="heading4">공간 이용 안내</h3>
         <ol>
           <li>공간대여비 및 보증금 없습니다.</li>
@@ -49,13 +51,13 @@
           <li>1인 1음료를 기본으로 합니다.</li>
         </ol>
       </section>
-      <section class="book-date margin--side">
+      <section class="book-date padding--side">
         <h4>신청일시</h4>
         <span>2022. 01. 13. 17:00</span>
       </section>
-      <a href="./place_detail.html" class="a-btn btn--large margin--side">
-        카페 상세 보기
-      </a>
+      <div class="btn-wrapper padding--side">
+        <a href="./place_detail.html" class="a-btn"> 카페 상세 보기 </a>
+      </div>
     </main>
     <nav>
       <ul class="nav__list">
