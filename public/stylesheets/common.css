@@ -764,6 +764,14 @@ nav,
   max-width: 500px;
   margin: auto;
 }
+.web body,
+.web header,
+.web nav,
+.web .detail-bar,
+.web .modal,
+.web .list-option-wrapper {
+  width: 500px;
+}
 html {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;

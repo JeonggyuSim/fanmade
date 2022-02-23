@@ -1,3 +1,4 @@
+const html = document.documentElement;
 const confirmBackBtn = document.querySelector('.back-btn--confirm');
 const backBtn = document.querySelectorAll('.back-btn');
 const modal = document.querySelectorAll('.modal');
@@ -11,6 +12,20 @@ const tagInput = document.querySelector('#create-event__tag-input');
 const imageMutiInput = document.querySelector('#create-event__main-image');
 const descImageInput = document.querySelector('#create-event__desc-image');
 const viewport = document.querySelector("meta[name=viewport]");
+
+
+if (window.orientation !== undefined) html.classList = "mobile";
+else html.classList = "web";
+
+if (html.classList == "mobile") {
+  (function () {
+    if (screen.width < 360) viewport.setAttribute('content', 'width=360, user-scalable=no');
+    window.addEventListener('resize', () => {
+      if (screen.width < 360) viewport.setAttribute('content', 'width=360, user-scalable=no');
+      else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
+    });
+  })();
+}
 
 // 뒤로가기
 if (confirmBackBtn) {
