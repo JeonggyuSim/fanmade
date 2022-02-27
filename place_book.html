@@ -20,34 +20,36 @@
     </header>
     <main class="place-book main-bottom--none">
       <form action="" method="post" class="padding--side">
-        <label for="date" class="heading5">날짜를 확인해주세요.</label>
-        <input
-          type="text"
-          name=""
-          id="date"
-          class="input--box input--center"
-          value="21년 4월 6일 - YY.MM.DD"
-          readonly
-        />
-        <label for="tel" class="heading5">전화번호를 입력해주세요.</label>
-        <input
-          type="tel"
-          name=""
-          id="tel"
-          class="input--box"
-          value="010 - 1234 - 1234"
-          pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-          readonly
-        />
-        <label for="text" class="heading5">신청내용을 입력해주세요.</label>
-        <textarea
-          name=""
-          id="text"
-          cols="40"
-          rows="9"
-          class="input--box"
-          placeholder="Typing...(누굴하는지)"
-        ></textarea>
+        <div>
+          <label for="date" class="heading5">날짜를 확인해주세요.</label>
+          <input
+            type="text"
+            name=""
+            id="date"
+            class="input--box input--center"
+            value="21년 4월 6일 - YY.MM.DD"
+            readonly
+          />
+          <label for="tel" class="heading5">전화번호를 입력해주세요.</label>
+          <input
+            type="tel"
+            name=""
+            id="tel"
+            class="input--box"
+            value="010 - 1234 - 1234"
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+            readonly
+          />
+          <label for="text" class="heading5">신청내용을 입력해주세요.</label>
+          <textarea
+            name=""
+            id="text"
+            cols="40"
+            rows="9"
+            class="input--box"
+            placeholder="Typing...(누굴하는지)"
+          ></textarea>
+        </div>
         <input type="button" value="신청 완료" class="btn btn--red" />
       </form>
     </main>

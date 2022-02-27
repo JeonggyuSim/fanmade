@@ -802,6 +802,9 @@ input[type='radio'] {
   right: 0;
   overflow-y: hidden;
 }
+.main--header-hidden {
+  padding-top: 0;
+}
 li > a {
   display: block;
   width: 100%;

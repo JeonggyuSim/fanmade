@@ -238,6 +238,9 @@
   width: 100%;
   min-height: calc(100vh - 80px - 118.8px);
 }
+.main--header-hidden .multi-step__tab {
+  min-height: calc(100vh - 118.8px);
+}
 .multi-step__tab > div {
   display: flex;
   flex-direction: column;
@@ -608,9 +611,15 @@
 }
 
 /* place book */
-.place-book form {
+.place-book form > div {
+  min-height: calc(100vh - 80px - 108px);
   display: flex;
   flex-direction: column;
+}
+.place-book.main--header-hidden form > div {
+  min-height: calc(100vh - 108px);
+}
+.place-book label[for='date'] {
   margin-top: 64px;
 }
 .place-book input[type='text'],

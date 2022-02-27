@@ -18,12 +18,32 @@ if (window.orientation !== undefined) html.classList = "mobile";
 else html.classList = "web";
 
 if (html.classList == "mobile") {
+  const header = document.querySelector('header');
+  const main = document.querySelector('main');
+  const textarea = document.querySelectorAll("textarea");
+
   (function () {
     if (screen.width < 360) viewport.setAttribute('content', 'width=360, user-scalable=no');
+
     window.addEventListener('resize', () => {
       if (screen.width < 360) viewport.setAttribute('content', 'width=360, user-scalable=no');
       else viewport.setAttribute('content', 'width=device-width, user-scalable=no');
     });
+
+    if (backBtn.length) {
+      textarea.forEach((element) => {
+        element.addEventListener("focus", () => {
+          header.classList.add("hidden");
+          main.classList.add("main--header-hidden");
+        });
+        element.addEventListener("blur", () => {
+          header.classList.remove("hidden");
+          main.classList.remove("main--header-hidden");
+        });
+      });
+    }
+
+
   })();
 }
 
